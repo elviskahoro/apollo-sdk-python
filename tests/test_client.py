@@ -405,9 +405,16 @@ class TestApolloSDK:
         assert request.headers.get("x-api-key") == api_key
 
         with pytest.raises(ApolloSDKError):
-            with update_env(**{"APOLLO_SDK_API_KEY": Omit()}):
+            with update_env(**{"APOLLO_API_KEY": Omit()}):
                 client2 = ApolloSDK(base_url=base_url, api_key=None, _strict_response_validation=True)
             _ = client2
+
+    def test_validate_headers_from_env(self) -> None:
+        with update_env(**{"APOLLO_API_KEY": "new key"}):
+            client = ApolloSDK(base_url=base_url, api_key=None, _strict_response_validation=True)
+            request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
+            assert request.headers.get("x-api-key") == "new key"
+            client.close()
 
     def test_default_query_option(self) -> None:
         client = ApolloSDK(
@@ -1302,9 +1309,16 @@ class TestAsyncApolloSDK:
         assert request.headers.get("x-api-key") == api_key
 
         with pytest.raises(ApolloSDKError):
-            with update_env(**{"APOLLO_SDK_API_KEY": Omit()}):
+            with update_env(**{"APOLLO_API_KEY": Omit()}):
                 client2 = AsyncApolloSDK(base_url=base_url, api_key=None, _strict_response_validation=True)
             _ = client2
+
+    async def test_validate_headers_from_env(self) -> None:
+        with update_env(**{"APOLLO_API_KEY": "new key"}):
+            client = AsyncApolloSDK(base_url=base_url, api_key=None, _strict_response_validation=True)
+            request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
+            assert request.headers.get("x-api-key") == "new key"
+            await client.close()
 
     async def test_default_query_option(self) -> None:
         client = AsyncApolloSDK(

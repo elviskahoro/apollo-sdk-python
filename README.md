@@ -32,7 +32,7 @@ import os
 from src import ApolloSDK
 
 client = ApolloSDK(
-    api_key=os.environ.get("APOLLO_SDK_API_KEY"),  # This is the default and can be omitted
+    api_key=os.environ.get("APOLLO_API_KEY"),  # This is the default and can be omitted
 )
 
 response = client.people.enrichment()
@@ -41,7 +41,7 @@ print(response.person)
 
 While you can provide an `api_key` keyword argument,
 we recommend using [python-dotenv](https://pypi.org/project/python-dotenv/)
-to add `APOLLO_SDK_API_KEY="My API Key"` to your `.env` file
+to add `APOLLO_API_KEY="My API Key"` to your `.env` file
 so that your API Key is not stored in source control.
 
 ## Async usage
@@ -54,7 +54,7 @@ import asyncio
 from src import AsyncApolloSDK
 
 client = AsyncApolloSDK(
-    api_key=os.environ.get("APOLLO_SDK_API_KEY"),  # This is the default and can be omitted
+    api_key=os.environ.get("APOLLO_API_KEY"),  # This is the default and can be omitted
 )
 
 
@@ -90,7 +90,7 @@ from src import AsyncApolloSDK
 
 async def main() -> None:
     async with AsyncApolloSDK(
-        api_key=os.environ.get("APOLLO_SDK_API_KEY"),  # This is the default and can be omitted
+        api_key=os.environ.get("APOLLO_API_KEY"),  # This is the default and can be omitted
         http_client=DefaultAioHttpClient(),
     ) as client:
         response = await client.people.enrichment()

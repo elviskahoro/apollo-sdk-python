@@ -116,13 +116,14 @@ class ApolloSDK(SyncAPIClient):
     ) -> None:
         """Construct a new synchronous ApolloSDK client instance.
 
-        This automatically infers the `api_key` argument from the `APOLLO_SDK_API_KEY` environment variable if it is not provided.
+        This automatically infers the `api_key` argument from the `APOLLO_API_KEY`
+        environment variable if it is not provided.
         """
         if api_key is None:
-            api_key = os.environ.get("APOLLO_SDK_API_KEY")
+            api_key = os.environ.get("APOLLO_API_KEY")
         if api_key is None:
             raise ApolloSDKError(
-                "The api_key client option must be set either by passing api_key to the client or by setting the APOLLO_SDK_API_KEY environment variable"
+                "The api_key client option must be set either by passing api_key to the client or by setting the APOLLO_API_KEY environment variable"
             )
         self.api_key = api_key
 
@@ -409,13 +410,14 @@ class AsyncApolloSDK(AsyncAPIClient):
     ) -> None:
         """Construct a new async AsyncApolloSDK client instance.
 
-        This automatically infers the `api_key` argument from the `APOLLO_SDK_API_KEY` environment variable if it is not provided.
+        This automatically infers the `api_key` argument from the `APOLLO_API_KEY`
+        environment variable if it is not provided.
         """
         if api_key is None:
-            api_key = os.environ.get("APOLLO_SDK_API_KEY")
+            api_key = os.environ.get("APOLLO_API_KEY")
         if api_key is None:
             raise ApolloSDKError(
-                "The api_key client option must be set either by passing api_key to the client or by setting the APOLLO_SDK_API_KEY environment variable"
+                "The api_key client option must be set either by passing api_key to the client or by setting the APOLLO_API_KEY environment variable"
             )
         self.api_key = api_key
 
