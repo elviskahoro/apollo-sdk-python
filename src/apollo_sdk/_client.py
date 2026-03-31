@@ -119,7 +119,7 @@ class ApolloSDK(SyncAPIClient):
     @property
     @override
     def qs(self) -> Querystring:
-        return Querystring(array_format="comma")
+        return Querystring(array_format="brackets")
 
     @override
     def _auth_headers(self, security: SecurityOptions) -> dict[str, str]:
@@ -298,7 +298,7 @@ class AsyncApolloSDK(AsyncAPIClient):
     @property
     @override
     def qs(self) -> Querystring:
-        return Querystring(array_format="comma")
+        return Querystring(array_format="brackets")
 
     @override
     def _auth_headers(self, security: SecurityOptions) -> dict[str, str]:
