@@ -1,0 +1,232 @@
+# This file controls the behavior of Trunk: https://docs.trunk.io/cli
+# To learn more about the format of this file, see https://docs.trunk.io/reference/trunk-yaml
+version: 0.1
+cli:
+  version: 1.25.0
+# Trunk provides extensibility via plugins. (https://docs.trunk.io/plugins)
+plugins:
+  sources:
+    - id: trunk
+      ref: v1.7.6
+      uri: https://github.com/trunk-io/plugins
+    - id: oss-linter-trunk
+      ref: v0.2026.03.29.18.00
+      uri: https://github.com/elviskahoro/oss-linter-trunk
+# This is the section where you manage your linters. (https://docs.trunk.io/check/configuration)
+lint:
+  enabled:
+    - bandit@1.9.4
+    - markdown-link-check@3.14.2
+    - ty@0.0.26
+    - actionlint@1.7.11
+    - checkov@3.2.513
+    - git-diff-check
+    - markdownlint-cli2@0.22.0
+    - osv-scanner@2.3.5
+    - oxipng@10.1.0
+    - pyright@1.1.408
+    - ruff@0.15.8
+    - semgrep@1.156.0
+    - shellcheck@0.11.0
+    - shfmt@3.6.0
+    - squawk@2.44.0
+    - svgo@4.0.1
+    - taplo@0.10.0
+    - trivy@0.69.3
+    - trufflehog@3.94.1
+    - yamlfmt@0.20.0
+    - yamllint@1.38.0
+  disabled:
+    - mypy
+    - gitleaks
+    - codespell
+    - ansible-lint
+    - autopep8
+    - biome
+    - black
+    - brakeman
+    - buf-breaking
+    - buf-format
+    - buf-lint
+    - buildifier
+    - cfnlint
+    - circleci
+    - clang-format
+    - clang-tidy
+    - clippy
+    - cmake-format
+    - cspell
+    - cue-fmt
+    - dart
+    - deno
+    - detekt
+    - detekt-explicit
+    - detekt-gradle
+    - djlint
+    - dotenv-linter
+    - dotnet-format
+    - dustilock
+    - eslint
+    - flake8
+    - gofmt
+    - gofumpt
+    - goimports
+    - gokart
+    - golangci-lint
+    - golangci-lint2
+    - golines
+    - google-java-format
+    - graphql-schema-linter
+    - hadolint
+    - haml-lint
+    - include-what-you-use
+    - isort
+    - ktlint
+    - kube-linter
+    - ls-lint
+    - markdown-table-prettify
+    - markdownlint
+    - nancy
+    - nbstripout
+    - nixpkgs-fmt
+    - opa
+    - perlcritic
+    - perltidy
+    - php-cs-fixer
+    - phpstan
+    - pmd
+    - pragma-once
+    - pre-commit-hooks
+    - prettier
+    - prisma
+    - psscriptanalyzer
+    - pylint
+    - regal
+    - remark-lint
+    - renovate
+    - rome
+    - rubocop
+    - ruff-nbqa
+    - rufo
+    - rumdl
+    - rustfmt
+    - scalafmt
+    - snyk
+    - sort-package-json
+    - sourcery
+    - sql-formatter
+    - sqlfluff
+    - sqlfmt
+    - standardrb
+    - stringslint
+    - stylelint
+    - stylua
+    - swiftformat
+    - swiftlint
+    - terraform
+    - terragrunt
+    - terrascan
+    - tflint
+    - tfsec
+    - tofu
+    - trufflehog-git
+    - trunk-toolbox
+    - txtpbfmt
+    - vale
+    - yapf
+  ignore:
+    # Generated or external surfaces: keep broad ignores to avoid non-deterministic churn.
+    - linters: [ALL]
+      paths:
+        - alembic/**
+        - archive/**
+        - docs/
+        - src/linkedin_backfill/sdk/**
+        - docs/attio/**
+        - .devcontainer/**
+        - .stainless/**
+        - api.md
+        - CONTRIBUTING.md
+        - README.md
+        - SECURITY.md
+        - tests/**
+    # Codegen-heavy tests: allow project ruff config to own test style.
+    - linters: [ruff]
+      paths:
+        - .agents/skills/**
+        - archive/**
+        - integration/benchmarks/**
+        - "*.ipynb"
+        - tests/**
+    # Local skill shell scripts are not part of this SDK runtime.
+    - linters: [shellcheck]
+      paths:
+        - .agents/skills/**
+    # Markdown sources are generated/upstream; keep CLI markdown rules focused.
+    - linters: [markdownlint-cli2]
+      paths:
+        - .agents/skills/**
+        - design/**
+        - projects/**
+        - "*.md"
+    # Workflow security checks are intentionally scoped out for this generated SDK repo.
+    - linters: [checkov, yamllint, trivy]
+      paths:
+        - .github/workflows/**
+    # Generated design artifacts and tests are excluded from strict static analysis.
+    - linters: [pyright, ruff, semgrep]
+      paths:
+        - design/done-*.md
+        - design/done-*.py
+        - tests/**
+    # Generated SDK resources/types currently conflict with strict secure-style rule sets.
+    - linters: [bandit, pyright, ruff, semgrep, ty]
+      paths:
+        - src/**
+        - scripts/utils/ruffen-docs.py
+    # Shell wrappers are generated/templated and intentionally out-of-scope for shell style gates.
+    - linters: [shellcheck, shfmt]
+      paths:
+        - scripts/bootstrap
+        - scripts/codegen
+        - scripts/format
+        - scripts/lint
+        - scripts/mock
+        - scripts/test
+        - scripts/test-mock
+  exported_configs:
+    - plugin_id: oss-linter-trunk
+      configs:
+        - configs/.bandit
+        - configs/.clang-format
+        - configs/.clang-tidy
+        - configs/.clangd
+        - configs/.editorconfig
+        - configs/.flake8
+        - configs/.gitattributes
+        - configs/.gitignore
+        - configs/.hadolint.yaml
+        - configs/.isort.cfg
+        - configs/.markdownlint.yaml
+        - configs/.mypy.ini
+        - configs/.pr-labels.yaml
+        - configs/.prettierrc.yaml
+        - configs/.pylintrc
+        - configs/.remarkrc.yaml
+        - configs/.shellcheckrc
+        - configs/.sqlfluff
+        - configs/.stylelintrc.js
+        - configs/.stylelintrc.yaml
+        - configs/.yamllint.yaml
+        - configs/pyrightconfig.json
+        - configs/ruff.toml
+        - configs/rustfmt.toml
+        - configs/svgo.config.js
+actions:
+  enabled:
+    - trunk-announce
+    - trunk-cache-prune
+    - trunk-upgrade-available
+    - trunk-check-pre-push
+  disabled:
+    - trunk-fmt-pre-commit

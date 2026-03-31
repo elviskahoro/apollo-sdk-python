@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+cd "$(dirname "$0")/.."
+
+echo "==> Endpoint suite (mock)"
+./scripts/test-mock tests/api_resources "$@"
+
+echo "==> Trunk autofix/check"
+trunk check --fix --all
+
+echo "==> Endpoint suite (mock) re-check"
+./scripts/test-mock tests/api_resources "$@"

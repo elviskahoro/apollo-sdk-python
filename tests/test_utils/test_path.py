@@ -4,7 +4,7 @@ from typing import Any
 
 import pytest
 
-from apollo_sdk._utils._path import path_template
+from src._utils._path import path_template
 
 
 @pytest.mark.parametrize(

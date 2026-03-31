@@ -36,7 +36,7 @@ $ pip install -r requirements-dev.lock
 
 Most of the SDK is generated code. Modifications to code will be persisted between generations, but may
 result in merge conflicts between manual patches and changes from the generator. The generator will never
-modify the contents of the `src/apollo_sdk/lib/` and `examples/` directories.
+modify the contents of the `src/lib/` and `examples/` directories.
 
 ## Adding and running examples
 
@@ -54,6 +54,16 @@ $ chmod +x examples/<your-example>.py
 # run the example against your api
 $ ./examples/<your-example>.py
 ```
+
+## Running live endpoint checks safely
+
+Use the checked-in script below for live Apollo verification:
+
+```sh
+$ ./scripts/live-endpoint-check
+```
+
+The script intentionally never prints the `APOLLO_API_KEY` value (only whether it is present).
 
 ## Using the repository from source
 
@@ -124,6 +134,12 @@ To lint:
 
 ```sh
 $ ./scripts/lint
+```
+
+Use the deterministic validation sequence after runtime or lint changes:
+
+```sh
+$ ./scripts/validate-sdk
 ```
 
 To format and fix all ruff issues automatically:

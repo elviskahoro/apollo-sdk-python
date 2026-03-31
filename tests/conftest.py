@@ -10,15 +10,15 @@ import httpx
 import pytest
 from pytest_asyncio import is_async_test
 
-from apollo_sdk import ApolloSDK, AsyncApolloSDK, DefaultAioHttpClient
-from apollo_sdk._utils import is_dict
+from src import ApolloSDK, AsyncApolloSDK, DefaultAioHttpClient
+from src._utils import is_dict
 
 if TYPE_CHECKING:
     from _pytest.fixtures import FixtureRequest  # pyright: ignore[reportPrivateImportUsage]
 
 pytest.register_assert_rewrite("tests.utils")
 
-logging.getLogger("apollo_sdk").setLevel(logging.DEBUG)
+logging.getLogger("src").setLevel(logging.DEBUG)
 
 
 # automatically add `pytest.mark.asyncio()` to all of our async tests
@@ -41,13 +41,6 @@ def pytest_collection_modifyitems(items: list[pytest.Function]) -> None:
         async_client_param = item.callspec.params.get("async_client")
         if is_dict(async_client_param) and async_client_param.get("http_client") == "aiohttp":
             item.add_marker(pytest.mark.skip(reason="aiohttp client is not compatible with respx_mock"))
-
-    # Mock-server integration tests are opt-in because CI does not boot Prism by default.
-    run_mock_tests = os.environ.get("RUN_MOCK_TESTS", "").lower() in {"1", "true", "yes"}
-    if not run_mock_tests:
-        for item in items:
-            if "tests/api_resources/test_people.py" in item.nodeid:
-                item.add_marker(pytest.mark.skip(reason="mock tests require RUN_MOCK_TESTS=1"))
 
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")

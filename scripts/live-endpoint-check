@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+cd "$(dirname "$0")/.."
+
+if [[ -z ${APOLLO_API_KEY-} ]]; then
+  echo "APOLLO_API_KEY is not set" >&2
+  exit 2
+fi
+
+# Never print the API key value; only report presence.
+echo "APOLLO_API_KEY present: yes"
+
+PYENV_VERSION="${PYENV_VERSION:-3.13.12}" uv run --isolated --all-extras python - <<'PY'
+import json
+from src import APIError, ApolloSDK
+
+client = ApolloSDK(timeout=20.0)
+checks = [
+    ("account_stages.list", client.account_stages.list),
+    ("contact_stages.list", client.contact_stages.list),
+    ("opportunity_stages.list", client.opportunity_stages.list),
+    ("email_accounts.list", client.email_accounts.list),
+    ("labels.list", client.labels.list),
+    ("users.search", client.users.search),
+]
+
+results = []
+failed = 0
+
+for name, fn in checks:
+    try:
+        value = fn()
+        data = value.to_dict() if hasattr(value, "to_dict") else value
+        summary = {"kind": type(data).__name__}
+        if isinstance(data, dict):
+            summary["keys"] = list(data.keys())[:8]
+        results.append({"endpoint": name, "ok": True, "summary": summary})
+    except APIError as exc:
+        failed += 1
+        results.append({"endpoint": name, "ok": False, "error_type": type(exc).__name__, "error": str(exc)})
+
+print(json.dumps({"failed": failed, "results": results}, indent=2))
+raise SystemExit(1 if failed else 0)
+PY

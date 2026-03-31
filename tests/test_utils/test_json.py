@@ -5,8 +5,8 @@ from typing import Union
 
 import pydantic
 
-from apollo_sdk import _compat
-from apollo_sdk._utils._json import openapi_dumps
+from src import _compat
+from src._utils._json import openapi_dumps
 
 
 class TestOpenapiDumps:

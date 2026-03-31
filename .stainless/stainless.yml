@@ -22,7 +22,7 @@ targets:
     #
     # [docs]: https://www.stainless.com/docs/reference/editions
     edition: python.2025-11-20
-    package_name: apollo_sdk
+    package_name: src
     production_repo: null
     publish:
       pypi: false
@@ -30,7 +30,7 @@ targets:
 # `environments` are a map of the name of the environment (e.g. "sandbox",
 # "production") to the corresponding url to use.
 environments:
-  production: https://app.apollo.io
+  production: https://app.apollo.io/api/v1
 
 # `resources` define the structure and organization for your API, such as how
 # methods and models are grouped together and accessed. See the [configuration
@@ -38,9 +38,99 @@ environments:
 #
 # [configuration guide]: https://www.stainless.com/docs/guides/configure#resources
 resources:
+  account_stages:
+    methods:
+      list: get /account_stages
+  accounts:
+    methods:
+      create: post /accounts
+      retrieve: get /accounts/{account_id}
+      update: patch /accounts/{account_id}
+      search: post /accounts/search
+      bulk_create: post /accounts/bulk_create
+      bulk_update: post /accounts/bulk_update
+      update_owners: post /accounts/update_owners
+  contact_stages:
+    methods:
+      list: get /contact_stages
+  contacts:
+    methods:
+      create: post /contacts
+      update: patch /contacts/{contact_id}
+      retrieve: get /contacts/{contact_id}
+      search: post /contacts/search
+      update_stages: post /contacts/update_stages
+      update_owners: post /contacts/update_owners
+      bulk_create: post /contacts/bulk_create
+      bulk_update: post /contacts/bulk_update
+  email_accounts:
+    methods:
+      list: get /email_accounts
+  emailer_campaigns:
+    methods:
+      search: post /emailer_campaigns/search
+      add_contacts: post /emailer_campaigns/{sequence_id}/add_contact_ids
+      update_contact_status: post /emailer_campaigns/remove_or_stop_contact_ids
+      activate: post /emailer_campaigns/{sequence_id}/approve
+      deactivate: post /emailer_campaigns/{sequence_id}/abort
+      archive: post /emailer_campaigns/{sequence_id}/archive
+  emailer_messages:
+    methods:
+      search: get /emailer_messages/search
+      activities: get /emailer_messages/{id}/activities
+  fields:
+    methods:
+      list: get /fields
+      create: post /fields
+  labels:
+    methods:
+      list: get /labels
+  notes:
+    methods:
+      list: get /notes
+  opportunities:
+    methods:
+      create: post /opportunities
+      list: get /opportunities/search
+      retrieve: get /opportunities/{opportunity_id}
+      update: patch /opportunities/{opportunity_id}
+  opportunity_stages:
+    methods:
+      list: get /opportunity_stages
+  organizations:
+    methods:
+      enrich: get /organizations/enrich
+      retrieve: get /organizations/{organization_id}
+      bulk_enrich: post /organizations/bulk_enrich
+      search: post /mixed_companies/search
+      job_postings: get /organizations/{organization_id}/job_postings
   people:
     methods:
       enrichment: post /people/match
+      bulk_enrichment: post /people/bulk_match
+      search: post /mixed_people/api_search
+  phone_calls:
+    methods:
+      create: post /phone_calls
+      update: put /phone_calls/{id}
+      search: get /phone_calls/search
+  tasks:
+    methods:
+      create: post /tasks
+      bulk_create: post /tasks/bulk_create
+      search: post /tasks/search
+  typed_custom_fields:
+    methods:
+      list: get /typed_custom_fields
+  usage_stats:
+    methods:
+      api_usage_stats: post /usage_stats/api_usage_stats
+  users:
+    methods:
+      search: get /users/search
+  news_articles:
+    methods:
+      search: post /news_articles/search
 
 settings:
   # All generated integration tests that hit the prism mock http server are marked
@@ -62,8 +152,8 @@ client_settings:
       type: string
       nullable: false
       auth:
-        security_scheme: BearerAuth
-      read_env: APOLLO_SDK_API_KEY
+        security_scheme: ApiKeyAuth
+      read_env: APOLLO_API_KEY
 
 # `readme` is used to configure the code snippets that will be rendered in the
 # README.md of various SDKs. In particular, you can change the `headline`
