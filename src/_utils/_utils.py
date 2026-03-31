@@ -34,6 +34,16 @@ def flatten(t: Iterable[Iterable[_T]]) -> list[_T]:
     return [item for sublist in t for item in sublist]
 
 
+def bracket_array_query_param(name: str, values: Sequence[str]) -> dict[str, str | Sequence[str]]:
+    """Serialize array query params that require bracket-encoded key names.
+
+    Prism mocks for some Apollo endpoints expect keys like `foo_ids%5B%5D`.
+    """
+    if len(values) == 1:
+        return {f"{name}%5B%5D": values[0]}
+    return {f"{name}%5B%5D": values}
+
+
 def extract_files(
     # TODO: this needs to take Dict but variance issues.....
     # create protocol type ?

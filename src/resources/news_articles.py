@@ -9,7 +9,7 @@ import httpx
 
 from ..types import news_article_search_params
 from .._types import Body, Omit, Query, Headers, NoneType, NotGiven, SequenceNotStr, omit, not_given
-from .._utils import maybe_transform, async_maybe_transform
+from .._utils import maybe_transform, async_maybe_transform, bracket_array_query_param
 from .._compat import cached_property
 from .._resource import SyncAPIResource, AsyncAPIResource
 from .._response import (
@@ -128,9 +128,7 @@ class NewsArticlesResource(SyncAPIResource):
                 timeout=timeout,
                 query=maybe_transform(
                     {
-                        "organization_ids%5B%5D": organization_ids[0]
-                        if len(organization_ids) == 1
-                        else organization_ids,
+                        **bracket_array_query_param("organization_ids", organization_ids),
                         "categories%5B%5D": categories,
                         "page": page,
                         "per_page": per_page,
@@ -249,9 +247,7 @@ class AsyncNewsArticlesResource(AsyncAPIResource):
                 timeout=timeout,
                 query=await async_maybe_transform(
                     {
-                        "organization_ids%5B%5D": organization_ids[0]
-                        if len(organization_ids) == 1
-                        else organization_ids,
+                        **bracket_array_query_param("organization_ids", organization_ids),
                         "categories%5B%5D": categories,
                         "page": page,
                         "per_page": per_page,

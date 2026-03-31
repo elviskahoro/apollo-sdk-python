@@ -14,7 +14,7 @@ from ..types import (
     organization_job_postings_params,
 )
 from .._types import Body, Omit, Query, Headers, NotGiven, SequenceNotStr, omit, not_given
-from .._utils import path_template, maybe_transform, async_maybe_transform
+from .._utils import path_template, maybe_transform, async_maybe_transform, bracket_array_query_param
 from .._compat import cached_property
 from .._resource import SyncAPIResource, AsyncAPIResource
 from .._response import (
@@ -100,9 +100,7 @@ class OrganizationsResource(SyncAPIResource):
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query={
-                    "domains%5B%5D": domains[0] if len(domains) == 1 else domains,
-                },
+                query=bracket_array_query_param("domains", domains),
             ),
             cast_to=OrganizationBulkEnrichResponse,
         )
@@ -606,9 +604,7 @@ class AsyncOrganizationsResource(AsyncAPIResource):
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query={
-                    "domains%5B%5D": domains[0] if len(domains) == 1 else domains,
-                },
+                query=bracket_array_query_param("domains", domains),
             ),
             cast_to=OrganizationBulkEnrichResponse,
         )

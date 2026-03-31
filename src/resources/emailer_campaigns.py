@@ -14,7 +14,7 @@ from ..types import (
     emailer_campaign_update_contact_status_params,
 )
 from .._types import Body, Omit, Query, Headers, NotGiven, SequenceNotStr, omit, not_given
-from .._utils import path_template, maybe_transform, async_maybe_transform
+from .._utils import path_template, maybe_transform, async_maybe_transform, bracket_array_query_param
 from .._compat import cached_property
 from .._resource import SyncAPIResource, AsyncAPIResource
 from .._response import (
@@ -483,10 +483,8 @@ class EmailerCampaignsResource(SyncAPIResource):
                 extra_body=extra_body,
                 timeout=timeout,
                 query={
-                    "contact_ids%5B%5D": contact_ids[0] if len(contact_ids) == 1 else contact_ids,
-                    "emailer_campaign_ids%5B%5D": emailer_campaign_ids[0]
-                    if len(emailer_campaign_ids) == 1
-                    else emailer_campaign_ids,
+                    **bracket_array_query_param("contact_ids", contact_ids),
+                    **bracket_array_query_param("emailer_campaign_ids", emailer_campaign_ids),
                     "mode": mode,
                 },
             ),
@@ -943,10 +941,8 @@ class AsyncEmailerCampaignsResource(AsyncAPIResource):
                 extra_body=extra_body,
                 timeout=timeout,
                 query={
-                    "contact_ids%5B%5D": contact_ids[0] if len(contact_ids) == 1 else contact_ids,
-                    "emailer_campaign_ids%5B%5D": emailer_campaign_ids[0]
-                    if len(emailer_campaign_ids) == 1
-                    else emailer_campaign_ids,
+                    **bracket_array_query_param("contact_ids", contact_ids),
+                    **bracket_array_query_param("emailer_campaign_ids", emailer_campaign_ids),
                     "mode": mode,
                 },
             ),

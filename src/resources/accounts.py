@@ -16,7 +16,7 @@ from ..types import (
     account_update_owners_params,
 )
 from .._types import Body, Omit, Query, Headers, NotGiven, SequenceNotStr, omit, not_given
-from .._utils import path_template, maybe_transform, async_maybe_transform
+from .._utils import path_template, maybe_transform, async_maybe_transform, bracket_array_query_param
 from .._compat import cached_property
 from .._resource import SyncAPIResource, AsyncAPIResource
 from .._response import (
@@ -690,10 +690,7 @@ class AccountsResource(SyncAPIResource):
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query={
-                    "account_ids%5B%5D": account_ids[0] if len(account_ids) == 1 else account_ids,
-                    "owner_id": owner_id,
-                },
+                query={**bracket_array_query_param("account_ids", account_ids), "owner_id": owner_id},
             ),
             cast_to=AccountUpdateOwnersResponse,
         )
@@ -1352,10 +1349,7 @@ class AsyncAccountsResource(AsyncAPIResource):
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query={
-                    "account_ids%5B%5D": account_ids[0] if len(account_ids) == 1 else account_ids,
-                    "owner_id": owner_id,
-                },
+                query={**bracket_array_query_param("account_ids", account_ids), "owner_id": owner_id},
             ),
             cast_to=AccountUpdateOwnersResponse,
         )
