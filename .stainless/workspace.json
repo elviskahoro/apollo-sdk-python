@@ -1,0 +1,13 @@
+{
+  "project": "apollo-sdk",
+  "openapi_spec": "openapi.json",
+  "stainless_config": "stainless.yml",
+  "targets": {
+    "openapi": {
+      "output_path": "../sdks/apollo-sdk-openapi"
+    },
+    "python": {
+      "output_path": "../sdks/apollo-sdk-python"
+    }
+  }
+}
