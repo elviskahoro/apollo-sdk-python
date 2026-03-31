@@ -792,7 +792,7 @@ elif not TYPE_CHECKING:  # TODO: condition is weird
 
 
 class SecurityOptions(TypedDict, total=False):
-    api_key: bool
+    bearer_auth: bool
 
 
 class FinalRequestOptionsInput(TypedDict, total=False):
@@ -823,7 +823,7 @@ class FinalRequestOptions(pydantic.BaseModel):
     idempotency_key: Union[str, None] = None
     post_parser: Union[Callable[[Any], Any], NotGiven] = NotGiven()
     follow_redirects: Union[bool, None] = None
-    security: SecurityOptions = {"api_key": True}
+    security: SecurityOptions = {"bearer_auth": True}
 
     content: Union[bytes, bytearray, IO[bytes], Iterable[bytes], AsyncIterable[bytes], None] = None
     # It should be noted that we cannot use `json` here as that would override

@@ -35,11 +35,8 @@ client = ApolloSDK(
     api_key=os.environ.get("APOLLO_SDK_API_KEY"),  # This is the default and can be omitted
 )
 
-pet = client.pet.update(
-    name="doggie",
-    photo_urls=["string"],
-)
-print(pet.id)
+response = client.people.enrichment()
+print(response.person)
 ```
 
 While you can provide an `api_key` keyword argument,
@@ -62,11 +59,8 @@ client = AsyncApolloSDK(
 
 
 async def main() -> None:
-    pet = await client.pet.update(
-        name="doggie",
-        photo_urls=["string"],
-    )
-    print(pet.id)
+    response = await client.people.enrichment()
+    print(response.person)
 
 
 asyncio.run(main())
@@ -99,11 +93,8 @@ async def main() -> None:
         api_key=os.environ.get("APOLLO_SDK_API_KEY"),  # This is the default and can be omitted
         http_client=DefaultAioHttpClient(),
     ) as client:
-        pet = await client.pet.update(
-            name="doggie",
-            photo_urls=["string"],
-        )
-        print(pet.id)
+        response = await client.people.enrichment()
+        print(response.person)
 
 
 asyncio.run(main())
@@ -117,23 +108,6 @@ Nested request parameters are [TypedDicts](https://docs.python.org/3/library/typ
 - Converting to a dictionary, `model.to_dict()`
 
 Typed requests and responses provide autocomplete and documentation within your editor. If you would like to see type errors in VS Code to help catch bugs earlier, set `python.analysis.typeCheckingMode` to `basic`.
-
-## Nested params
-
-Nested parameters are dictionaries, typed using `TypedDict`, for example:
-
-```python
-from apollo_sdk import ApolloSDK
-
-client = ApolloSDK()
-
-pet = client.pet.update(
-    name="doggie",
-    photo_urls=["string"],
-    category={},
-)
-print(pet.category)
-```
 
 ## Handling errors
 
@@ -151,10 +125,7 @@ from apollo_sdk import ApolloSDK
 client = ApolloSDK()
 
 try:
-    client.pet.update(
-        name="doggie",
-        photo_urls=["string"],
-    )
+    client.people.enrichment()
 except apollo_sdk.APIConnectionError as e:
     print("The server could not be reached")
     print(e.__cause__)  # an underlying Exception, likely raised within httpx.
@@ -197,10 +168,7 @@ client = ApolloSDK(
 )
 
 # Or, configure per-request:
-client.with_options(max_retries=5).pet.update(
-    name="doggie",
-    photo_urls=["string"],
-)
+client.with_options(max_retries=5).people.enrichment()
 ```
 
 ### Timeouts
@@ -223,10 +191,7 @@ client = ApolloSDK(
 )
 
 # Override per-request:
-client.with_options(timeout=5.0).pet.update(
-    name="doggie",
-    photo_urls=["string"],
-)
+client.with_options(timeout=5.0).people.enrichment()
 ```
 
 On timeout, an `APITimeoutError` is thrown.
@@ -267,14 +232,11 @@ The "raw" Response object can be accessed by prefixing `.with_raw_response.` to 
 from apollo_sdk import ApolloSDK
 
 client = ApolloSDK()
-response = client.pet.with_raw_response.update(
-    name="doggie",
-    photo_urls=["string"],
-)
+response = client.people.with_raw_response.enrichment()
 print(response.headers.get('X-My-Header'))
 
-pet = response.parse()  # get the object that `pet.update()` would have returned
-print(pet.id)
+person = response.parse()  # get the object that `people.enrichment()` would have returned
+print(person.person)
 ```
 
 These methods return an [`APIResponse`](https://github.com/stainless-sdks/apollo-sdk-python/tree/main/src/apollo_sdk/_response.py) object.
@@ -288,10 +250,7 @@ The above interface eagerly reads the full response body when you make the reque
 To stream the response body, use `.with_streaming_response` instead, which requires a context manager and only reads the response body once you call `.read()`, `.text()`, `.json()`, `.iter_bytes()`, `.iter_text()`, `.iter_lines()` or `.parse()`. In the async client, these are async methods.
 
 ```python
-with client.pet.with_streaming_response.update(
-    name="doggie",
-    photo_urls=["string"],
-) as response:
+with client.people.with_streaming_response.enrichment() as response:
     print(response.headers.get("X-My-Header"))
 
     for line in response.iter_lines():

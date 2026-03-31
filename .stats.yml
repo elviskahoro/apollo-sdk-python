@@ -1,4 +1,4 @@
-configured_endpoints: 19
-openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/chalk%2Fapollo-sdk-0375e998392e2c875ece3edf69a1578f9729fa1346eb787151f4c6d3cb5e60fa.yml
-openapi_spec_hash: 39d95f424df6b89c8d7861e3726d0788
-config_hash: 75492dccd07c02c5483186c4a0d0e369
+configured_endpoints: 1
+openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/chalk%2Fapollo-sdk-678ac8239a65bab6843498c80c241ee13063d90cb387a9574320d761f1cf05d5.yml
+openapi_spec_hash: ca395038adca829091286add5163ce5f
+config_hash: 960bc3500d08bab3a73d7de1fda3cb27

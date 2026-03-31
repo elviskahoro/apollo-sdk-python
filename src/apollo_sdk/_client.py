@@ -32,10 +32,8 @@ from ._base_client import (
 )
 
 if TYPE_CHECKING:
-    from .resources import pet, user, store
-    from .resources.pet import PetResource, AsyncPetResource
-    from .resources.user import UserResource, AsyncUserResource
-    from .resources.store.store import StoreResource, AsyncStoreResource
+    from .resources import people
+    from .resources.people import PeopleResource, AsyncPeopleResource
 
 __all__ = [
     "Timeout",
@@ -91,7 +89,7 @@ class ApolloSDK(SyncAPIClient):
         if base_url is None:
             base_url = os.environ.get("APOLLO_SDK_BASE_URL")
         if base_url is None:
-            base_url = f"https://petstore3.swagger.io/api/v3"
+            base_url = f"https://app.apollo.io"
 
         super().__init__(
             version=__version__,
@@ -105,25 +103,10 @@ class ApolloSDK(SyncAPIClient):
         )
 
     @cached_property
-    def pet(self) -> PetResource:
-        """Everything about your Pets"""
-        from .resources.pet import PetResource
+    def people(self) -> PeopleResource:
+        from .resources.people import PeopleResource
 
-        return PetResource(self)
-
-    @cached_property
-    def store(self) -> StoreResource:
-        """Access to Petstore orders"""
-        from .resources.store import StoreResource
-
-        return StoreResource(self)
-
-    @cached_property
-    def user(self) -> UserResource:
-        """Operations about user"""
-        from .resources.user import UserResource
-
-        return UserResource(self)
+        return PeopleResource(self)
 
     @cached_property
     def with_raw_response(self) -> ApolloSDKWithRawResponse:
@@ -141,13 +124,13 @@ class ApolloSDK(SyncAPIClient):
     @override
     def _auth_headers(self, security: SecurityOptions) -> dict[str, str]:
         return {
-            **(self._api_key if security.get("api_key", False) else {}),
+            **(self._bearer_auth if security.get("bearer_auth", False) else {}),
         }
 
     @property
-    def _api_key(self) -> dict[str, str]:
+    def _bearer_auth(self) -> dict[str, str]:
         api_key = self.api_key
-        return {"api_key": api_key}
+        return {"Authorization": f"Bearer {api_key}"}
 
     @property
     @override
@@ -285,7 +268,7 @@ class AsyncApolloSDK(AsyncAPIClient):
         if base_url is None:
             base_url = os.environ.get("APOLLO_SDK_BASE_URL")
         if base_url is None:
-            base_url = f"https://petstore3.swagger.io/api/v3"
+            base_url = f"https://app.apollo.io"
 
         super().__init__(
             version=__version__,
@@ -299,25 +282,10 @@ class AsyncApolloSDK(AsyncAPIClient):
         )
 
     @cached_property
-    def pet(self) -> AsyncPetResource:
-        """Everything about your Pets"""
-        from .resources.pet import AsyncPetResource
+    def people(self) -> AsyncPeopleResource:
+        from .resources.people import AsyncPeopleResource
 
-        return AsyncPetResource(self)
-
-    @cached_property
-    def store(self) -> AsyncStoreResource:
-        """Access to Petstore orders"""
-        from .resources.store import AsyncStoreResource
-
-        return AsyncStoreResource(self)
-
-    @cached_property
-    def user(self) -> AsyncUserResource:
-        """Operations about user"""
-        from .resources.user import AsyncUserResource
-
-        return AsyncUserResource(self)
+        return AsyncPeopleResource(self)
 
     @cached_property
     def with_raw_response(self) -> AsyncApolloSDKWithRawResponse:
@@ -335,13 +303,13 @@ class AsyncApolloSDK(AsyncAPIClient):
     @override
     def _auth_headers(self, security: SecurityOptions) -> dict[str, str]:
         return {
-            **(self._api_key if security.get("api_key", False) else {}),
+            **(self._bearer_auth if security.get("bearer_auth", False) else {}),
         }
 
     @property
-    def _api_key(self) -> dict[str, str]:
+    def _bearer_auth(self) -> dict[str, str]:
         api_key = self.api_key
-        return {"api_key": api_key}
+        return {"Authorization": f"Bearer {api_key}"}
 
     @property
     @override
@@ -444,25 +412,10 @@ class ApolloSDKWithRawResponse:
         self._client = client
 
     @cached_property
-    def pet(self) -> pet.PetResourceWithRawResponse:
-        """Everything about your Pets"""
-        from .resources.pet import PetResourceWithRawResponse
+    def people(self) -> people.PeopleResourceWithRawResponse:
+        from .resources.people import PeopleResourceWithRawResponse
 
-        return PetResourceWithRawResponse(self._client.pet)
-
-    @cached_property
-    def store(self) -> store.StoreResourceWithRawResponse:
-        """Access to Petstore orders"""
-        from .resources.store import StoreResourceWithRawResponse
-
-        return StoreResourceWithRawResponse(self._client.store)
-
-    @cached_property
-    def user(self) -> user.UserResourceWithRawResponse:
-        """Operations about user"""
-        from .resources.user import UserResourceWithRawResponse
-
-        return UserResourceWithRawResponse(self._client.user)
+        return PeopleResourceWithRawResponse(self._client.people)
 
 
 class AsyncApolloSDKWithRawResponse:
@@ -472,25 +425,10 @@ class AsyncApolloSDKWithRawResponse:
         self._client = client
 
     @cached_property
-    def pet(self) -> pet.AsyncPetResourceWithRawResponse:
-        """Everything about your Pets"""
-        from .resources.pet import AsyncPetResourceWithRawResponse
+    def people(self) -> people.AsyncPeopleResourceWithRawResponse:
+        from .resources.people import AsyncPeopleResourceWithRawResponse
 
-        return AsyncPetResourceWithRawResponse(self._client.pet)
-
-    @cached_property
-    def store(self) -> store.AsyncStoreResourceWithRawResponse:
-        """Access to Petstore orders"""
-        from .resources.store import AsyncStoreResourceWithRawResponse
-
-        return AsyncStoreResourceWithRawResponse(self._client.store)
-
-    @cached_property
-    def user(self) -> user.AsyncUserResourceWithRawResponse:
-        """Operations about user"""
-        from .resources.user import AsyncUserResourceWithRawResponse
-
-        return AsyncUserResourceWithRawResponse(self._client.user)
+        return AsyncPeopleResourceWithRawResponse(self._client.people)
 
 
 class ApolloSDKWithStreamedResponse:
@@ -500,25 +438,10 @@ class ApolloSDKWithStreamedResponse:
         self._client = client
 
     @cached_property
-    def pet(self) -> pet.PetResourceWithStreamingResponse:
-        """Everything about your Pets"""
-        from .resources.pet import PetResourceWithStreamingResponse
+    def people(self) -> people.PeopleResourceWithStreamingResponse:
+        from .resources.people import PeopleResourceWithStreamingResponse
 
-        return PetResourceWithStreamingResponse(self._client.pet)
-
-    @cached_property
-    def store(self) -> store.StoreResourceWithStreamingResponse:
-        """Access to Petstore orders"""
-        from .resources.store import StoreResourceWithStreamingResponse
-
-        return StoreResourceWithStreamingResponse(self._client.store)
-
-    @cached_property
-    def user(self) -> user.UserResourceWithStreamingResponse:
-        """Operations about user"""
-        from .resources.user import UserResourceWithStreamingResponse
-
-        return UserResourceWithStreamingResponse(self._client.user)
+        return PeopleResourceWithStreamingResponse(self._client.people)
 
 
 class AsyncApolloSDKWithStreamedResponse:
@@ -528,25 +451,10 @@ class AsyncApolloSDKWithStreamedResponse:
         self._client = client
 
     @cached_property
-    def pet(self) -> pet.AsyncPetResourceWithStreamingResponse:
-        """Everything about your Pets"""
-        from .resources.pet import AsyncPetResourceWithStreamingResponse
+    def people(self) -> people.AsyncPeopleResourceWithStreamingResponse:
+        from .resources.people import AsyncPeopleResourceWithStreamingResponse
 
-        return AsyncPetResourceWithStreamingResponse(self._client.pet)
-
-    @cached_property
-    def store(self) -> store.AsyncStoreResourceWithStreamingResponse:
-        """Access to Petstore orders"""
-        from .resources.store import AsyncStoreResourceWithStreamingResponse
-
-        return AsyncStoreResourceWithStreamingResponse(self._client.store)
-
-    @cached_property
-    def user(self) -> user.AsyncUserResourceWithStreamingResponse:
-        """Operations about user"""
-        from .resources.user import AsyncUserResourceWithStreamingResponse
-
-        return AsyncUserResourceWithStreamingResponse(self._client.user)
+        return AsyncPeopleResourceWithStreamingResponse(self._client.people)
 
 
 Client = ApolloSDK

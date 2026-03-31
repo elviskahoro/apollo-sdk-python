@@ -402,7 +402,7 @@ class TestApolloSDK:
     def test_validate_headers(self) -> None:
         client = ApolloSDK(base_url=base_url, api_key=api_key, _strict_response_validation=True)
         request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
-        assert request.headers.get("api_key") == api_key
+        assert request.headers.get("Authorization") == f"Bearer {api_key}"
 
         with pytest.raises(ApolloSDKError):
             with update_env(**{"APOLLO_SDK_API_KEY": Omit()}):
@@ -851,20 +851,20 @@ class TestApolloSDK:
     @mock.patch("apollo_sdk._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
     def test_retrying_timeout_errors_doesnt_leak(self, respx_mock: MockRouter, client: ApolloSDK) -> None:
-        respx_mock.put("/pet").mock(side_effect=httpx.TimeoutException("Test timeout error"))
+        respx_mock.post("/people/match").mock(side_effect=httpx.TimeoutException("Test timeout error"))
 
         with pytest.raises(APITimeoutError):
-            client.pet.with_streaming_response.update(name="doggie", photo_urls=["string"]).__enter__()
+            client.people.with_streaming_response.enrichment().__enter__()
 
         assert _get_open_connections(client) == 0
 
     @mock.patch("apollo_sdk._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
     def test_retrying_status_errors_doesnt_leak(self, respx_mock: MockRouter, client: ApolloSDK) -> None:
-        respx_mock.put("/pet").mock(return_value=httpx.Response(500))
+        respx_mock.post("/people/match").mock(return_value=httpx.Response(500))
 
         with pytest.raises(APIStatusError):
-            client.pet.with_streaming_response.update(name="doggie", photo_urls=["string"]).__enter__()
+            client.people.with_streaming_response.enrichment().__enter__()
         assert _get_open_connections(client) == 0
 
     @pytest.mark.parametrize("failures_before_success", [0, 2, 4])
@@ -891,9 +891,9 @@ class TestApolloSDK:
                 return httpx.Response(500)
             return httpx.Response(200)
 
-        respx_mock.put("/pet").mock(side_effect=retry_handler)
+        respx_mock.post("/people/match").mock(side_effect=retry_handler)
 
-        response = client.pet.with_raw_response.update(name="doggie", photo_urls=["string"])
+        response = client.people.with_raw_response.enrichment()
 
         assert response.retries_taken == failures_before_success
         assert int(response.http_request.headers.get("x-stainless-retry-count")) == failures_before_success
@@ -915,11 +915,9 @@ class TestApolloSDK:
                 return httpx.Response(500)
             return httpx.Response(200)
 
-        respx_mock.put("/pet").mock(side_effect=retry_handler)
+        respx_mock.post("/people/match").mock(side_effect=retry_handler)
 
-        response = client.pet.with_raw_response.update(
-            name="doggie", photo_urls=["string"], extra_headers={"x-stainless-retry-count": Omit()}
-        )
+        response = client.people.with_raw_response.enrichment(extra_headers={"x-stainless-retry-count": Omit()})
 
         assert len(response.http_request.headers.get_list("x-stainless-retry-count")) == 0
 
@@ -940,11 +938,9 @@ class TestApolloSDK:
                 return httpx.Response(500)
             return httpx.Response(200)
 
-        respx_mock.put("/pet").mock(side_effect=retry_handler)
+        respx_mock.post("/people/match").mock(side_effect=retry_handler)
 
-        response = client.pet.with_raw_response.update(
-            name="doggie", photo_urls=["string"], extra_headers={"x-stainless-retry-count": "42"}
-        )
+        response = client.people.with_raw_response.enrichment(extra_headers={"x-stainless-retry-count": "42"})
 
         assert response.http_request.headers.get("x-stainless-retry-count") == "42"
 
@@ -1297,7 +1293,7 @@ class TestAsyncApolloSDK:
     def test_validate_headers(self) -> None:
         client = AsyncApolloSDK(base_url=base_url, api_key=api_key, _strict_response_validation=True)
         request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
-        assert request.headers.get("api_key") == api_key
+        assert request.headers.get("Authorization") == f"Bearer {api_key}"
 
         with pytest.raises(ApolloSDKError):
             with update_env(**{"APOLLO_SDK_API_KEY": Omit()}):
@@ -1763,10 +1759,10 @@ class TestAsyncApolloSDK:
     async def test_retrying_timeout_errors_doesnt_leak(
         self, respx_mock: MockRouter, async_client: AsyncApolloSDK
     ) -> None:
-        respx_mock.put("/pet").mock(side_effect=httpx.TimeoutException("Test timeout error"))
+        respx_mock.post("/people/match").mock(side_effect=httpx.TimeoutException("Test timeout error"))
 
         with pytest.raises(APITimeoutError):
-            await async_client.pet.with_streaming_response.update(name="doggie", photo_urls=["string"]).__aenter__()
+            await async_client.people.with_streaming_response.enrichment().__aenter__()
 
         assert _get_open_connections(async_client) == 0
 
@@ -1775,10 +1771,10 @@ class TestAsyncApolloSDK:
     async def test_retrying_status_errors_doesnt_leak(
         self, respx_mock: MockRouter, async_client: AsyncApolloSDK
     ) -> None:
-        respx_mock.put("/pet").mock(return_value=httpx.Response(500))
+        respx_mock.post("/people/match").mock(return_value=httpx.Response(500))
 
         with pytest.raises(APIStatusError):
-            await async_client.pet.with_streaming_response.update(name="doggie", photo_urls=["string"]).__aenter__()
+            await async_client.people.with_streaming_response.enrichment().__aenter__()
         assert _get_open_connections(async_client) == 0
 
     @pytest.mark.parametrize("failures_before_success", [0, 2, 4])
@@ -1805,9 +1801,9 @@ class TestAsyncApolloSDK:
                 return httpx.Response(500)
             return httpx.Response(200)
 
-        respx_mock.put("/pet").mock(side_effect=retry_handler)
+        respx_mock.post("/people/match").mock(side_effect=retry_handler)
 
-        response = await client.pet.with_raw_response.update(name="doggie", photo_urls=["string"])
+        response = await client.people.with_raw_response.enrichment()
 
         assert response.retries_taken == failures_before_success
         assert int(response.http_request.headers.get("x-stainless-retry-count")) == failures_before_success
@@ -1829,11 +1825,9 @@ class TestAsyncApolloSDK:
                 return httpx.Response(500)
             return httpx.Response(200)
 
-        respx_mock.put("/pet").mock(side_effect=retry_handler)
+        respx_mock.post("/people/match").mock(side_effect=retry_handler)
 
-        response = await client.pet.with_raw_response.update(
-            name="doggie", photo_urls=["string"], extra_headers={"x-stainless-retry-count": Omit()}
-        )
+        response = await client.people.with_raw_response.enrichment(extra_headers={"x-stainless-retry-count": Omit()})
 
         assert len(response.http_request.headers.get_list("x-stainless-retry-count")) == 0
 
@@ -1854,11 +1848,9 @@ class TestAsyncApolloSDK:
                 return httpx.Response(500)
             return httpx.Response(200)
 
-        respx_mock.put("/pet").mock(side_effect=retry_handler)
+        respx_mock.post("/people/match").mock(side_effect=retry_handler)
 
-        response = await client.pet.with_raw_response.update(
-            name="doggie", photo_urls=["string"], extra_headers={"x-stainless-retry-count": "42"}
-        )
+        response = await client.people.with_raw_response.enrichment(extra_headers={"x-stainless-retry-count": "42"})
 
         assert response.http_request.headers.get("x-stainless-retry-count") == "42"
 
