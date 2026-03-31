@@ -29,6 +29,7 @@ from .._base_client import make_request_options
 from ..types.account_create_response import AccountCreateResponse
 from ..types.account_search_response import AccountSearchResponse
 from ..types.account_update_response import AccountUpdateResponse
+from ..types.account_retrieve_response import AccountRetrieveResponse
 from ..types.account_bulk_create_response import AccountBulkCreateResponse
 from ..types.account_bulk_update_response import AccountBulkUpdateResponse
 from ..types.account_update_owners_response import AccountUpdateOwnersResponse
@@ -196,6 +197,40 @@ class AccountsResource(SyncAPIResource):
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
             cast_to=AccountCreateResponse,
+        )
+
+    def retrieve(
+        self,
+        account_id: str,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> AccountRetrieveResponse:
+        """
+        Use the View an Account endpoint to retrieve complete details about an account
+        in your team's Apollo account.
+
+        Args:
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not account_id:
+            raise ValueError(f"Expected a non-empty value for `account_id` but received {account_id!r}")
+        return self._get(
+            path_template("/accounts/{account_id}", account_id=account_id),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=AccountRetrieveResponse,
         )
 
     def update(
@@ -829,6 +864,40 @@ class AsyncAccountsResource(AsyncAPIResource):
             cast_to=AccountCreateResponse,
         )
 
+    async def retrieve(
+        self,
+        account_id: str,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> AccountRetrieveResponse:
+        """
+        Use the View an Account endpoint to retrieve complete details about an account
+        in your team's Apollo account.
+
+        Args:
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not account_id:
+            raise ValueError(f"Expected a non-empty value for `account_id` but received {account_id!r}")
+        return await self._get(
+            path_template("/accounts/{account_id}", account_id=account_id),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=AccountRetrieveResponse,
+        )
+
     async def update(
         self,
         account_id: str,
@@ -1305,6 +1374,9 @@ class AccountsResourceWithRawResponse:
         self.create = to_raw_response_wrapper(
             accounts.create,
         )
+        self.retrieve = to_raw_response_wrapper(
+            accounts.retrieve,
+        )
         self.update = to_raw_response_wrapper(
             accounts.update,
         )
@@ -1328,6 +1400,9 @@ class AsyncAccountsResourceWithRawResponse:
 
         self.create = async_to_raw_response_wrapper(
             accounts.create,
+        )
+        self.retrieve = async_to_raw_response_wrapper(
+            accounts.retrieve,
         )
         self.update = async_to_raw_response_wrapper(
             accounts.update,
@@ -1353,6 +1428,9 @@ class AccountsResourceWithStreamingResponse:
         self.create = to_streamed_response_wrapper(
             accounts.create,
         )
+        self.retrieve = to_streamed_response_wrapper(
+            accounts.retrieve,
+        )
         self.update = to_streamed_response_wrapper(
             accounts.update,
         )
@@ -1376,6 +1454,9 @@ class AsyncAccountsResourceWithStreamingResponse:
 
         self.create = async_to_streamed_response_wrapper(
             accounts.create,
+        )
+        self.retrieve = async_to_streamed_response_wrapper(
+            accounts.retrieve,
         )
         self.update = async_to_streamed_response_wrapper(
             accounts.update,

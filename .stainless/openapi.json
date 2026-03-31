@@ -24,7 +24,7 @@
     "/people/match": {
       "post": {
         "summary": "People Enrichment",
-        "description": "Use the People Enrichment endpoint to enrich data for 1 person. To enrich data for up to 10 people with a single API call, use the <a href=\"https://docs.apollo.io/reference/bulk-people-enrichment\" target=\"_blank\">Bulk People Enrichment endpoint</a> instead.  <br><br>Apollo relies on the information you pass via the endpoint's parameters to identify the correct person to enrich. If you provide more information about a person, Apollo is more likely to find a match within its database. If you only provide general information, such as a name without a domain or email address, you might receive a 200 response, but the response will indicate that no records have been enriched. <br><br>By default, this endpoint does not return personal emails or phone numbers. Use the `reveal_personal_emails` and `reveal_phone_number` parameters to retrieve emails and phone numbers. <br><br> You can use also use the `run_waterfall_email` and `run_waterfall_phone` parameters to run waterfall enrichment via this endpoint. [Waterfall enrichment](https://knowledge.apollo.io/hc/en-us/articles/34071089002509-Waterfall-Enrichment-Overview) gives you broader data coverage by checking connected third-party data sources for contact emails and phone numbers. When you call this endpoint and include at least one waterfall parameter, Apollo returns an immediate synchronous response with demographic and firmographic data, along with a waterfall enrichment request status. Apollo delivers enriched emails and/or phone numbers asynchronously to a configured webhook.<br><br> Using this endpoint will consume credits based on your account's pricing plan. If you run waterfall enrichment parameters, your [credit usage](https://knowledge.apollo.io/hc/en-us/articles/34071089002509-Waterfall-Enrichment-Overview#does-waterfall-enrichment-require-credits) depends on the type of data you request (emails and/or phone numbers) and which data source returns enriched data. To view a summary of Apollo's pricing, visit the  <a href=\"https://www.apollo.io/pricing\" target=\"_blank\"> public pricing page ↗</a> For detailed information regarding API credit usage, see the <a href=\"https://app.apollo.io/#/settings/credits/about\" target=\"_blank\"> API enrichment ↗</a> section on the *About Credits* page (login required).",
+        "description": "Use the People Enrichment endpoint to enrich data for 1 person. To enrich data for up to 10 people with a single API call, use the <a href=\"https://docs.apollo.io/reference/bulk-people-enrichment\" target=\"_blank\">Bulk People Enrichment endpoint</a> instead.  <br><br>Apollo relies on the information you pass via the endpoint's parameters to identify the correct person to enrich. If you provide more information about a person, Apollo is more likely to find a match within its database. If you only provide general information, such as a name without a domain or email address, you might receive a 200 response, but the response will indicate that no records have been enriched. <br><br>By default, this endpoint does not return personal emails or phone numbers. Use the `reveal_personal_emails` and `reveal_phone_number` parameters to retrieve emails and phone numbers. <br><br> You can use also use the `run_waterfall_email` and `run_waterfall_phone` parameters to run waterfall enrichment via this endpoint. [Waterfall enrichment](https://knowledge.apollo.io/hc/en-us/articles/34071089002509-Waterfall-Enrichment-Overview) gives you broader data coverage by checking connected third-party data sources for contact emails and phone numbers. When you call this endpoint and include at least one waterfall parameter, Apollo returns an immediate synchronous response with demographic and firmographic data, along with a waterfall enrichment request status. Apollo delivers enriched emails and/or phone numbers asynchronously to a configured webhook.<br><br> Using this endpoint will consume credits based on your account's pricing plan. If you run waterfall enrichment parameters, your [credit usage](https://knowledge.apollo.io/hc/en-us/articles/34071089002509-Waterfall-Enrichment-Overview#does-waterfall-enrichment-require-credits) depends on the type of data you request (emails and/or phone numbers) and which data source returns enriched data. To view a summary of Apollo's pricing, visit the  <a href=\"https://www.apollo.io/pricing\" target=\"_blank\"> public pricing page \u2197</a> For detailed information regarding API credit usage, see the <a href=\"https://app.apollo.io/#/settings/credits/about\" target=\"_blank\"> API enrichment \u2197</a> section on the *About Credits* page (login required).",
         "operationId": "people-enrichment",
         "parameters": [
           {
@@ -301,7 +301,7 @@
                           "last_name": "Chung",
                           "name": "Roy Chung",
                           "linkedin_url": "http://www.linkedin.com/in/tim-zheng-677ba010",
-                          "title": "Reaching Peak Potential 💪⛰️📈🧪️ | President",
+                          "title": "Reaching Peak Potential \ud83d\udcaa\u26f0\ufe0f\ud83d\udcc8\ud83e\uddea\ufe0f | President",
                           "contact_stage_id": "6095a710bd01d100a506d4ae",
                           "owner_id": null,
                           "creator_id": "66302798d03b9601c7934ec2",
@@ -311,7 +311,7 @@
                           "source": "crm",
                           "original_source": "crm",
                           "organization_id": "5e66b6381e05b4008c8331b8",
-                          "headline": "Reaching Peak Potential 💪⛰️📈🧪️ | President at FRC",
+                          "headline": "Reaching Peak Potential \ud83d\udcaa\u26f0\ufe0f\ud83d\udcc8\ud83e\uddea\ufe0f | President at FRC",
                           "photo_url": null,
                           "present_raw_address": "New York, New York, United States",
                           "linkedin_uid": null,
@@ -466,7 +466,7 @@
                           "country": "United States",
                           "owned_by_organization_id": null,
                           "seo_description": "Search, engage, and convert over 275 million contacts at over 73 million companies with Apollo's sales intelligence and engagement platform.",
-                          "short_description": "Apollo.io combines a buyer database of over 270M contacts and powerful sales engagement and automation tools in one, easy to use platform. Trusted by over 160,000 companies including Autodesk, Rippling, Deel, Jasper.ai, Divvy, and Heap, Apollo has more than one million users globally. By helping sales professionals find their ideal buyers and intelligently automate outreach, Apollo helps go-to-market teams sell anything.\n\nCelebrating a $100M Series D Funding Round 🦄",
+                          "short_description": "Apollo.io combines a buyer database of over 270M contacts and powerful sales engagement and automation tools in one, easy to use platform. Trusted by over 160,000 companies including Autodesk, Rippling, Deel, Jasper.ai, Divvy, and Heap, Apollo has more than one million users globally. By helping sales professionals find their ideal buyers and intelligently automate outreach, Apollo helps go-to-market teams sell anything.\n\nCelebrating a $100M Series D Funding Round \ud83e\udd84",
                           "suborganizations": [],
                           "num_suborganizations": 0,
                           "annual_revenue_printed": "100M",
@@ -896,7 +896,7 @@
                             },
                             "title": {
                               "type": "string",
-                              "example": "Reaching Peak Potential 💪⛰️📈🧪️ | President"
+                              "example": "Reaching Peak Potential \ud83d\udcaa\u26f0\ufe0f\ud83d\udcc8\ud83e\uddea\ufe0f | President"
                             },
                             "contact_stage_id": {
                               "type": "string",
@@ -930,7 +930,7 @@
                             },
                             "headline": {
                               "type": "string",
-                              "example": "Reaching Peak Potential 💪⛰️📈🧪️ | President at FRC"
+                              "example": "Reaching Peak Potential \ud83d\udcaa\u26f0\ufe0f\ud83d\udcc8\ud83e\uddea\ufe0f | President at FRC"
                             },
                             "photo_url": {},
                             "present_raw_address": {
@@ -1257,7 +1257,7 @@
                             },
                             "short_description": {
                               "type": "string",
-                              "example": "Apollo.io combines a buyer database of over 270M contacts and powerful sales engagement and automation tools in one, easy to use platform. Trusted by over 160,000 companies including Autodesk, Rippling, Deel, Jasper.ai, Divvy, and Heap, Apollo has more than one million users globally. By helping sales professionals find their ideal buyers and intelligently automate outreach, Apollo helps go-to-market teams sell anything.\n\nCelebrating a $100M Series D Funding Round 🦄"
+                              "example": "Apollo.io combines a buyer database of over 270M contacts and powerful sales engagement and automation tools in one, easy to use platform. Trusted by over 160,000 companies including Autodesk, Rippling, Deel, Jasper.ai, Divvy, and Heap, Apollo has more than one million users globally. By helping sales professionals find their ideal buyers and intelligently automate outreach, Apollo helps go-to-market teams sell anything.\n\nCelebrating a $100M Series D Funding Round \ud83e\udd84"
                             },
                             "suborganizations": {
                               "type": "array"
@@ -1461,7 +1461,7 @@
     "/people/bulk_match": {
       "post": {
         "summary": "Bulk People Enrichment",
-        "description": "Use the Bulk People Enrichment endpoint to enrich data for up to 10 people with a single API call. To enrich data for only 1 person, use the <a href=\"https://docs.apollo.io/reference/people-enrichment\" target=\"_blank\">People Enrichment endpoint</a> instead. <br><br>Apollo relies on the information you pass via the endpoint's parameters to identify the correct people to enrich. When you provide more information, Apollo is more likely to find matches within its database. If you only provide general information, such as a name without a domain or email address, you might receive a `200` response, but the response will indicate that no records have been enriched. The details for each person should be passed as an object with the `details[]` array. <br><br>By default, this endpoint does not return personal emails or phone numbers. Use the `reveal_personal_emails` and `reveal_phone_number` parameters to retrieve emails and phone numbers. If you set either of these parameters to `true`, Apollo will attempt to provide emails or phone numbers for all matches. <br><br> You can use also use the `run_waterfall_email` and `run_waterfall_phone` parameters to run waterfall enrichment via this endpoint. [Waterfall enrichment](https://knowledge.apollo.io/hc/en-us/articles/34071089002509-Waterfall-Enrichment-Overview) gives you broader data coverage by checking connected third-party data sources for contact emails and phone numbers. When you call this endpoint and include at least one waterfall parameter, Apollo returns an immediate synchronous response with demographic and firmographic data, along with a waterfall enrichment request status. Apollo delivers enriched emails and/or phone numbers asynchronously to a configured webhook.<br><br> Using this endpoint will consume credits based on your account's pricing plan. If you run waterfall enrichment parameters, your [credit usage](https://knowledge.apollo.io/hc/en-us/articles/34071089002509-Waterfall-Enrichment-Overview#does-waterfall-enrichment-require-credits) depends on the type of data you request (emails and/or phone numbers) and which data source returns enriched data. To view a summary of Apollo's pricing, visit the  <a href=\"https://www.apollo.io/pricing\" target=\"_blank\"> public pricing page ↗</a> For detailed information regarding API credit usage, see the <a href=\"https://app.apollo.io/#/settings/credits/about\" target=\"_blank\"> API enrichment ↗</a> section on the *About Credits* page (login required). <br><br>This endpoint's <a href=\"https://docs.apollo.io/reference/rate-limits\" target=\"_blank\">rate limit</a> is throttled to 50% of the People Enrichment endpoint's per-minute rate limit, and is 100% of the hourly and daily rate limits for the same individual endpoint.",
+        "description": "Use the Bulk People Enrichment endpoint to enrich data for up to 10 people with a single API call. To enrich data for only 1 person, use the <a href=\"https://docs.apollo.io/reference/people-enrichment\" target=\"_blank\">People Enrichment endpoint</a> instead. <br><br>Apollo relies on the information you pass via the endpoint's parameters to identify the correct people to enrich. When you provide more information, Apollo is more likely to find matches within its database. If you only provide general information, such as a name without a domain or email address, you might receive a `200` response, but the response will indicate that no records have been enriched. The details for each person should be passed as an object with the `details[]` array. <br><br>By default, this endpoint does not return personal emails or phone numbers. Use the `reveal_personal_emails` and `reveal_phone_number` parameters to retrieve emails and phone numbers. If you set either of these parameters to `true`, Apollo will attempt to provide emails or phone numbers for all matches. <br><br> You can use also use the `run_waterfall_email` and `run_waterfall_phone` parameters to run waterfall enrichment via this endpoint. [Waterfall enrichment](https://knowledge.apollo.io/hc/en-us/articles/34071089002509-Waterfall-Enrichment-Overview) gives you broader data coverage by checking connected third-party data sources for contact emails and phone numbers. When you call this endpoint and include at least one waterfall parameter, Apollo returns an immediate synchronous response with demographic and firmographic data, along with a waterfall enrichment request status. Apollo delivers enriched emails and/or phone numbers asynchronously to a configured webhook.<br><br> Using this endpoint will consume credits based on your account's pricing plan. If you run waterfall enrichment parameters, your [credit usage](https://knowledge.apollo.io/hc/en-us/articles/34071089002509-Waterfall-Enrichment-Overview#does-waterfall-enrichment-require-credits) depends on the type of data you request (emails and/or phone numbers) and which data source returns enriched data. To view a summary of Apollo's pricing, visit the  <a href=\"https://www.apollo.io/pricing\" target=\"_blank\"> public pricing page \u2197</a> For detailed information regarding API credit usage, see the <a href=\"https://app.apollo.io/#/settings/credits/about\" target=\"_blank\"> API enrichment \u2197</a> section on the *About Credits* page (login required). <br><br>This endpoint's <a href=\"https://docs.apollo.io/reference/rate-limits\" target=\"_blank\">rate limit</a> is throttled to 50% of the People Enrichment endpoint's per-minute rate limit, and is 100% of the hourly and daily rate limits for the same individual endpoint.",
         "operationId": "bulk-people-enrichment",
         "parameters": [
           {
@@ -3548,7 +3548,7 @@
                         "country": "United States",
                         "owned_by_organization_id": null,
                         "seo_description": "Search, engage, and convert over 275 million contacts at over 73 million companies with Apollo's sales intelligence and engagement platform.",
-                        "short_description": "Apollo.io combines a buyer database of over 270M contacts and powerful sales engagement and automation tools in one, easy to use platform. Trusted by over 160,000 companies including Autodesk, Rippling, Deel, Jasper.ai, Divvy, and Heap, Apollo has more than one million users globally. By helping sales professionals find their ideal buyers and intelligently automate outreach, Apollo helps go-to-market teams sell anything.\n\nCelebrating a $100M Series D Funding Round 🦄",
+                        "short_description": "Apollo.io combines a buyer database of over 270M contacts and powerful sales engagement and automation tools in one, easy to use platform. Trusted by over 160,000 companies including Autodesk, Rippling, Deel, Jasper.ai, Divvy, and Heap, Apollo has more than one million users globally. By helping sales professionals find their ideal buyers and intelligently automate outreach, Apollo helps go-to-market teams sell anything.\n\nCelebrating a $100M Series D Funding Round \ud83e\udd84",
                         "suborganizations": [],
                         "num_suborganizations": 0,
                         "annual_revenue_printed": "100M",
@@ -4013,7 +4013,7 @@
                         },
                         "short_description": {
                           "type": "string",
-                          "example": "Apollo.io combines a buyer database of over 270M contacts and powerful sales engagement and automation tools in one, easy to use platform. Trusted by over 160,000 companies including Autodesk, Rippling, Deel, Jasper.ai, Divvy, and Heap, Apollo has more than one million users globally. By helping sales professionals find their ideal buyers and intelligently automate outreach, Apollo helps go-to-market teams sell anything.\n\nCelebrating a $100M Series D Funding Round 🦄"
+                          "example": "Apollo.io combines a buyer database of over 270M contacts and powerful sales engagement and automation tools in one, easy to use platform. Trusted by over 160,000 companies including Autodesk, Rippling, Deel, Jasper.ai, Divvy, and Heap, Apollo has more than one million users globally. By helping sales professionals find their ideal buyers and intelligently automate outreach, Apollo helps go-to-market teams sell anything.\n\nCelebrating a $100M Series D Funding Round \ud83e\udd84"
                         },
                         "suborganizations": {
                           "type": "array"
@@ -4498,7 +4498,7 @@
                           "postal_code": "94105-2301",
                           "owned_by_organization_id": null,
                           "seo_description": "Search, engage, and convert over 275 million contacts at over 73 million companies with Apollo's sales intelligence and engagement platform.",
-                          "short_description": "Apollo.io combines a buyer database of over 270M contacts and powerful sales engagement and automation tools in one, easy to use platform. Trusted by over 160,000 companies including Autodesk, Rippling, Deel, Jasper.ai, Divvy, and Heap, Apollo has more than one million users globally. By helping sales professionals find their ideal buyers and intelligently automate outreach, Apollo helps go-to-market teams sell anything.\n\nCelebrating a $100M Series D Funding Round 🦄",
+                          "short_description": "Apollo.io combines a buyer database of over 270M contacts and powerful sales engagement and automation tools in one, easy to use platform. Trusted by over 160,000 companies including Autodesk, Rippling, Deel, Jasper.ai, Divvy, and Heap, Apollo has more than one million users globally. By helping sales professionals find their ideal buyers and intelligently automate outreach, Apollo helps go-to-market teams sell anything.\n\nCelebrating a $100M Series D Funding Round \ud83e\udd84",
                           "account_id": "63f53afe4ceeca00016bdd37",
                           "account": {
                             "id": "63f53afe4ceeca00016bdd37",
@@ -4904,7 +4904,7 @@
                           "country": "United States",
                           "postal_code": "10282",
                           "owned_by_organization_id": null,
-                          "seo_description": "Využijte naší lokální expertízy a vyberte si z široké nabídky podílových fondů v české koruně i cizích měnách.",
+                          "seo_description": "Vyu\u017eijte na\u0161\u00ed lok\u00e1ln\u00ed expert\u00edzy a vyberte si z \u0161irok\u00e9 nab\u00eddky pod\u00edlov\u00fdch fond\u016f v \u010desk\u00e9 korun\u011b i ciz\u00edch m\u011bn\u00e1ch.",
                           "short_description": "At Goldman Sachs, we believe progress is everyone's business. That's why we commit our people, capital and ideas to help our clients, shareholders and the communities we serve to grow.\nFounded in 1869, Goldman Sachs is a leading global investment banking, securities and investment management firm. Headquartered in New York, we maintain offices in all major financial centers around the world. \n\nMore about our company can be found at www.goldmansachs.com\n\nFor insights on developments currently shaping markets, industries and the global economy, subscribe to BRIEFINGS, a weekly email from Goldman Sachs. Copy and paste this link into your browser to sign up: http://link.gs.com/Qxf3\n\ngs.com/social-media-disclosures",
                           "account_id": "6598a1d4d229e900012160ea",
                           "account": {
@@ -5155,7 +5155,7 @@
                           },
                           "short_description": {
                             "type": "string",
-                            "example": "Apollo.io combines a buyer database of over 270M contacts and powerful sales engagement and automation tools in one, easy to use platform. Trusted by over 160,000 companies including Autodesk, Rippling, Deel, Jasper.ai, Divvy, and Heap, Apollo has more than one million users globally. By helping sales professionals find their ideal buyers and intelligently automate outreach, Apollo helps go-to-market teams sell anything.\n\nCelebrating a $100M Series D Funding Round 🦄"
+                            "example": "Apollo.io combines a buyer database of over 270M contacts and powerful sales engagement and automation tools in one, easy to use platform. Trusted by over 160,000 companies including Autodesk, Rippling, Deel, Jasper.ai, Divvy, and Heap, Apollo has more than one million users globally. By helping sales professionals find their ideal buyers and intelligently automate outreach, Apollo helps go-to-market teams sell anything.\n\nCelebrating a $100M Series D Funding Round \ud83e\udd84"
                           },
                           "account_id": {
                             "type": "string",
@@ -7420,6 +7420,295 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "account": {
+                        "id": "66e9abf95ac32901b20d1a0d",
+                        "domain": "irishcopywriters.com",
+                        "name": "The Fast Irish Copywriters",
+                        "team_id": "6095a710bd01d100a506d4ac",
+                        "organization_id": null,
+                        "account_stage_id": "61b8e913e0f4d2012e3af74e",
+                        "source": "api",
+                        "original_source": "api",
+                        "creator_id": null,
+                        "owner_id": "66302798d03b9601c7934ebf",
+                        "created_at": "2024-09-17T16:19:05.663Z",
+                        "phone": "555-303-8080",
+                        "phone_status": "no_status",
+                        "hubspot_id": null,
+                        "salesforce_id": null,
+                        "crm_owner_id": null,
+                        "parent_account_id": null,
+                        "linkedin_url": null,
+                        "sanitized_phone": "+15553038080",
+                        "account_playbook_statuses": [],
+                        "account_rule_config_statuses": [],
+                        "existence_level": "full",
+                        "label_ids": [],
+                        "custom_field_errors": {},
+                        "modality": "account",
+                        "source_display_name": "Created from API",
+                        "crm_record_url": null,
+                        "intent_strength": null,
+                        "show_intent": false,
+                        "has_intent_signal_account": false,
+                        "intent_signal_account": null,
+                        "typed_custom_fields": {
+                          "60c39ed82bd02f01154c470a": "2025-08-07"
+                        }
+                      },
+                      "labels": []
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "account": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "example": "66e9abf95ac32901b20d1a0d"
+                        },
+                        "domain": {
+                          "type": "string",
+                          "example": "irishcopywriters.com"
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "The Fast Irish Copywriters"
+                        },
+                        "team_id": {
+                          "type": "string",
+                          "example": "6095a710bd01d100a506d4ac"
+                        },
+                        "organization_id": {},
+                        "account_stage_id": {
+                          "type": "string",
+                          "example": "61b8e913e0f4d2012e3af74e"
+                        },
+                        "source": {
+                          "type": "string",
+                          "example": "api"
+                        },
+                        "original_source": {
+                          "type": "string",
+                          "example": "api"
+                        },
+                        "creator_id": {},
+                        "owner_id": {
+                          "type": "string",
+                          "example": "66302798d03b9601c7934ebf"
+                        },
+                        "created_at": {
+                          "type": "string",
+                          "example": "2024-09-17T16:19:05.663Z"
+                        },
+                        "phone": {
+                          "type": "string",
+                          "example": "555-303-8080"
+                        },
+                        "phone_status": {
+                          "type": "string",
+                          "example": "no_status"
+                        },
+                        "hubspot_id": {},
+                        "salesforce_id": {},
+                        "crm_owner_id": {},
+                        "parent_account_id": {},
+                        "linkedin_url": {},
+                        "sanitized_phone": {
+                          "type": "string",
+                          "example": "+15553038080"
+                        },
+                        "account_playbook_statuses": {
+                          "type": "array"
+                        },
+                        "account_rule_config_statuses": {
+                          "type": "array"
+                        },
+                        "existence_level": {
+                          "type": "string",
+                          "example": "full"
+                        },
+                        "label_ids": {
+                          "type": "array"
+                        },
+                        "typed_custom_fields": {
+                          "type": "object",
+                          "properties": {}
+                        },
+                        "custom_field_errors": {
+                          "type": "object",
+                          "properties": {}
+                        },
+                        "modality": {
+                          "type": "string",
+                          "example": "account"
+                        },
+                        "source_display_name": {
+                          "type": "string",
+                          "example": "Created from API"
+                        },
+                        "crm_record_url": {},
+                        "intent_strength": {},
+                        "show_intent": {
+                          "type": "boolean",
+                          "example": false,
+                          "default": true
+                        },
+                        "has_intent_signal_account": {
+                          "type": "boolean",
+                          "example": false,
+                          "default": true
+                        },
+                        "intent_signal_account": {}
+                      }
+                    },
+                    "labels": {
+                      "type": "array"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "text/plain": {
+                "examples": {
+                  "Check API key": {
+                    "value": "Invalid access credentials."
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "403",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Need master API key": {
+                    "value": "{\n  \"error\": \"api/v1/accounts/update is not accessible with this api_key\",\n  \"error_code\": \"API_INACCESSIBLE\"\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "api/v1/accounts/update is not accessible with this api_key"
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "example": "API_INACCESSIBLE"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "422",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Check account ID": {
+                    "value": "{\n  \"error\": \"Parameters misconfigured. account_id is not a valid ID\"\n}"
+                  },
+                  "Check owner ID": {
+                    "value": "{\n  \"error\": \"Parameters misconfigured. 23423423 is not a valid ID\"\n}"
+                  },
+                  "Check account stage ID": {
+                    "value": "{\n  \"error\": \"Parameters misconfigured. 78977 is not a valid ID\"\n}"
+                  }
+                },
+                "schema": {
+                  "oneOf": [
+                    {
+                      "title": "Check account ID",
+                      "type": "object",
+                      "properties": {
+                        "error": {
+                          "type": "string",
+                          "example": "Parameters misconfigured. account_id is not a valid ID"
+                        }
+                      }
+                    },
+                    {
+                      "title": "Check owner ID",
+                      "type": "object",
+                      "properties": {
+                        "error": {
+                          "type": "string",
+                          "example": "Parameters misconfigured. 23423423 is not a valid ID"
+                        }
+                      }
+                    },
+                    {
+                      "title": "Check account stage ID",
+                      "type": "object",
+                      "properties": {
+                        "error": {
+                          "type": "string",
+                          "example": "Parameters misconfigured. 78977 is not a valid ID"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "429",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Too many requests": {
+                    "value": "{\n    \"message\": \"The maximum number of api calls allowed for api/v1/accounts/{account_id} is 600 times per hour. Please upgrade your plan from https://app.apollo.io/#/settings/plans/upgrade.\"\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "The maximum number of api calls allowed for api/v1/accounts/{account_id} is 600 times per hour. Please upgrade your plan from https://app.apollo.io/#/settings/plans/upgrade."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      },
+      "get": {
+        "summary": "View an Account",
+        "description": "Use the View an Account endpoint to retrieve complete details about an account in your team's Apollo account.",
+        "operationId": "view-an-account",
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The Apollo ID for the account that you want to retrieve. Call the Search for Accounts endpoint and identify the account `id` value.",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
         "responses": {
           "200": {
             "description": "200",
@@ -13032,7 +13321,7 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "summary": "Synchronous response for ≤100 contacts",
+                    "summary": "Synchronous response for \u2264100 contacts",
                     "value": "{\n  \"contacts\": [\n    {\n      \"id\": \"66e34b81740c50074e3d1bd4\",\n      \"first_name\": \"John\",\n      \"last_name\": \"Doe\",\n      \"email\": \"john.doe@example.com\",\n      \"title\": \"Senior Manager\",\n      \"organization_name\": \"Example Corp\",\n      \"owner_id\": \"66302798d03b9601c7934ebf\",\n      \"account_id\": \"63f53afe4ceeca00016bdd2f\",\n      \"present_raw_address\": \"San Francisco, CA\",\n      \"linkedin_url\": \"https://www.linkedin.com/in/johndoe\",\n      \"updated_at\": \"2024-09-12T10:30:00.000Z\"\n    }\n  ]\n}"
                   },
                   "Asynchronous-Update": {
@@ -15040,7 +15329,7 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"opportunity_stages\": [\n    {\n      \"id\": \"6095a710bd01d100a506d4bd\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Qualify\",\n      \"display_order\": 0,\n      \"forecast_category_cd\": \"Pipeline\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 10,\n      \"description\": \"Very first interaction with the AE on the account to determine their pain and fit for sales enablement in their business. This is the discovery phase where we ask questions to uncover need. This is more focused on their bsuiness and their workflow than our solution.\",\n      \"salesforce_id\": \"01Jbn00000QmeZmEAJ\",\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"654b989fcb2a5200010a90db\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"66bb94fbc1695c00017fba5f\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Meet & Present\",\n      \"display_order\": 1,\n      \"forecast_category_cd\": \"Pipeline\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 25,\n      \"description\": null,\n      \"salesforce_id\": \"01Jbn00000QmeZnEAJ\",\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": null,\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"66bb94fbc1695c00017fba60\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Propose\",\n      \"display_order\": 2,\n      \"forecast_category_cd\": \"Pipeline\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 50,\n      \"description\": null,\n      \"salesforce_id\": \"01Jbn00000QmeZoEAJ\",\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": null,\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"66bb94fbc1695c00017fba61\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Negotiate\",\n      \"display_order\": 3,\n      \"forecast_category_cd\": \"Pipeline\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 75,\n      \"description\": null,\n      \"salesforce_id\": \"01Jbn00000QmeZpEAJ\",\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": null,\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"660abf69d8358b01ae3c214e\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Won\",\n      \"display_order\": 4,\n      \"forecast_category_cd\": \"Closed\",\n      \"is_won\": true,\n      \"is_closed\": true,\n      \"probability\": 100,\n      \"description\": null,\n      \"salesforce_id\": \"01Jbn00000Qn3wrEAB\",\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6579e5ff75a5170001f03d38\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Won\"\n    },\n    {\n      \"id\": \"660abf69d8358b01ae3c214f\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Lost\",\n      \"display_order\": 5,\n      \"forecast_category_cd\": \"Omitted\",\n      \"is_won\": false,\n      \"is_closed\": true,\n      \"probability\": 0,\n      \"description\": null,\n      \"salesforce_id\": \"01Jbn00000Qn3wjEAB\",\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6579e5ff75a5170001f03d38\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Lost\"\n    },\n    {\n      \"id\": \"6153414bc0559d00016ce5fd\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Prospecting\",\n      \"display_order\": 6,\n      \"forecast_category_cd\": \"Closed\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 10,\n      \"description\": null,\n      \"salesforce_id\": \"01Jbn00000Qn3wiEAB\",\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"654b989fcb2a5200010a90db\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6153414bc0559d00016ce5fe\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Qualification\",\n      \"display_order\": 7,\n      \"forecast_category_cd\": \"Closed\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 10,\n      \"description\": null,\n      \"salesforce_id\": \"01Jbn00000Qn3wkEAB\",\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"654b989fcb2a5200010a90db\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6153414bc0559d00016ce602\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Needs Analysis\",\n      \"display_order\": 8,\n      \"forecast_category_cd\": \"Closed\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 20,\n      \"description\": null,\n      \"salesforce_id\": \"01Jbn00000Qn3wlEAB\",\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"654b989fcb2a5200010a90db\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6153414bc0559d00016ce600\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Value Proposition\",\n      \"display_order\": 9,\n      \"forecast_category_cd\": \"Closed\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 50,\n      \"description\": null,\n      \"salesforce_id\": \"01Jbn00000Qn3wmEAB\",\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"654b989fcb2a5200010a90db\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6153414bc0559d00016ce601\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Id. Decision Makers\",\n      \"display_order\": 10,\n      \"forecast_category_cd\": \"Closed\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 60,\n      \"description\": null,\n      \"salesforce_id\": \"01Jbn00000Qn3wnEAB\",\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"654b989fcb2a5200010a90db\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6153414bc0559d00016ce604\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Perception Analysis\",\n      \"display_order\": 11,\n      \"forecast_category_cd\": \"Closed\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 70,\n      \"description\": null,\n      \"salesforce_id\": \"01Jbn00000Qn3woEAB\",\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"654b989fcb2a5200010a90db\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6153414bc0559d00016ce5ff\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Proposal/Price Quote\",\n      \"display_order\": 12,\n      \"forecast_category_cd\": \"Closed\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 75,\n      \"description\": null,\n      \"salesforce_id\": \"01Jbn00000Qn3wpEAB\",\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"654b989fcb2a5200010a90db\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6153414bc0559d00016ce603\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Negotiation/Review\",\n      \"display_order\": 13,\n      \"forecast_category_cd\": \"Closed\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 90,\n      \"description\": null,\n      \"salesforce_id\": \"01Jbn00000Qn3wqEAB\",\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"654b989fcb2a5200010a90db\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"66a7e9f49e70bf03f06da684\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Appointment Scheduled\",\n      \"display_order\": 14,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 20,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66a7e9f49e70bf03f06da682\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"66a7e9f49e70bf03f06da685\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Qualified To Buy\",\n      \"display_order\": 15,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 40,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66a7e9f49e70bf03f06da682\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"66a7e9f49e70bf03f06da686\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Presentation Scheduled\",\n      \"display_order\": 16,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 60,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66a7e9f49e70bf03f06da682\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"66a7e9f49e70bf03f06da687\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Decision Maker Bought-In\",\n      \"display_order\": 17,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 80,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66a7e9f49e70bf03f06da682\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"66a7e9f49e70bf03f06da688\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Contract Sent\",\n      \"display_order\": 18,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 90,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66a7e9f49e70bf03f06da682\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"66a7e9f49e70bf03f06da689\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Won\",\n      \"display_order\": 19,\n      \"forecast_category_cd\": null,\n      \"is_won\": true,\n      \"is_closed\": true,\n      \"probability\": 100,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66a7e9f49e70bf03f06da682\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Won\"\n    },\n    {\n      \"id\": \"66a7e9f49e70bf03f06da68a\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Lost\",\n      \"display_order\": 20,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": true,\n      \"probability\": 0,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66a7e9f49e70bf03f06da682\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Lost\"\n    },\n    {\n      \"id\": \"6696b1d5159edf027a5d644e\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Initial outreach\",\n      \"display_order\": 21,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 10,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6696b1d5159edf027a5d644c\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6696b1d5159edf027a5d644f\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Needs assessment\",\n      \"display_order\": 22,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 30,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6696b1d5159edf027a5d644c\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6696b1d5159edf027a5d6450\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Solution proposal\",\n      \"display_order\": 23,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 40,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6696b1d5159edf027a5d644c\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6696b1d5159edf027a5d6451\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Solution presentation\",\n      \"display_order\": 24,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 60,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6696b1d5159edf027a5d644c\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6696b1d5159edf027a5d6452\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Objection handling\",\n      \"display_order\": 25,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 80,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6696b1d5159edf027a5d644c\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6696b1d5159edf027a5d6453\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Finalizing terms\",\n      \"display_order\": 26,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 90,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6696b1d5159edf027a5d644c\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6696b1d5159edf027a5d6454\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed won\",\n      \"display_order\": 27,\n      \"forecast_category_cd\": null,\n      \"is_won\": true,\n      \"is_closed\": true,\n      \"probability\": 100,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6696b1d5159edf027a5d644c\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Won\"\n    },\n    {\n      \"id\": \"6696b1d5159edf027a5d6455\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed lost\",\n      \"display_order\": 28,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": true,\n      \"probability\": 0,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6696b1d5159edf027a5d644c\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Lost\"\n    },\n    {\n      \"id\": \"668edd9c30f28303b85d6ccd\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Appointment Scheduled\",\n      \"display_order\": 29,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 20,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"668edd9c30f28303b85d6ccb\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"668edd9c30f28303b85d6cce\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Qualified To Buy\",\n      \"display_order\": 30,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 40,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"668edd9c30f28303b85d6ccb\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"668edd9c30f28303b85d6ccf\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Presentation Scheduled\",\n      \"display_order\": 31,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 60,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"668edd9c30f28303b85d6ccb\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"668edd9c30f28303b85d6cd0\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Decision Maker Bought-In\",\n      \"display_order\": 32,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 80,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"668edd9c30f28303b85d6ccb\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"668edd9c30f28303b85d6cd1\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Contract Sent\",\n      \"display_order\": 33,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 90,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"668edd9c30f28303b85d6ccb\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"668edd9c30f28303b85d6cd2\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Won\",\n      \"display_order\": 34,\n      \"forecast_category_cd\": null,\n      \"is_won\": true,\n      \"is_closed\": true,\n      \"probability\": 100,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"668edd9c30f28303b85d6ccb\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Won\"\n    },\n    {\n      \"id\": \"668edd9c30f28303b85d6cd3\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Lost\",\n      \"display_order\": 35,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": true,\n      \"probability\": 0,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"668edd9c30f28303b85d6ccb\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Lost\"\n    },\n    {\n      \"id\": \"66758ba7f51546038c4067e1\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Appointment Scheduled\",\n      \"display_order\": 36,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 20,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"66758ba7f51546038c4067e2\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Qualified To Buy\",\n      \"display_order\": 37,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 40,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"66758ba7f51546038c4067e3\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Presentation Scheduled\",\n      \"display_order\": 38,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 60,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"66758ba7f51546038c4067e4\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Decision Maker Bought-In\",\n      \"display_order\": 39,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 80,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"66758ba7f51546038c4067e5\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Contract Sent\",\n      \"display_order\": 40,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 90,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"66758ba7f51546038c4067e6\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Won\",\n      \"display_order\": 41,\n      \"forecast_category_cd\": null,\n      \"is_won\": true,\n      \"is_closed\": true,\n      \"probability\": 100,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Won\"\n    },\n    {\n      \"id\": \"66758ba7f51546038c4067e7\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Lost\",\n      \"display_order\": 42,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": true,\n      \"probability\": 0,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Lost\"\n    },\n    {\n      \"id\": \"666885736b643603a2ec5c99\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Appointment Scheduled\",\n      \"display_order\": 43,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 20,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6668ad252e6e0803a154baf3\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Lead\",\n      \"display_order\": 44,\n      \"forecast_category_cd\": \"Omitted\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 0,\n      \"description\": \"A potential prospect who could be interested and a good fit to partner with.\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6668ad252e6e0803a154baf1\",\n      \"is_editable\": true,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6668ad252e6e0803a154baf4\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Sales Qualified\",\n      \"display_order\": 45,\n      \"forecast_category_cd\": \"Pipeline\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 10,\n      \"description\": \"Determined that the prospect fits our ideal customer profile and to begin the sales process with.\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6668ad252e6e0803a154baf1\",\n      \"is_editable\": true,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"666885736b643603a2ec5c9a\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Qualified To Buy\",\n      \"display_order\": 46,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 40,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"666885736b643603a2ec5c9b\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Presentation Scheduled\",\n      \"display_order\": 47,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 60,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6668ad252e6e0803a154baf5\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Meeting Booked\",\n      \"display_order\": 48,\n      \"forecast_category_cd\": \"Pipeline\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 20,\n      \"description\": \"The initial meeting happened and it’s the discovery phase where we ask questions to uncover need. This is more focused on seeing if there is a mutual fit to partner and better understanding the prospect’s challenges.\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6668ad252e6e0803a154baf1\",\n      \"is_editable\": true,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"666885736b643603a2ec5c9c\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Decision Maker Bought-In\",\n      \"display_order\": 49,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 80,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6668ad252e6e0803a154baf6\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Negotiation\",\n      \"display_order\": 50,\n      \"forecast_category_cd\": \"Best Case\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 40,\n      \"description\": \"The prospect has narrowed their choices down to a few options (or chosen us). This is where we would get into a negotiation on closing the deal.\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6668ad252e6e0803a154baf1\",\n      \"is_editable\": true,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"666885736b643603a2ec5c9d\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Contract Sent\",\n      \"display_order\": 51,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 90,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6668ad252e6e0803a154baf7\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Contract Sent\",\n      \"display_order\": 52,\n      \"forecast_category_cd\": \"Best Case\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 70,\n      \"description\": \"User has delivered a proposal to the prospect with pricing as well as any required documentation that we need them to sign.\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6668ad252e6e0803a154baf1\",\n      \"is_editable\": true,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6668ad252e6e0803a154baf8\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Won\",\n      \"display_order\": 53,\n      \"forecast_category_cd\": \"Closed\",\n      \"is_won\": true,\n      \"is_closed\": true,\n      \"probability\": 100,\n      \"description\": \"Self-explanatory\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6668ad252e6e0803a154baf1\",\n      \"is_editable\": false,\n      \"type\": \"Closed/Won\"\n    },\n    {\n      \"id\": \"666885736b643603a2ec5c9e\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Won\",\n      \"display_order\": 54,\n      \"forecast_category_cd\": null,\n      \"is_won\": true,\n      \"is_closed\": true,\n      \"probability\": 100,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Won\"\n    },\n    {\n      \"id\": \"6668ad252e6e0803a154baf9\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Lost\",\n      \"display_order\": 55,\n      \"forecast_category_cd\": \"Closed\",\n      \"is_won\": false,\n      \"is_closed\": true,\n      \"probability\": 0,\n      \"description\": \"Self-explanatory\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6668ad252e6e0803a154baf1\",\n      \"is_editable\": false,\n      \"type\": \"Closed/Lost\"\n    },\n    {\n      \"id\": \"666885736b643603a2ec5c9f\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Lost\",\n      \"display_order\": 56,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": true,\n      \"probability\": 0,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Lost\"\n    },\n    {\n      \"id\": \"66607cea0b124603a2a7a598\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Appointment Scheduled\",\n      \"display_order\": 57,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 20,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6656268b92b588034a119415\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Appointment Scheduled\",\n      \"display_order\": 58,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 20,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6656268b92b588034a119413\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"66607cea0b124603a2a7a599\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Qualified To Buy\",\n      \"display_order\": 59,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 40,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6656268b92b588034a119416\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Qualified To Buy\",\n      \"display_order\": 60,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 40,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6656268b92b588034a119413\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"66607cea0b124603a2a7a59a\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Presentation Scheduled\",\n      \"display_order\": 61,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 60,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6656268b92b588034a119417\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Presentation Scheduled\",\n      \"display_order\": 62,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 60,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6656268b92b588034a119413\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6656268b92b588034a119418\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Decision Maker Bought-In\",\n      \"display_order\": 63,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 80,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6656268b92b588034a119413\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"66607cea0b124603a2a7a59b\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Decision Maker Bought-In\",\n      \"display_order\": 64,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 80,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6656268b92b588034a119419\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Contract Sent\",\n      \"display_order\": 65,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 90,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6656268b92b588034a119413\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"66607cea0b124603a2a7a59c\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Contract Sent\",\n      \"display_order\": 66,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 90,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"66607cea0b124603a2a7a59d\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Won\",\n      \"display_order\": 67,\n      \"forecast_category_cd\": null,\n      \"is_won\": true,\n      \"is_closed\": true,\n      \"probability\": 100,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Won\"\n    },\n    {\n      \"id\": \"660abf69d8358b01ae3c2149\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Appointment Scheduled\",\n      \"display_order\": 68,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 20,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6579e5ff75a5170001f03d38\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"660abf69d8358b01ae3c214a\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Qualified To Buy\",\n      \"display_order\": 69,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 40,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6579e5ff75a5170001f03d38\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6656268b92b588034a11941a\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Won\",\n      \"display_order\": 70,\n      \"forecast_category_cd\": null,\n      \"is_won\": true,\n      \"is_closed\": true,\n      \"probability\": 100,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6656268b92b588034a119413\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Won\"\n    },\n    {\n      \"id\": \"660abf69d8358b01ae3c214c\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Decision Maker Bought-In\",\n      \"display_order\": 71,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 80,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6579e5ff75a5170001f03d38\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6656268b92b588034a11941b\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Lost\",\n      \"display_order\": 72,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": true,\n      \"probability\": 0,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6656268b92b588034a119413\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Lost\"\n    },\n    {\n      \"id\": \"66607cea0b124603a2a7a59e\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Lost\",\n      \"display_order\": 73,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": true,\n      \"probability\": 0,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Lost\"\n    },\n    {\n      \"id\": \"660abf69d8358b01ae3c214b\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Presentation Scheduled\",\n      \"display_order\": 74,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 60,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6579e5ff75a5170001f03d38\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"660abf69d8358b01ae3c214d\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Contract Sent\",\n      \"display_order\": 75,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 90,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6579e5ff75a5170001f03d38\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"65f9dd436c96a4043b9858c3\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Lead\",\n      \"display_order\": 76,\n      \"forecast_category_cd\": \"Omitted\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 0,\n      \"description\": \"A potential prospect who could be interested and a good fit to partner with.\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"65f9dd436c96a4043b9858c1\",\n      \"is_editable\": true,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"65f9dd436c96a4043b9858c4\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Sales Qualified\",\n      \"display_order\": 77,\n      \"forecast_category_cd\": \"Pipeline\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 10,\n      \"description\": \"Determined that the prospect fits our ideal customer profile and to begin the sales process with.\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"65f9dd436c96a4043b9858c1\",\n      \"is_editable\": true,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6579e60075a5170001f03d6c\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Appointment Scheduled\",\n      \"display_order\": 78,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 20,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6579e5ff75a5170001f03d38\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6579e60075a5170001f03d6d\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Qualified To Buy\",\n      \"display_order\": 79,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 40,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6579e5ff75a5170001f03d38\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"65f9dd436c96a4043b9858c5\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Meeting Booked\",\n      \"display_order\": 80,\n      \"forecast_category_cd\": \"Pipeline\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 20,\n      \"description\": \"The initial meeting happened and it’s the discovery phase where we ask questions to uncover need. This is more focused on seeing if there is a mutual fit to partner and better understanding the prospect’s challenges.\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"65f9dd436c96a4043b9858c1\",\n      \"is_editable\": true,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"65f9dd436c96a4043b9858c6\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Negotiation\",\n      \"display_order\": 81,\n      \"forecast_category_cd\": \"Best Case\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 40,\n      \"description\": \"The prospect has narrowed their choices down to a few options (or chosen us). This is where we would get into a negotiation on closing the deal.\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"65f9dd436c96a4043b9858c1\",\n      \"is_editable\": true,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6579e60075a5170001f03d6e\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Presentation Scheduled\",\n      \"display_order\": 82,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 60,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6579e5ff75a5170001f03d38\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6579e60075a5170001f03d6f\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Decision Maker Bought-In\",\n      \"display_order\": 83,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 80,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6579e5ff75a5170001f03d38\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"65f9dd436c96a4043b9858c7\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Contract Sent\",\n      \"display_order\": 84,\n      \"forecast_category_cd\": \"Best Case\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 70,\n      \"description\": \"User has delivered a proposal to the prospect with pricing as well as any required documentation that we need them to sign.\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"65f9dd436c96a4043b9858c1\",\n      \"is_editable\": true,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6579e60075a5170001f03d70\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Contract Sent\",\n      \"display_order\": 85,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 90,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6579e5ff75a5170001f03d38\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"65f9dd436c96a4043b9858c8\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Won\",\n      \"display_order\": 86,\n      \"forecast_category_cd\": \"Closed\",\n      \"is_won\": true,\n      \"is_closed\": true,\n      \"probability\": 100,\n      \"description\": \"Self-explanatory\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"65f9dd436c96a4043b9858c1\",\n      \"is_editable\": false,\n      \"type\": \"Closed/Won\"\n    },\n    {\n      \"id\": \"6579e60075a5170001f03d71\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Won\",\n      \"display_order\": 87,\n      \"forecast_category_cd\": null,\n      \"is_won\": true,\n      \"is_closed\": true,\n      \"probability\": 100,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6579e5ff75a5170001f03d38\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Won\"\n    },\n    {\n      \"id\": \"65f9dd436c96a4043b9858c9\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Lost\",\n      \"display_order\": 88,\n      \"forecast_category_cd\": \"Closed\",\n      \"is_won\": false,\n      \"is_closed\": true,\n      \"probability\": 0,\n      \"description\": \"Self-explanatory\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"65f9dd436c96a4043b9858c1\",\n      \"is_editable\": false,\n      \"type\": \"Closed/Lost\"\n    },\n    {\n      \"id\": \"6579e60075a5170001f03d72\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Lost\",\n      \"display_order\": 89,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": true,\n      \"probability\": 0,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6579e5ff75a5170001f03d38\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Lost\"\n    },\n    {\n      \"id\": \"6095a710bd01d100a506d4c2\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Won\",\n      \"display_order\": 90,\n      \"forecast_category_cd\": \"Closed\",\n      \"is_won\": true,\n      \"is_closed\": true,\n      \"probability\": 100,\n      \"description\": \"Self-explanatory\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"654b989fcb2a5200010a90db\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Won\"\n    },\n    {\n      \"id\": \"6095a710bd01d100a506d4c3\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Lost\",\n      \"display_order\": 91,\n      \"forecast_category_cd\": \"Omitted\",\n      \"is_won\": false,\n      \"is_closed\": true,\n      \"probability\": 0,\n      \"description\": \"Self-explanatory\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"654b989fcb2a5200010a90db\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Lost\"\n    },\n    {\n      \"id\": \"6095a710bd01d100a506d4bc\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Omitted\",\n      \"display_order\": 92,\n      \"forecast_category_cd\": \"Omitted\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 0,\n      \"description\": \"Not a qualified opportunity to include in opportunity forecasting reports. This is a meeting to determine if there is an opportunity for us to engage in a sales cycle.\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"654b989fcb2a5200010a90db\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6095a710bd01d100a506d4be\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Educate\",\n      \"display_order\": 93,\n      \"forecast_category_cd\": \"Pipeline\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 20,\n      \"description\": \"This is where we start to inform/ educate the buyer(s) on what sales enablement can do for their business by asking leading questions to start quantifying the need into busness impact and quantify the amount of time and money they waste on their current proces This is where we take the info we gathered from the discovery call and craft a specific pitch and customized demo based on their workflow and use case.\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"654b989fcb2a5200010a90db\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6095a710bd01d100a506d4bf\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Validate\",\n      \"display_order\": 94,\n      \"forecast_category_cd\": \"Best Case\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 40,\n      \"description\": \"When the prospect has seen our demo and now goes through the process of owning how us would be used inside their organization. This is their internal validation process and should be an opportunity for us to help them justify from a business perspective with information we've gathered in the discovery phase how it would help them save money or make money.\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"654b989fcb2a5200010a90db\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6095a710bd01d100a506d4c0\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Proposal\",\n      \"display_order\": 95,\n      \"forecast_category_cd\": \"Best Case\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 70,\n      \"description\": \"The prospect has narrowed their choices down to a few options (or chosen us). This is where we would get into a negotiation on closing the deal. We will have delivered a proposal to them with pricing, users and start date as well as any required documentation that we need them to sign.\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"654b989fcb2a5200010a90db\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6095a710bd01d100a506d4c1\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Commit\",\n      \"display_order\": 96,\n      \"forecast_category_cd\": \"Committed\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 90,\n      \"description\": \"Self-explanatory\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"654b989fcb2a5200010a90db\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6668adfa2e6e0803a154bd77\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Contract sent\",\n      \"display_order\": 97,\n      \"forecast_category_cd\": \"Omitted\",\n      \"is_won\": true,\n      \"is_closed\": true,\n      \"probability\": 95,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6668ad252e6e0803a154baf1\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Won\"\n    }\n  ]\n}"
+                    "value": "{\n  \"opportunity_stages\": [\n    {\n      \"id\": \"6095a710bd01d100a506d4bd\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Qualify\",\n      \"display_order\": 0,\n      \"forecast_category_cd\": \"Pipeline\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 10,\n      \"description\": \"Very first interaction with the AE on the account to determine their pain and fit for sales enablement in their business. This is the discovery phase where we ask questions to uncover need. This is more focused on their bsuiness and their workflow than our solution.\",\n      \"salesforce_id\": \"01Jbn00000QmeZmEAJ\",\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"654b989fcb2a5200010a90db\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"66bb94fbc1695c00017fba5f\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Meet & Present\",\n      \"display_order\": 1,\n      \"forecast_category_cd\": \"Pipeline\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 25,\n      \"description\": null,\n      \"salesforce_id\": \"01Jbn00000QmeZnEAJ\",\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": null,\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"66bb94fbc1695c00017fba60\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Propose\",\n      \"display_order\": 2,\n      \"forecast_category_cd\": \"Pipeline\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 50,\n      \"description\": null,\n      \"salesforce_id\": \"01Jbn00000QmeZoEAJ\",\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": null,\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"66bb94fbc1695c00017fba61\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Negotiate\",\n      \"display_order\": 3,\n      \"forecast_category_cd\": \"Pipeline\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 75,\n      \"description\": null,\n      \"salesforce_id\": \"01Jbn00000QmeZpEAJ\",\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": null,\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"660abf69d8358b01ae3c214e\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Won\",\n      \"display_order\": 4,\n      \"forecast_category_cd\": \"Closed\",\n      \"is_won\": true,\n      \"is_closed\": true,\n      \"probability\": 100,\n      \"description\": null,\n      \"salesforce_id\": \"01Jbn00000Qn3wrEAB\",\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6579e5ff75a5170001f03d38\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Won\"\n    },\n    {\n      \"id\": \"660abf69d8358b01ae3c214f\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Lost\",\n      \"display_order\": 5,\n      \"forecast_category_cd\": \"Omitted\",\n      \"is_won\": false,\n      \"is_closed\": true,\n      \"probability\": 0,\n      \"description\": null,\n      \"salesforce_id\": \"01Jbn00000Qn3wjEAB\",\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6579e5ff75a5170001f03d38\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Lost\"\n    },\n    {\n      \"id\": \"6153414bc0559d00016ce5fd\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Prospecting\",\n      \"display_order\": 6,\n      \"forecast_category_cd\": \"Closed\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 10,\n      \"description\": null,\n      \"salesforce_id\": \"01Jbn00000Qn3wiEAB\",\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"654b989fcb2a5200010a90db\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6153414bc0559d00016ce5fe\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Qualification\",\n      \"display_order\": 7,\n      \"forecast_category_cd\": \"Closed\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 10,\n      \"description\": null,\n      \"salesforce_id\": \"01Jbn00000Qn3wkEAB\",\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"654b989fcb2a5200010a90db\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6153414bc0559d00016ce602\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Needs Analysis\",\n      \"display_order\": 8,\n      \"forecast_category_cd\": \"Closed\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 20,\n      \"description\": null,\n      \"salesforce_id\": \"01Jbn00000Qn3wlEAB\",\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"654b989fcb2a5200010a90db\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6153414bc0559d00016ce600\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Value Proposition\",\n      \"display_order\": 9,\n      \"forecast_category_cd\": \"Closed\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 50,\n      \"description\": null,\n      \"salesforce_id\": \"01Jbn00000Qn3wmEAB\",\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"654b989fcb2a5200010a90db\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6153414bc0559d00016ce601\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Id. Decision Makers\",\n      \"display_order\": 10,\n      \"forecast_category_cd\": \"Closed\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 60,\n      \"description\": null,\n      \"salesforce_id\": \"01Jbn00000Qn3wnEAB\",\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"654b989fcb2a5200010a90db\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6153414bc0559d00016ce604\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Perception Analysis\",\n      \"display_order\": 11,\n      \"forecast_category_cd\": \"Closed\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 70,\n      \"description\": null,\n      \"salesforce_id\": \"01Jbn00000Qn3woEAB\",\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"654b989fcb2a5200010a90db\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6153414bc0559d00016ce5ff\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Proposal/Price Quote\",\n      \"display_order\": 12,\n      \"forecast_category_cd\": \"Closed\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 75,\n      \"description\": null,\n      \"salesforce_id\": \"01Jbn00000Qn3wpEAB\",\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"654b989fcb2a5200010a90db\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6153414bc0559d00016ce603\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Negotiation/Review\",\n      \"display_order\": 13,\n      \"forecast_category_cd\": \"Closed\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 90,\n      \"description\": null,\n      \"salesforce_id\": \"01Jbn00000Qn3wqEAB\",\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"654b989fcb2a5200010a90db\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"66a7e9f49e70bf03f06da684\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Appointment Scheduled\",\n      \"display_order\": 14,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 20,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66a7e9f49e70bf03f06da682\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"66a7e9f49e70bf03f06da685\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Qualified To Buy\",\n      \"display_order\": 15,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 40,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66a7e9f49e70bf03f06da682\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"66a7e9f49e70bf03f06da686\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Presentation Scheduled\",\n      \"display_order\": 16,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 60,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66a7e9f49e70bf03f06da682\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"66a7e9f49e70bf03f06da687\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Decision Maker Bought-In\",\n      \"display_order\": 17,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 80,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66a7e9f49e70bf03f06da682\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"66a7e9f49e70bf03f06da688\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Contract Sent\",\n      \"display_order\": 18,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 90,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66a7e9f49e70bf03f06da682\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"66a7e9f49e70bf03f06da689\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Won\",\n      \"display_order\": 19,\n      \"forecast_category_cd\": null,\n      \"is_won\": true,\n      \"is_closed\": true,\n      \"probability\": 100,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66a7e9f49e70bf03f06da682\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Won\"\n    },\n    {\n      \"id\": \"66a7e9f49e70bf03f06da68a\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Lost\",\n      \"display_order\": 20,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": true,\n      \"probability\": 0,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66a7e9f49e70bf03f06da682\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Lost\"\n    },\n    {\n      \"id\": \"6696b1d5159edf027a5d644e\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Initial outreach\",\n      \"display_order\": 21,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 10,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6696b1d5159edf027a5d644c\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6696b1d5159edf027a5d644f\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Needs assessment\",\n      \"display_order\": 22,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 30,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6696b1d5159edf027a5d644c\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6696b1d5159edf027a5d6450\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Solution proposal\",\n      \"display_order\": 23,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 40,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6696b1d5159edf027a5d644c\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6696b1d5159edf027a5d6451\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Solution presentation\",\n      \"display_order\": 24,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 60,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6696b1d5159edf027a5d644c\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6696b1d5159edf027a5d6452\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Objection handling\",\n      \"display_order\": 25,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 80,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6696b1d5159edf027a5d644c\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6696b1d5159edf027a5d6453\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Finalizing terms\",\n      \"display_order\": 26,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 90,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6696b1d5159edf027a5d644c\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6696b1d5159edf027a5d6454\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed won\",\n      \"display_order\": 27,\n      \"forecast_category_cd\": null,\n      \"is_won\": true,\n      \"is_closed\": true,\n      \"probability\": 100,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6696b1d5159edf027a5d644c\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Won\"\n    },\n    {\n      \"id\": \"6696b1d5159edf027a5d6455\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed lost\",\n      \"display_order\": 28,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": true,\n      \"probability\": 0,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6696b1d5159edf027a5d644c\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Lost\"\n    },\n    {\n      \"id\": \"668edd9c30f28303b85d6ccd\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Appointment Scheduled\",\n      \"display_order\": 29,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 20,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"668edd9c30f28303b85d6ccb\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"668edd9c30f28303b85d6cce\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Qualified To Buy\",\n      \"display_order\": 30,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 40,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"668edd9c30f28303b85d6ccb\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"668edd9c30f28303b85d6ccf\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Presentation Scheduled\",\n      \"display_order\": 31,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 60,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"668edd9c30f28303b85d6ccb\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"668edd9c30f28303b85d6cd0\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Decision Maker Bought-In\",\n      \"display_order\": 32,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 80,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"668edd9c30f28303b85d6ccb\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"668edd9c30f28303b85d6cd1\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Contract Sent\",\n      \"display_order\": 33,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 90,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"668edd9c30f28303b85d6ccb\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"668edd9c30f28303b85d6cd2\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Won\",\n      \"display_order\": 34,\n      \"forecast_category_cd\": null,\n      \"is_won\": true,\n      \"is_closed\": true,\n      \"probability\": 100,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"668edd9c30f28303b85d6ccb\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Won\"\n    },\n    {\n      \"id\": \"668edd9c30f28303b85d6cd3\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Lost\",\n      \"display_order\": 35,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": true,\n      \"probability\": 0,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"668edd9c30f28303b85d6ccb\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Lost\"\n    },\n    {\n      \"id\": \"66758ba7f51546038c4067e1\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Appointment Scheduled\",\n      \"display_order\": 36,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 20,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"66758ba7f51546038c4067e2\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Qualified To Buy\",\n      \"display_order\": 37,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 40,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"66758ba7f51546038c4067e3\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Presentation Scheduled\",\n      \"display_order\": 38,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 60,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"66758ba7f51546038c4067e4\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Decision Maker Bought-In\",\n      \"display_order\": 39,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 80,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"66758ba7f51546038c4067e5\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Contract Sent\",\n      \"display_order\": 40,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 90,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"66758ba7f51546038c4067e6\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Won\",\n      \"display_order\": 41,\n      \"forecast_category_cd\": null,\n      \"is_won\": true,\n      \"is_closed\": true,\n      \"probability\": 100,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Won\"\n    },\n    {\n      \"id\": \"66758ba7f51546038c4067e7\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Lost\",\n      \"display_order\": 42,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": true,\n      \"probability\": 0,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Lost\"\n    },\n    {\n      \"id\": \"666885736b643603a2ec5c99\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Appointment Scheduled\",\n      \"display_order\": 43,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 20,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6668ad252e6e0803a154baf3\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Lead\",\n      \"display_order\": 44,\n      \"forecast_category_cd\": \"Omitted\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 0,\n      \"description\": \"A potential prospect who could be interested and a good fit to partner with.\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6668ad252e6e0803a154baf1\",\n      \"is_editable\": true,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6668ad252e6e0803a154baf4\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Sales Qualified\",\n      \"display_order\": 45,\n      \"forecast_category_cd\": \"Pipeline\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 10,\n      \"description\": \"Determined that the prospect fits our ideal customer profile and to begin the sales process with.\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6668ad252e6e0803a154baf1\",\n      \"is_editable\": true,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"666885736b643603a2ec5c9a\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Qualified To Buy\",\n      \"display_order\": 46,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 40,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"666885736b643603a2ec5c9b\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Presentation Scheduled\",\n      \"display_order\": 47,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 60,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6668ad252e6e0803a154baf5\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Meeting Booked\",\n      \"display_order\": 48,\n      \"forecast_category_cd\": \"Pipeline\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 20,\n      \"description\": \"The initial meeting happened and it\u2019s the discovery phase where we ask questions to uncover need. This is more focused on seeing if there is a mutual fit to partner and better understanding the prospect\u2019s challenges.\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6668ad252e6e0803a154baf1\",\n      \"is_editable\": true,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"666885736b643603a2ec5c9c\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Decision Maker Bought-In\",\n      \"display_order\": 49,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 80,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6668ad252e6e0803a154baf6\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Negotiation\",\n      \"display_order\": 50,\n      \"forecast_category_cd\": \"Best Case\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 40,\n      \"description\": \"The prospect has narrowed their choices down to a few options (or chosen us). This is where we would get into a negotiation on closing the deal.\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6668ad252e6e0803a154baf1\",\n      \"is_editable\": true,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"666885736b643603a2ec5c9d\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Contract Sent\",\n      \"display_order\": 51,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 90,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6668ad252e6e0803a154baf7\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Contract Sent\",\n      \"display_order\": 52,\n      \"forecast_category_cd\": \"Best Case\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 70,\n      \"description\": \"User has delivered a proposal to the prospect with pricing as well as any required documentation that we need them to sign.\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6668ad252e6e0803a154baf1\",\n      \"is_editable\": true,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6668ad252e6e0803a154baf8\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Won\",\n      \"display_order\": 53,\n      \"forecast_category_cd\": \"Closed\",\n      \"is_won\": true,\n      \"is_closed\": true,\n      \"probability\": 100,\n      \"description\": \"Self-explanatory\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6668ad252e6e0803a154baf1\",\n      \"is_editable\": false,\n      \"type\": \"Closed/Won\"\n    },\n    {\n      \"id\": \"666885736b643603a2ec5c9e\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Won\",\n      \"display_order\": 54,\n      \"forecast_category_cd\": null,\n      \"is_won\": true,\n      \"is_closed\": true,\n      \"probability\": 100,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Won\"\n    },\n    {\n      \"id\": \"6668ad252e6e0803a154baf9\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Lost\",\n      \"display_order\": 55,\n      \"forecast_category_cd\": \"Closed\",\n      \"is_won\": false,\n      \"is_closed\": true,\n      \"probability\": 0,\n      \"description\": \"Self-explanatory\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6668ad252e6e0803a154baf1\",\n      \"is_editable\": false,\n      \"type\": \"Closed/Lost\"\n    },\n    {\n      \"id\": \"666885736b643603a2ec5c9f\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Lost\",\n      \"display_order\": 56,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": true,\n      \"probability\": 0,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Lost\"\n    },\n    {\n      \"id\": \"66607cea0b124603a2a7a598\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Appointment Scheduled\",\n      \"display_order\": 57,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 20,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6656268b92b588034a119415\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Appointment Scheduled\",\n      \"display_order\": 58,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 20,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6656268b92b588034a119413\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"66607cea0b124603a2a7a599\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Qualified To Buy\",\n      \"display_order\": 59,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 40,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6656268b92b588034a119416\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Qualified To Buy\",\n      \"display_order\": 60,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 40,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6656268b92b588034a119413\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"66607cea0b124603a2a7a59a\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Presentation Scheduled\",\n      \"display_order\": 61,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 60,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6656268b92b588034a119417\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Presentation Scheduled\",\n      \"display_order\": 62,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 60,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6656268b92b588034a119413\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6656268b92b588034a119418\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Decision Maker Bought-In\",\n      \"display_order\": 63,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 80,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6656268b92b588034a119413\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"66607cea0b124603a2a7a59b\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Decision Maker Bought-In\",\n      \"display_order\": 64,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 80,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6656268b92b588034a119419\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Contract Sent\",\n      \"display_order\": 65,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 90,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6656268b92b588034a119413\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"66607cea0b124603a2a7a59c\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Contract Sent\",\n      \"display_order\": 66,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 90,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"66607cea0b124603a2a7a59d\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Won\",\n      \"display_order\": 67,\n      \"forecast_category_cd\": null,\n      \"is_won\": true,\n      \"is_closed\": true,\n      \"probability\": 100,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Won\"\n    },\n    {\n      \"id\": \"660abf69d8358b01ae3c2149\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Appointment Scheduled\",\n      \"display_order\": 68,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 20,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6579e5ff75a5170001f03d38\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"660abf69d8358b01ae3c214a\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Qualified To Buy\",\n      \"display_order\": 69,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 40,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6579e5ff75a5170001f03d38\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6656268b92b588034a11941a\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Won\",\n      \"display_order\": 70,\n      \"forecast_category_cd\": null,\n      \"is_won\": true,\n      \"is_closed\": true,\n      \"probability\": 100,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6656268b92b588034a119413\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Won\"\n    },\n    {\n      \"id\": \"660abf69d8358b01ae3c214c\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Decision Maker Bought-In\",\n      \"display_order\": 71,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 80,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6579e5ff75a5170001f03d38\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6656268b92b588034a11941b\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Lost\",\n      \"display_order\": 72,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": true,\n      \"probability\": 0,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6656268b92b588034a119413\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Lost\"\n    },\n    {\n      \"id\": \"66607cea0b124603a2a7a59e\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Lost\",\n      \"display_order\": 73,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": true,\n      \"probability\": 0,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"66607ce90b124603a2a7a596\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Lost\"\n    },\n    {\n      \"id\": \"660abf69d8358b01ae3c214b\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Presentation Scheduled\",\n      \"display_order\": 74,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 60,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6579e5ff75a5170001f03d38\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"660abf69d8358b01ae3c214d\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Contract Sent\",\n      \"display_order\": 75,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 90,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6579e5ff75a5170001f03d38\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"65f9dd436c96a4043b9858c3\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Lead\",\n      \"display_order\": 76,\n      \"forecast_category_cd\": \"Omitted\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 0,\n      \"description\": \"A potential prospect who could be interested and a good fit to partner with.\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"65f9dd436c96a4043b9858c1\",\n      \"is_editable\": true,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"65f9dd436c96a4043b9858c4\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Sales Qualified\",\n      \"display_order\": 77,\n      \"forecast_category_cd\": \"Pipeline\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 10,\n      \"description\": \"Determined that the prospect fits our ideal customer profile and to begin the sales process with.\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"65f9dd436c96a4043b9858c1\",\n      \"is_editable\": true,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6579e60075a5170001f03d6c\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Appointment Scheduled\",\n      \"display_order\": 78,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 20,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6579e5ff75a5170001f03d38\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6579e60075a5170001f03d6d\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Qualified To Buy\",\n      \"display_order\": 79,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 40,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6579e5ff75a5170001f03d38\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"65f9dd436c96a4043b9858c5\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Meeting Booked\",\n      \"display_order\": 80,\n      \"forecast_category_cd\": \"Pipeline\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 20,\n      \"description\": \"The initial meeting happened and it\u2019s the discovery phase where we ask questions to uncover need. This is more focused on seeing if there is a mutual fit to partner and better understanding the prospect\u2019s challenges.\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"65f9dd436c96a4043b9858c1\",\n      \"is_editable\": true,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"65f9dd436c96a4043b9858c6\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Negotiation\",\n      \"display_order\": 81,\n      \"forecast_category_cd\": \"Best Case\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 40,\n      \"description\": \"The prospect has narrowed their choices down to a few options (or chosen us). This is where we would get into a negotiation on closing the deal.\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"65f9dd436c96a4043b9858c1\",\n      \"is_editable\": true,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6579e60075a5170001f03d6e\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Presentation Scheduled\",\n      \"display_order\": 82,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 60,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6579e5ff75a5170001f03d38\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6579e60075a5170001f03d6f\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Decision Maker Bought-In\",\n      \"display_order\": 83,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 80,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6579e5ff75a5170001f03d38\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"65f9dd436c96a4043b9858c7\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Contract Sent\",\n      \"display_order\": 84,\n      \"forecast_category_cd\": \"Best Case\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 70,\n      \"description\": \"User has delivered a proposal to the prospect with pricing as well as any required documentation that we need them to sign.\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"65f9dd436c96a4043b9858c1\",\n      \"is_editable\": true,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6579e60075a5170001f03d70\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Contract Sent\",\n      \"display_order\": 85,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 90,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6579e5ff75a5170001f03d38\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"65f9dd436c96a4043b9858c8\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Won\",\n      \"display_order\": 86,\n      \"forecast_category_cd\": \"Closed\",\n      \"is_won\": true,\n      \"is_closed\": true,\n      \"probability\": 100,\n      \"description\": \"Self-explanatory\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"65f9dd436c96a4043b9858c1\",\n      \"is_editable\": false,\n      \"type\": \"Closed/Won\"\n    },\n    {\n      \"id\": \"6579e60075a5170001f03d71\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Won\",\n      \"display_order\": 87,\n      \"forecast_category_cd\": null,\n      \"is_won\": true,\n      \"is_closed\": true,\n      \"probability\": 100,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6579e5ff75a5170001f03d38\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Won\"\n    },\n    {\n      \"id\": \"65f9dd436c96a4043b9858c9\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Lost\",\n      \"display_order\": 88,\n      \"forecast_category_cd\": \"Closed\",\n      \"is_won\": false,\n      \"is_closed\": true,\n      \"probability\": 0,\n      \"description\": \"Self-explanatory\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"65f9dd436c96a4043b9858c1\",\n      \"is_editable\": false,\n      \"type\": \"Closed/Lost\"\n    },\n    {\n      \"id\": \"6579e60075a5170001f03d72\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Lost\",\n      \"display_order\": 89,\n      \"forecast_category_cd\": null,\n      \"is_won\": false,\n      \"is_closed\": true,\n      \"probability\": 0,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6579e5ff75a5170001f03d38\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Lost\"\n    },\n    {\n      \"id\": \"6095a710bd01d100a506d4c2\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Won\",\n      \"display_order\": 90,\n      \"forecast_category_cd\": \"Closed\",\n      \"is_won\": true,\n      \"is_closed\": true,\n      \"probability\": 100,\n      \"description\": \"Self-explanatory\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"654b989fcb2a5200010a90db\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Won\"\n    },\n    {\n      \"id\": \"6095a710bd01d100a506d4c3\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Closed Lost\",\n      \"display_order\": 91,\n      \"forecast_category_cd\": \"Omitted\",\n      \"is_won\": false,\n      \"is_closed\": true,\n      \"probability\": 0,\n      \"description\": \"Self-explanatory\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"654b989fcb2a5200010a90db\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Lost\"\n    },\n    {\n      \"id\": \"6095a710bd01d100a506d4bc\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Omitted\",\n      \"display_order\": 92,\n      \"forecast_category_cd\": \"Omitted\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 0,\n      \"description\": \"Not a qualified opportunity to include in opportunity forecasting reports. This is a meeting to determine if there is an opportunity for us to engage in a sales cycle.\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"654b989fcb2a5200010a90db\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6095a710bd01d100a506d4be\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Educate\",\n      \"display_order\": 93,\n      \"forecast_category_cd\": \"Pipeline\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 20,\n      \"description\": \"This is where we start to inform/ educate the buyer(s) on what sales enablement can do for their business by asking leading questions to start quantifying the need into busness impact and quantify the amount of time and money they waste on their current proces This is where we take the info we gathered from the discovery call and craft a specific pitch and customized demo based on their workflow and use case.\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"654b989fcb2a5200010a90db\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6095a710bd01d100a506d4bf\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Validate\",\n      \"display_order\": 94,\n      \"forecast_category_cd\": \"Best Case\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 40,\n      \"description\": \"When the prospect has seen our demo and now goes through the process of owning how us would be used inside their organization. This is their internal validation process and should be an opportunity for us to help them justify from a business perspective with information we've gathered in the discovery phase how it would help them save money or make money.\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"654b989fcb2a5200010a90db\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6095a710bd01d100a506d4c0\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Proposal\",\n      \"display_order\": 95,\n      \"forecast_category_cd\": \"Best Case\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 70,\n      \"description\": \"The prospect has narrowed their choices down to a few options (or chosen us). This is where we would get into a negotiation on closing the deal. We will have delivered a proposal to them with pricing, users and start date as well as any required documentation that we need them to sign.\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"654b989fcb2a5200010a90db\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6095a710bd01d100a506d4c1\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Commit\",\n      \"display_order\": 96,\n      \"forecast_category_cd\": \"Committed\",\n      \"is_won\": false,\n      \"is_closed\": false,\n      \"probability\": 90,\n      \"description\": \"Self-explanatory\",\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"654b989fcb2a5200010a90db\",\n      \"is_editable\": null,\n      \"type\": \"Open\"\n    },\n    {\n      \"id\": \"6668adfa2e6e0803a154bd77\",\n      \"team_id\": \"6095a710bd01d100a506d4ac\",\n      \"name\": \"Contract sent\",\n      \"display_order\": 97,\n      \"forecast_category_cd\": \"Omitted\",\n      \"is_won\": true,\n      \"is_closed\": true,\n      \"probability\": 95,\n      \"description\": null,\n      \"salesforce_id\": null,\n      \"is_meeting_set\": null,\n      \"opportunity_pipeline_id\": \"6668ad252e6e0803a154baf1\",\n      \"is_editable\": null,\n      \"type\": \"Closed/Won\"\n    }\n  ]\n}"
                   }
                 },
                 "schema": {
@@ -21892,7 +22181,7 @@
                           },
                           "context": {
                             "type": "string",
-                            "description": "High‑level context for the field (contact, account, opportunity, lead, custom_object)"
+                            "description": "High\u2011level context for the field (contact, account, opportunity, lead, custom_object)"
                           },
                           "type": {
                             "type": "string",
@@ -24058,7 +24347,7 @@
                           "url": "https://www.finsmes.com/2021/11/apollo-io-raises-32m-in-series-b-funding.html",
                           "domain": "finsmes.com",
                           "title": "Apollo.io Raises $32M in Series B Funding",
-                          "snippet": "In conjunction with the funding, Sri Pangulur, partner at Tribe Capital, joined Apollo.io’s board.",
+                          "snippet": "In conjunction with the funding, Sri Pangulur, partner at Tribe Capital, joined Apollo.io\u2019s board.",
                           "organization_ids": [
                             "5e66b6381e05b4008c8331b8"
                           ],
@@ -24085,7 +24374,7 @@
                           "id": "61fdec31979c2300a50b5619",
                           "url": "https://blog.apollo.io/blog/apollo-announces-appointment-of-santosh-sharan-as-president-and-coo",
                           "domain": "apollo.io",
-                          "title": "Apollo Announces Appointment of Santosh Sharan as President and COO — Apollo Blog",
+                          "title": "Apollo Announces Appointment of Santosh Sharan as President and COO \u2014 Apollo Blog",
                           "snippet": "SAN FRANCISCO, April 15, 2021 /PRNewswire/ -- Apollo, a leading data intelligence and sales engagement platform, announces that Santosh Sharan has joined the company as President and Chief Operating Officer (COO).",
                           "organization_ids": [
                             "5e66b6381e05b4008c8331b8"
@@ -24099,8 +24388,8 @@
                           "id": "61413082e89bde40f424c677",
                           "url": "https://nexusvp.com/press-releases/apollo-io-brings-on-clearslide-co-founder-jim-benton-as-ceo/",
                           "domain": "nexusvp.com",
-                          "title": "Apollo.io Brings on ClearSlide Co-Founder Jim Benton as CEO – Nexus Venture Partners",
-                          "snippet": "(BUSINESS WIRE)–Apollo.io, the most intelligent data-first engagement platform for sales and marketing teams, today announced that it has hired Jim Benton as CEO.",
+                          "title": "Apollo.io Brings on ClearSlide Co-Founder Jim Benton as CEO \u2013 Nexus Venture Partners",
+                          "snippet": "(BUSINESS WIRE)\u2013Apollo.io, the most intelligent data-first engagement platform for sales and marketing teams, today announced that it has hired Jim Benton as CEO.",
                           "organization_ids": [
                             "5e66b6381e05b4008c8331b8"
                           ],
@@ -25003,6 +25292,945 @@
                 "examples": {
                   "Check API key": {
                     "value": "Invalid access credentials."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/organizations/{organization_id}": {
+      "get": {
+        "summary": "Get Complete Organization Info",
+        "description": "Use the Get Complete Organization Info endpoint to retrieve complete details about an organization in Apollo.",
+        "operationId": "get-complete-organization-info",
+        "parameters": [
+          {
+            "name": "organization_id",
+            "in": "path",
+            "description": "The organization ID for the company that you want to retrieve. Call the Organization Search endpoint and identify the `organization_id` value.",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "organization": {
+                        "id": "5e66b6381e05b4008c8331b8",
+                        "name": "Apollo.io",
+                        "website_url": "http://www.apollo.io",
+                        "blog_url": null,
+                        "angellist_url": null,
+                        "linkedin_url": "http://www.linkedin.com/company/apolloio",
+                        "twitter_url": "https://twitter.com/meetapollo/",
+                        "facebook_url": "https://www.facebook.com/MeetApollo",
+                        "primary_phone": {},
+                        "languages": [],
+                        "alexa_ranking": 3514,
+                        "phone": null,
+                        "linkedin_uid": "18511550",
+                        "founded_year": 2015,
+                        "publicly_traded_symbol": null,
+                        "publicly_traded_exchange": null,
+                        "logo_url": "https://zenprospect-production.s3.amazonaws.com/uploads/pictures/66d13c8d98ec9600013525b8/picture",
+                        "crunchbase_url": null,
+                        "primary_domain": "apollo.io",
+                        "industry": "information technology & services",
+                        "keywords": [
+                          "sales engagement",
+                          "lead generation",
+                          "predictive analytics",
+                          "lead scoring",
+                          "sales strategy",
+                          "conversation intelligence",
+                          "sales enablement",
+                          "lead routing",
+                          "sales development",
+                          "email engagement",
+                          "revenue intelligence",
+                          "sales operations",
+                          "sales intelligence",
+                          "lead intelligence",
+                          "prospecting",
+                          "b2b data"
+                        ],
+                        "estimated_num_employees": 1600,
+                        "industries": [
+                          "information technology & services"
+                        ],
+                        "secondary_industries": [],
+                        "snippets_loaded": true,
+                        "industry_tag_id": "5567cd4773696439b10b0000",
+                        "industry_tag_hash": {
+                          "information technology & services": "5567cd4773696439b10b0000"
+                        },
+                        "retail_location_count": 0,
+                        "raw_address": "415 Mission St, Floor 37, San Francisco, California 94105, US",
+                        "street_address": "415 Mission St",
+                        "city": "San Francisco",
+                        "state": "California",
+                        "postal_code": "94105-2301",
+                        "country": "United States",
+                        "owned_by_organization_id": null,
+                        "seo_description": "Search, engage, and convert over 275 million contacts at over 73 million companies with Apollo's sales intelligence and engagement platform.",
+                        "short_description": "Apollo.io combines a buyer database of over 270M contacts and powerful sales engagement and automation tools in one, easy to use platform. Trusted by over 160,000 companies including Autodesk, Rippling, Deel, Jasper.ai, Divvy, and Heap, Apollo has more than one million users globally. By helping sales professionals find their ideal buyers and intelligently automate outreach, Apollo helps go-to-market teams sell anything.\n\nCelebrating a $100M Series D Funding Round \ud83e\udd84",
+                        "suborganizations": [],
+                        "num_suborganizations": 0,
+                        "annual_revenue_printed": "100M",
+                        "annual_revenue": 100000000,
+                        "total_funding": 251200000,
+                        "total_funding_printed": "251.2M",
+                        "latest_funding_round_date": "2023-08-01T00:00:00.000+00:00",
+                        "latest_funding_stage": "Series D",
+                        "funding_events": [
+                          {
+                            "id": "6574c1ff9b797d0001fdab1b",
+                            "date": "2023-08-01T00:00:00.000+00:00",
+                            "news_url": null,
+                            "type": "Series D",
+                            "investors": "Bain Capital Ventures, Sequoia Capital, Tribe Capital, Nexus Venture Partners",
+                            "amount": "100M",
+                            "currency": "$"
+                          },
+                          {
+                            "id": "624f4dfec786590001768016",
+                            "date": "2022-03-01T00:00:00.000+00:00",
+                            "news_url": null,
+                            "type": "Series C",
+                            "investors": "Sequoia Capital, Tribe Capital, Nexus Venture Partners, NewView Capital",
+                            "amount": "110M",
+                            "currency": "$"
+                          },
+                          {
+                            "id": "61b13677623110000186a478",
+                            "date": "2021-10-01T00:00:00.000+00:00",
+                            "news_url": null,
+                            "type": "Series B",
+                            "investors": "Tribe Capital, NewView Capital, Nexus Venture Partners",
+                            "amount": "32M",
+                            "currency": "$"
+                          },
+                          {
+                            "id": "5ffe93caa54d75077c59acef",
+                            "date": "2018-06-26T00:00:00.000+00:00",
+                            "news_url": "https://techcrunch.com/2018/06/26/yc-grad-zenprospect-rebrands-as-apollo-lands-7-m-series-a/",
+                            "type": "Series A",
+                            "investors": "Nexus Venture Partners, Social Capital, Y Combinator",
+                            "amount": "7M",
+                            "currency": "$"
+                          },
+                          {
+                            "id": "6574c1ff9b797d0001fdab20",
+                            "date": "2016-10-01T00:00:00.000+00:00",
+                            "news_url": null,
+                            "type": "Other",
+                            "investors": "Y Combinator, SV Angel, Social Capital, Nexus Venture Partners",
+                            "amount": "2.2M",
+                            "currency": "$"
+                          }
+                        ],
+                        "technology_names": [
+                          "AI",
+                          "Android",
+                          "Basis",
+                          "Canva",
+                          "Circle",
+                          "CloudFlare Hosting",
+                          "Cloudflare DNS",
+                          "Drift",
+                          "Gmail",
+                          "Google Apps",
+                          "Google Tag Manager",
+                          "Google Workspace",
+                          "Gravity Forms",
+                          "Hubspot",
+                          "Intercom",
+                          "Mailchimp Mandrill",
+                          "Marketo",
+                          "Microsoft Office 365",
+                          "Mobile Friendly",
+                          "Python",
+                          "Rackspace MailGun",
+                          "Remote",
+                          "Render",
+                          "Reviews",
+                          "Salesforce",
+                          "Stripe",
+                          "Typekit",
+                          "WP Engine",
+                          "Wistia",
+                          "WordPress.org",
+                          "Yandex Metrica",
+                          "reCAPTCHA"
+                        ],
+                        "current_technologies": [
+                          {
+                            "uid": "ai",
+                            "name": "AI",
+                            "category": "Other"
+                          },
+                          {
+                            "uid": "android",
+                            "name": "Android",
+                            "category": "Frameworks and Programming Languages"
+                          },
+                          {
+                            "uid": "basis",
+                            "name": "Basis",
+                            "category": "Advertising Networks"
+                          },
+                          {
+                            "uid": "canva",
+                            "name": "Canva",
+                            "category": "Content Management Platform"
+                          },
+                          {
+                            "uid": "circle",
+                            "name": "Circle",
+                            "category": "Financial Software"
+                          },
+                          {
+                            "uid": "cloudflare_hosting",
+                            "name": "CloudFlare Hosting",
+                            "category": "Hosting"
+                          },
+                          {
+                            "uid": "cloudflare_dns",
+                            "name": "Cloudflare DNS",
+                            "category": "Domain Name Services"
+                          },
+                          {
+                            "uid": "drift",
+                            "name": "Drift",
+                            "category": "Widgets"
+                          },
+                          {
+                            "uid": "gmail",
+                            "name": "Gmail",
+                            "category": "Email Providers"
+                          },
+                          {
+                            "uid": "google_apps",
+                            "name": "Google Apps",
+                            "category": "Other"
+                          },
+                          {
+                            "uid": "google_tag_manager",
+                            "name": "Google Tag Manager",
+                            "category": "Tag Management"
+                          },
+                          {
+                            "uid": "google workspace",
+                            "name": "Google Workspace",
+                            "category": "Cloud Services"
+                          },
+                          {
+                            "uid": "gravity_forms",
+                            "name": "Gravity Forms",
+                            "category": "Hosted Forms"
+                          },
+                          {
+                            "uid": "hubspot",
+                            "name": "Hubspot",
+                            "category": "Marketing Automation"
+                          },
+                          {
+                            "uid": "intercom",
+                            "name": "Intercom",
+                            "category": "Support and Feedback"
+                          },
+                          {
+                            "uid": "mailchimp_mandrill",
+                            "name": "Mailchimp Mandrill",
+                            "category": "Email Delivery"
+                          },
+                          {
+                            "uid": "marketo",
+                            "name": "Marketo",
+                            "category": "Marketing Automation"
+                          },
+                          {
+                            "uid": "office_365",
+                            "name": "Microsoft Office 365",
+                            "category": "Other"
+                          },
+                          {
+                            "uid": "mobile_friendly",
+                            "name": "Mobile Friendly",
+                            "category": "Other"
+                          },
+                          {
+                            "uid": "python",
+                            "name": "Python",
+                            "category": "Frameworks and Programming Languages"
+                          },
+                          {
+                            "uid": "rackspace_mailgun",
+                            "name": "Rackspace MailGun",
+                            "category": "Email Delivery"
+                          },
+                          {
+                            "uid": "remote",
+                            "name": "Remote",
+                            "category": "Other"
+                          },
+                          {
+                            "uid": "render",
+                            "name": "Render",
+                            "category": "Other"
+                          },
+                          {
+                            "uid": "reviews",
+                            "name": "Reviews",
+                            "category": "Customer Reviews"
+                          },
+                          {
+                            "uid": "salesforce",
+                            "name": "Salesforce",
+                            "category": "Customer Relationship Management"
+                          },
+                          {
+                            "uid": "stripe",
+                            "name": "Stripe",
+                            "category": "Payments"
+                          },
+                          {
+                            "uid": "typekit",
+                            "name": "Typekit",
+                            "category": "Fonts"
+                          },
+                          {
+                            "uid": "wp_engine",
+                            "name": "WP Engine",
+                            "category": "CMS"
+                          },
+                          {
+                            "uid": "wistia",
+                            "name": "Wistia",
+                            "category": "Online Video Platforms"
+                          },
+                          {
+                            "uid": "wordpress_org",
+                            "name": "WordPress.org",
+                            "category": "CMS"
+                          },
+                          {
+                            "uid": "yandex_metrika",
+                            "name": "Yandex Metrica",
+                            "category": "Analytics and Tracking"
+                          },
+                          {
+                            "uid": "recaptcha",
+                            "name": "reCAPTCHA",
+                            "category": "Captcha"
+                          }
+                        ],
+                        "org_chart_root_people_ids": [
+                          "652fc57e2802bf00010c52f8"
+                        ],
+                        "org_chart_sector": "OrgChart::SectorHierarchy::Rules::IT",
+                        "org_chart_removed": false,
+                        "org_chart_show_department_filter": true,
+                        "account_id": "63f53afe4ceeca00016bdd37",
+                        "account": {
+                          "id": "63f53afe4ceeca00016bdd37",
+                          "domain": "apollo.io",
+                          "name": "Apollo",
+                          "team_id": "6095a710bd01d100a506d4ac",
+                          "organization_id": "5e66b6381e05b4008c8331b8",
+                          "account_stage_id": null,
+                          "source": "salesforce",
+                          "original_source": "salesforce",
+                          "creator_id": null,
+                          "owner_id": "60affe7d6e270a00f5db6fe4",
+                          "created_at": "2023-02-21T21:43:26.351Z",
+                          "phone": "+1(202) 374-1312",
+                          "phone_status": "no_status",
+                          "hubspot_id": null,
+                          "salesforce_id": null,
+                          "crm_owner_id": null,
+                          "parent_account_id": null,
+                          "linkedin_url": null,
+                          "sanitized_phone": "+12023741312",
+                          "account_playbook_statuses": [],
+                          "account_rule_config_statuses": [],
+                          "existence_level": "full",
+                          "label_ids": [
+                            "6504905b21ba8e00a334eb0f"
+                          ],
+                          "typed_custom_fields": {},
+                          "custom_field_errors": {},
+                          "modality": "account",
+                          "source_display_name": "Imported from Salesforce",
+                          "crm_record_url": null,
+                          "intent_strength": null,
+                          "show_intent": false,
+                          "has_intent_signal_account": false,
+                          "intent_signal_account": null
+                        },
+                        "departmental_head_count": {
+                          "engineering": 228,
+                          "operations": 28,
+                          "support": 30,
+                          "marketing": 36,
+                          "human_resources": 29,
+                          "sales": 177,
+                          "finance": 8,
+                          "consulting": 8,
+                          "legal": 5,
+                          "arts_and_design": 27,
+                          "accounting": 3,
+                          "business_development": 14,
+                          "information_technology": 8,
+                          "education": 6,
+                          "media_and_commmunication": 3,
+                          "product_management": 16,
+                          "entrepreneurship": 3,
+                          "data_science": 6,
+                          "administrative": 3
+                        }
+                      }
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "organization": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "example": "5e66b6381e05b4008c8331b8"
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Apollo.io"
+                        },
+                        "website_url": {
+                          "type": "string",
+                          "example": "http://www.apollo.io"
+                        },
+                        "blog_url": {},
+                        "angellist_url": {},
+                        "linkedin_url": {
+                          "type": "string",
+                          "example": "http://www.linkedin.com/company/apolloio"
+                        },
+                        "twitter_url": {
+                          "type": "string",
+                          "example": "https://twitter.com/meetapollo/"
+                        },
+                        "facebook_url": {
+                          "type": "string",
+                          "example": "https://www.facebook.com/MeetApollo"
+                        },
+                        "primary_phone": {
+                          "type": "object",
+                          "properties": {}
+                        },
+                        "languages": {
+                          "type": "array"
+                        },
+                        "alexa_ranking": {
+                          "type": "integer",
+                          "example": 3514,
+                          "default": 0
+                        },
+                        "phone": {},
+                        "linkedin_uid": {
+                          "type": "string",
+                          "example": "18511550"
+                        },
+                        "founded_year": {
+                          "type": "integer",
+                          "example": 2015,
+                          "default": 0
+                        },
+                        "publicly_traded_symbol": {},
+                        "publicly_traded_exchange": {},
+                        "logo_url": {
+                          "type": "string",
+                          "example": "https://zenprospect-production.s3.amazonaws.com/uploads/pictures/66d13c8d98ec9600013525b8/picture"
+                        },
+                        "crunchbase_url": {},
+                        "primary_domain": {
+                          "type": "string",
+                          "example": "apollo.io"
+                        },
+                        "industry": {
+                          "type": "string",
+                          "example": "information technology & services"
+                        },
+                        "keywords": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "sales engagement"
+                          }
+                        },
+                        "estimated_num_employees": {
+                          "type": "integer",
+                          "example": 1600,
+                          "default": 0
+                        },
+                        "industries": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "information technology & services"
+                          }
+                        },
+                        "secondary_industries": {
+                          "type": "array"
+                        },
+                        "snippets_loaded": {
+                          "type": "boolean",
+                          "example": true,
+                          "default": true
+                        },
+                        "industry_tag_id": {
+                          "type": "string",
+                          "example": "5567cd4773696439b10b0000"
+                        },
+                        "industry_tag_hash": {
+                          "type": "object",
+                          "properties": {
+                            "information technology & services": {
+                              "type": "string",
+                              "example": "5567cd4773696439b10b0000"
+                            }
+                          }
+                        },
+                        "retail_location_count": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "raw_address": {
+                          "type": "string",
+                          "example": "415 Mission St, Floor 37, San Francisco, California 94105, US"
+                        },
+                        "street_address": {
+                          "type": "string",
+                          "example": "415 Mission St"
+                        },
+                        "city": {
+                          "type": "string",
+                          "example": "San Francisco"
+                        },
+                        "state": {
+                          "type": "string",
+                          "example": "California"
+                        },
+                        "postal_code": {
+                          "type": "string",
+                          "example": "94105-2301"
+                        },
+                        "country": {
+                          "type": "string",
+                          "example": "United States"
+                        },
+                        "owned_by_organization_id": {},
+                        "seo_description": {
+                          "type": "string",
+                          "example": "Search, engage, and convert over 275 million contacts at over 73 million companies with Apollo's sales intelligence and engagement platform."
+                        },
+                        "short_description": {
+                          "type": "string",
+                          "example": "Apollo.io combines a buyer database of over 270M contacts and powerful sales engagement and automation tools in one, easy to use platform. Trusted by over 160,000 companies including Autodesk, Rippling, Deel, Jasper.ai, Divvy, and Heap, Apollo has more than one million users globally. By helping sales professionals find their ideal buyers and intelligently automate outreach, Apollo helps go-to-market teams sell anything.\n\nCelebrating a $100M Series D Funding Round \ud83e\udd84"
+                        },
+                        "suborganizations": {
+                          "type": "array"
+                        },
+                        "num_suborganizations": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "annual_revenue_printed": {
+                          "type": "string",
+                          "example": "100M"
+                        },
+                        "annual_revenue": {
+                          "type": "integer",
+                          "example": 100000000,
+                          "default": 0
+                        },
+                        "total_funding": {
+                          "type": "integer",
+                          "example": 251200000,
+                          "default": 0
+                        },
+                        "total_funding_printed": {
+                          "type": "string",
+                          "example": "251.2M"
+                        },
+                        "latest_funding_round_date": {
+                          "type": "string",
+                          "example": "2023-08-01T00:00:00.000+00:00"
+                        },
+                        "latest_funding_stage": {
+                          "type": "string",
+                          "example": "Series D"
+                        },
+                        "funding_events": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "example": "6574c1ff9b797d0001fdab1b"
+                              },
+                              "date": {
+                                "type": "string",
+                                "example": "2023-08-01T00:00:00.000+00:00"
+                              },
+                              "news_url": {},
+                              "type": {
+                                "type": "string",
+                                "example": "Series D"
+                              },
+                              "investors": {
+                                "type": "string",
+                                "example": "Bain Capital Ventures, Sequoia Capital, Tribe Capital, Nexus Venture Partners"
+                              },
+                              "amount": {
+                                "type": "string",
+                                "example": "100M"
+                              },
+                              "currency": {
+                                "type": "string",
+                                "example": "$"
+                              }
+                            }
+                          }
+                        },
+                        "technology_names": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "AI"
+                          }
+                        },
+                        "current_technologies": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "uid": {
+                                "type": "string",
+                                "example": "ai"
+                              },
+                              "name": {
+                                "type": "string",
+                                "example": "AI"
+                              },
+                              "category": {
+                                "type": "string",
+                                "example": "Other"
+                              }
+                            }
+                          }
+                        },
+                        "org_chart_root_people_ids": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "652fc57e2802bf00010c52f8"
+                          }
+                        },
+                        "org_chart_sector": {
+                          "type": "string",
+                          "example": "OrgChart::SectorHierarchy::Rules::IT"
+                        },
+                        "org_chart_removed": {
+                          "type": "boolean",
+                          "example": false,
+                          "default": true
+                        },
+                        "org_chart_show_department_filter": {
+                          "type": "boolean",
+                          "example": true,
+                          "default": true
+                        },
+                        "account_id": {
+                          "type": "string",
+                          "example": "63f53afe4ceeca00016bdd37"
+                        },
+                        "account": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "example": "63f53afe4ceeca00016bdd37"
+                            },
+                            "domain": {
+                              "type": "string",
+                              "example": "apollo.io"
+                            },
+                            "name": {
+                              "type": "string",
+                              "example": "Apollo"
+                            },
+                            "team_id": {
+                              "type": "string",
+                              "example": "6095a710bd01d100a506d4ac"
+                            },
+                            "organization_id": {
+                              "type": "string",
+                              "example": "5e66b6381e05b4008c8331b8"
+                            },
+                            "account_stage_id": {},
+                            "source": {
+                              "type": "string",
+                              "example": "salesforce"
+                            },
+                            "original_source": {
+                              "type": "string",
+                              "example": "salesforce"
+                            },
+                            "creator_id": {},
+                            "owner_id": {
+                              "type": "string",
+                              "example": "60affe7d6e270a00f5db6fe4"
+                            },
+                            "created_at": {
+                              "type": "string",
+                              "example": "2023-02-21T21:43:26.351Z"
+                            },
+                            "phone": {
+                              "type": "string",
+                              "example": "+1(202) 374-1312"
+                            },
+                            "phone_status": {
+                              "type": "string",
+                              "example": "no_status"
+                            },
+                            "hubspot_id": {},
+                            "salesforce_id": {},
+                            "crm_owner_id": {},
+                            "parent_account_id": {},
+                            "linkedin_url": {},
+                            "sanitized_phone": {
+                              "type": "string",
+                              "example": "+12023741312"
+                            },
+                            "account_playbook_statuses": {
+                              "type": "array"
+                            },
+                            "account_rule_config_statuses": {
+                              "type": "array"
+                            },
+                            "existence_level": {
+                              "type": "string",
+                              "example": "full"
+                            },
+                            "label_ids": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "example": "6504905b21ba8e00a334eb0f"
+                              }
+                            },
+                            "typed_custom_fields": {
+                              "type": "object",
+                              "properties": {}
+                            },
+                            "custom_field_errors": {
+                              "type": "object",
+                              "properties": {}
+                            },
+                            "modality": {
+                              "type": "string",
+                              "example": "account"
+                            },
+                            "source_display_name": {
+                              "type": "string",
+                              "example": "Imported from Salesforce"
+                            },
+                            "crm_record_url": {},
+                            "intent_strength": {},
+                            "show_intent": {
+                              "type": "boolean",
+                              "example": false,
+                              "default": true
+                            },
+                            "has_intent_signal_account": {
+                              "type": "boolean",
+                              "example": false,
+                              "default": true
+                            },
+                            "intent_signal_account": {}
+                          }
+                        },
+                        "departmental_head_count": {
+                          "type": "object",
+                          "properties": {
+                            "engineering": {
+                              "type": "integer",
+                              "example": 228,
+                              "default": 0
+                            },
+                            "operations": {
+                              "type": "integer",
+                              "example": 28,
+                              "default": 0
+                            },
+                            "support": {
+                              "type": "integer",
+                              "example": 30,
+                              "default": 0
+                            },
+                            "marketing": {
+                              "type": "integer",
+                              "example": 36,
+                              "default": 0
+                            },
+                            "human_resources": {
+                              "type": "integer",
+                              "example": 29,
+                              "default": 0
+                            },
+                            "sales": {
+                              "type": "integer",
+                              "example": 177,
+                              "default": 0
+                            },
+                            "finance": {
+                              "type": "integer",
+                              "example": 8,
+                              "default": 0
+                            },
+                            "consulting": {
+                              "type": "integer",
+                              "example": 8,
+                              "default": 0
+                            },
+                            "legal": {
+                              "type": "integer",
+                              "example": 5,
+                              "default": 0
+                            },
+                            "arts_and_design": {
+                              "type": "integer",
+                              "example": 27,
+                              "default": 0
+                            },
+                            "accounting": {
+                              "type": "integer",
+                              "example": 3,
+                              "default": 0
+                            },
+                            "business_development": {
+                              "type": "integer",
+                              "example": 14,
+                              "default": 0
+                            },
+                            "information_technology": {
+                              "type": "integer",
+                              "example": 8,
+                              "default": 0
+                            },
+                            "education": {
+                              "type": "integer",
+                              "example": 6,
+                              "default": 0
+                            },
+                            "media_and_commmunication": {
+                              "type": "integer",
+                              "example": 3,
+                              "default": 0
+                            },
+                            "product_management": {
+                              "type": "integer",
+                              "example": 16,
+                              "default": 0
+                            },
+                            "entrepreneurship": {
+                              "type": "integer",
+                              "example": 3,
+                              "default": 0
+                            },
+                            "data_science": {
+                              "type": "integer",
+                              "example": 6,
+                              "default": 0
+                            },
+                            "administrative": {
+                              "type": "integer",
+                              "example": 3,
+                              "default": 0
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "text/plain": {
+                "examples": {
+                  "Check API key": {
+                    "value": "Invalid access credentials."
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "422",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Add a company to enrich": {
+                    "value": "{\n  \"error\": \"Required parameter 'domain' missing\"\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Required parameter 'domain' missing"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "429",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Too many requests": {
+                    "value": "{\n    \"message\": \"The maximum number of api calls allowed for api/v1/organizations/enrich is 600 times per hour. Please upgrade your plan from https://app.apollo.io/#/settings/plans/upgrade.\"\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "The maximum number of api calls allowed for api/v1/organizations/enrich is 600 times per hour. Please upgrade your plan from https://app.apollo.io/#/settings/plans/upgrade."
+                    }
                   }
                 }
               }

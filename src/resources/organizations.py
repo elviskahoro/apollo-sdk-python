@@ -26,6 +26,7 @@ from .._response import (
 from .._base_client import make_request_options
 from ..types.organization_enrich_response import OrganizationEnrichResponse
 from ..types.organization_search_response import OrganizationSearchResponse
+from ..types.organization_retrieve_response import OrganizationRetrieveResponse
 from ..types.organization_bulk_enrich_response import OrganizationBulkEnrichResponse
 from ..types.organization_job_postings_response import OrganizationJobPostingsResponse
 
@@ -151,6 +152,42 @@ class OrganizationsResource(SyncAPIResource):
                 query=maybe_transform({"domain": domain}, organization_enrich_params.OrganizationEnrichParams),
             ),
             cast_to=OrganizationEnrichResponse,
+        )
+
+    def retrieve(
+        self,
+        organization_id: str,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> OrganizationRetrieveResponse:
+        """
+        Use the Get Complete Organization Info endpoint to retrieve complete details
+        about an organization in Apollo.
+
+        Args:
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not organization_id:
+            raise ValueError(
+                f"Expected a non-empty value for `organization_id` but received {organization_id!r}"
+            )
+        return self._get(
+            path_template("/organizations/{organization_id}", organization_id=organization_id),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=OrganizationRetrieveResponse,
         )
 
     def job_postings(
@@ -625,6 +662,42 @@ class AsyncOrganizationsResource(AsyncAPIResource):
             cast_to=OrganizationEnrichResponse,
         )
 
+    async def retrieve(
+        self,
+        organization_id: str,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> OrganizationRetrieveResponse:
+        """
+        Use the Get Complete Organization Info endpoint to retrieve complete details
+        about an organization in Apollo.
+
+        Args:
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not organization_id:
+            raise ValueError(
+                f"Expected a non-empty value for `organization_id` but received {organization_id!r}"
+            )
+        return await self._get(
+            path_template("/organizations/{organization_id}", organization_id=organization_id),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=OrganizationRetrieveResponse,
+        )
+
     async def job_postings(
         self,
         organization_id: str,
@@ -984,6 +1057,9 @@ class OrganizationsResourceWithRawResponse:
         self.enrich = to_raw_response_wrapper(
             organizations.enrich,
         )
+        self.retrieve = to_raw_response_wrapper(
+            organizations.retrieve,
+        )
         self.job_postings = to_raw_response_wrapper(
             organizations.job_postings,
         )
@@ -1001,6 +1077,9 @@ class AsyncOrganizationsResourceWithRawResponse:
         )
         self.enrich = async_to_raw_response_wrapper(
             organizations.enrich,
+        )
+        self.retrieve = async_to_raw_response_wrapper(
+            organizations.retrieve,
         )
         self.job_postings = async_to_raw_response_wrapper(
             organizations.job_postings,
@@ -1020,6 +1099,9 @@ class OrganizationsResourceWithStreamingResponse:
         self.enrich = to_streamed_response_wrapper(
             organizations.enrich,
         )
+        self.retrieve = to_streamed_response_wrapper(
+            organizations.retrieve,
+        )
         self.job_postings = to_streamed_response_wrapper(
             organizations.job_postings,
         )
@@ -1037,6 +1119,9 @@ class AsyncOrganizationsResourceWithStreamingResponse:
         )
         self.enrich = async_to_streamed_response_wrapper(
             organizations.enrich,
+        )
+        self.retrieve = async_to_streamed_response_wrapper(
+            organizations.retrieve,
         )
         self.job_postings = async_to_streamed_response_wrapper(
             organizations.job_postings,

@@ -44,6 +44,7 @@ resources:
   accounts:
     methods:
       create: post /accounts
+      retrieve: get /accounts/{account_id}
       update: patch /accounts/{account_id}
       search: post /accounts/search
       bulk_create: post /accounts/bulk_create
@@ -99,6 +100,7 @@ resources:
   organizations:
     methods:
       enrich: get /organizations/enrich
+      retrieve: get /organizations/{organization_id}
       bulk_enrich: post /organizations/bulk_enrich
       search: post /mixed_companies/search
       job_postings: get /organizations/{organization_id}/job_postings
@@ -151,7 +153,7 @@ client_settings:
       nullable: false
       auth:
         security_scheme: ApiKeyAuth
-      read_env: APOLLO_SDK_API_KEY
+      read_env: APOLLO_API_KEY
 
 # `readme` is used to configure the code snippets that will be rendered in the
 # README.md of various SDKs. In particular, you can change the `headline`

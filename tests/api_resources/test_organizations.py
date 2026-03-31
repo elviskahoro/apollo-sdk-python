@@ -11,6 +11,7 @@ from src import ApolloSDK, AsyncApolloSDK
 from src.types import (
     OrganizationEnrichResponse,
     OrganizationSearchResponse,
+    OrganizationRetrieveResponse,
     OrganizationBulkEnrichResponse,
     OrganizationJobPostingsResponse,
 )
@@ -84,6 +85,44 @@ class TestOrganizations:
             assert_matches_type(OrganizationEnrichResponse, organization, path=["response"])
 
         assert cast(Any, response.is_closed) is True
+
+    @parametrize
+    def test_method_retrieve(self, client: ApolloSDK) -> None:
+        organization = client.organizations.retrieve(
+            organization_id="organization_id",
+        )
+        assert_matches_type(OrganizationRetrieveResponse, organization, path=["response"])
+
+    @parametrize
+    def test_raw_response_retrieve(self, client: ApolloSDK) -> None:
+        response = client.organizations.with_raw_response.retrieve(
+            organization_id="organization_id",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        organization = response.parse()
+        assert_matches_type(OrganizationRetrieveResponse, organization, path=["response"])
+
+    @parametrize
+    def test_streaming_response_retrieve(self, client: ApolloSDK) -> None:
+        with client.organizations.with_streaming_response.retrieve(
+            organization_id="organization_id",
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            organization = response.parse()
+            assert_matches_type(OrganizationRetrieveResponse, organization, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
+    @parametrize
+    def test_path_params_retrieve(self, client: ApolloSDK) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `organization_id` but received ''"):
+            client.organizations.with_raw_response.retrieve(
+                organization_id="",
+            )
 
     @parametrize
     def test_method_job_postings(self, client: ApolloSDK) -> None:
@@ -254,6 +293,44 @@ class TestAsyncOrganizations:
             assert_matches_type(OrganizationEnrichResponse, organization, path=["response"])
 
         assert cast(Any, response.is_closed) is True
+
+    @parametrize
+    async def test_method_retrieve(self, async_client: AsyncApolloSDK) -> None:
+        organization = await async_client.organizations.retrieve(
+            organization_id="organization_id",
+        )
+        assert_matches_type(OrganizationRetrieveResponse, organization, path=["response"])
+
+    @parametrize
+    async def test_raw_response_retrieve(self, async_client: AsyncApolloSDK) -> None:
+        response = await async_client.organizations.with_raw_response.retrieve(
+            organization_id="organization_id",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        organization = await response.parse()
+        assert_matches_type(OrganizationRetrieveResponse, organization, path=["response"])
+
+    @parametrize
+    async def test_streaming_response_retrieve(self, async_client: AsyncApolloSDK) -> None:
+        async with async_client.organizations.with_streaming_response.retrieve(
+            organization_id="organization_id",
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            organization = await response.parse()
+            assert_matches_type(OrganizationRetrieveResponse, organization, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
+    @parametrize
+    async def test_path_params_retrieve(self, async_client: AsyncApolloSDK) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `organization_id` but received ''"):
+            await async_client.organizations.with_raw_response.retrieve(
+                organization_id="",
+            )
 
     @parametrize
     async def test_method_job_postings(self, async_client: AsyncApolloSDK) -> None:
