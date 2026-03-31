@@ -20783,7 +20783,14 @@
                           "example": "1"
                         },
                         "per_page": {
-                          "type": "string",
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "integer"
+                            }
+                          ],
                           "example": "3"
                         },
                         "total_entries": {

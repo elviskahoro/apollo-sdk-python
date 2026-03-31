@@ -1,6 +1,6 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from typing import List, Optional
+from typing import List, Optional, Union
 
 from pydantic import Field as FieldInfo
 
@@ -12,7 +12,7 @@ __all__ = ["UserSearchResponse", "Pagination", "User", "UserAssistantSetting"]
 class Pagination(BaseModel):
     page: Optional[str] = None
 
-    per_page: Optional[str] = None
+    per_page: Optional[Union[str, int]] = None
 
     total_entries: Optional[int] = None
 
