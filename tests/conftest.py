@@ -42,6 +42,13 @@ def pytest_collection_modifyitems(items: list[pytest.Function]) -> None:
         if is_dict(async_client_param) and async_client_param.get("http_client") == "aiohttp":
             item.add_marker(pytest.mark.skip(reason="aiohttp client is not compatible with respx_mock"))
 
+    # Mock-server integration tests are opt-in because CI does not boot Prism by default.
+    run_mock_tests = os.environ.get("RUN_MOCK_TESTS", "").lower() in {"1", "true", "yes"}
+    if not run_mock_tests:
+        for item in items:
+            if "tests/api_resources/test_people.py" in item.nodeid:
+                item.add_marker(pytest.mark.skip(reason="mock tests require RUN_MOCK_TESTS=1"))
+
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 

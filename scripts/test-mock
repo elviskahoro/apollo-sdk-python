@@ -41,4 +41,4 @@ if ! curl -s -o /dev/null "${TEST_API_BASE_URL}/people/match"; then
   exit 1
 fi
 
-TEST_API_BASE_URL="$TEST_API_BASE_URL" ./scripts/test "$@"
+RUN_MOCK_TESTS=1 TEST_API_BASE_URL="$TEST_API_BASE_URL" ./scripts/test "$@"
