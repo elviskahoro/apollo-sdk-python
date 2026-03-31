@@ -88,8 +88,16 @@ jobs:
         with:
           version: '0.10.2'
 
+      - name: Install Node.js (for Prism mock server)
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
       - name: Bootstrap
         run: ./scripts/bootstrap
 
       - name: Run tests
         run: ./scripts/test
+
+      - name: Run mock-server integration tests
+        run: ./scripts/test-mock tests/api_resources/test_people.py
