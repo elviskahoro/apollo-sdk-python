@@ -17,13 +17,11 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestPeople:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_enrichment(self, client: ApolloSDK) -> None:
         person = client.people.enrichment()
         assert_matches_type(PersonEnrichmentResponse, person, path=["response"])
 
-    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_enrichment_with_all_params(self, client: ApolloSDK) -> None:
         person = client.people.enrichment(
@@ -44,7 +42,6 @@ class TestPeople:
         )
         assert_matches_type(PersonEnrichmentResponse, person, path=["response"])
 
-    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_enrichment(self, client: ApolloSDK) -> None:
         response = client.people.with_raw_response.enrichment()
@@ -54,7 +51,6 @@ class TestPeople:
         person = response.parse()
         assert_matches_type(PersonEnrichmentResponse, person, path=["response"])
 
-    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_enrichment(self, client: ApolloSDK) -> None:
         with client.people.with_streaming_response.enrichment() as response:
@@ -72,13 +68,11 @@ class TestAsyncPeople:
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
 
-    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_enrichment(self, async_client: AsyncApolloSDK) -> None:
         person = await async_client.people.enrichment()
         assert_matches_type(PersonEnrichmentResponse, person, path=["response"])
 
-    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_enrichment_with_all_params(self, async_client: AsyncApolloSDK) -> None:
         person = await async_client.people.enrichment(
@@ -99,7 +93,6 @@ class TestAsyncPeople:
         )
         assert_matches_type(PersonEnrichmentResponse, person, path=["response"])
 
-    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_enrichment(self, async_client: AsyncApolloSDK) -> None:
         response = await async_client.people.with_raw_response.enrichment()
@@ -109,7 +102,6 @@ class TestAsyncPeople:
         person = await response.parse()
         assert_matches_type(PersonEnrichmentResponse, person, path=["response"])
 
-    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_enrichment(self, async_client: AsyncApolloSDK) -> None:
         async with async_client.people.with_streaming_response.enrichment() as response:

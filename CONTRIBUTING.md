@@ -89,6 +89,24 @@ $ pip install ./path-to-wheel-file.whl
 $ ./scripts/test
 ```
 
+### Mock-server tests
+
+The generated `tests/api_resources/test_people.py` tests call the Prism mock server at
+`http://127.0.0.1:4010` by default.
+
+Install all extras (including `aiohttp`) and run tests with the mock server:
+
+```sh
+$ uv sync --all-extras
+$ ./scripts/test-mock
+```
+
+If needed, override the base URL:
+
+```sh
+$ TEST_API_BASE_URL=http://127.0.0.1:4010 ./scripts/test
+```
+
 ## Running code generation
 
 ```sh

@@ -13,21 +13,35 @@ export DEFER_PYDANTIC_BUILD=false
 PY_VERSION_MIN=">=3.9.0"
 PY_VERSION_MAX=">=3.14.0"
 
+function has_working_uv() {
+    command -v uv >/dev/null 2>&1 && uv --version >/dev/null 2>&1
+}
+
 function run_tests() {
     echo "==> Running tests with Pydantic v2"
-    uv run --isolated --all-extras pytest "$@"
+    if has_working_uv; then
+        uv run --isolated --all-extras pytest "$@"
+    else
+        ./.venv/bin/python -m pytest "$@"
+    fi
 
     # Skip Pydantic v1 tests on latest Python (not supported)
-    if [[ "$UV_PYTHON" != "$PY_VERSION_MAX" ]]; then
+    if has_working_uv && [[ "$UV_PYTHON" != "$PY_VERSION_MAX" ]]; then
         echo "==> Running tests with Pydantic v1"
         uv run --isolated --all-extras --group=pydantic-v1 pytest "$@"
     fi
 }
 
 # If UV_PYTHON is already set in the environment, just run the command once
-if [[ -n "$UV_PYTHON" ]]; then
+if [[ -n "${UV_PYTHON:-}" ]]; then
   run_tests "$@"
 else
+  # If UV isn't available, run once with the current venv interpreter.
+  if ! has_working_uv; then
+    run_tests "$@"
+    exit 0
+  fi
+
   # If UV_PYTHON is not set, run the command for min and max versions
 
   echo "==> Running tests for Python $PY_VERSION_MIN"

@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+cd "$(dirname "$0")/.."
+
+SPEC_FILE="${MOCK_SPEC_FILE:-.stainless/openapi.json}"
+MOCK_HOST="${MOCK_HOST:-127.0.0.1}"
+MOCK_PORT="${MOCK_PORT:-4010}"
+
+if [[ ! -f "$SPEC_FILE" ]]; then
+  echo "OpenAPI spec not found: $SPEC_FILE" >&2
+  exit 1
+fi
+
+if command -v npx >/dev/null 2>&1; then
+  exec npx --yes @stoplight/prism-cli@5 mock -h "$MOCK_HOST" -p "$MOCK_PORT" "$SPEC_FILE"
+fi
+
+if command -v docker >/dev/null 2>&1; then
+  exec docker run --rm \
+    -p "$MOCK_PORT:$MOCK_PORT" \
+    -v "$PWD/$SPEC_FILE:/tmp/openapi.json:ro" \
+    stoplight/prism:5 \
+    mock -h 0.0.0.0 -p "$MOCK_PORT" /tmp/openapi.json
+fi
+
+echo "Neither npx nor docker is available. Install one to run Prism mock server." >&2
+exit 1
