@@ -30,7 +30,7 @@ targets:
 # `environments` are a map of the name of the environment (e.g. "sandbox",
 # "production") to the corresponding url to use.
 environments:
-  production: https://app.apollo.io
+  production: https://app.apollo.io/api/v1
 
 # `resources` define the structure and organization for your API, such as how
 # methods and models are grouped together and accessed. See the [configuration
@@ -150,7 +150,7 @@ client_settings:
       type: string
       nullable: false
       auth:
-        security_scheme: BearerAuth
+        security_scheme: ApiKeyAuth
       read_env: APOLLO_SDK_API_KEY
 
 # `readme` is used to configure the code snippets that will be rendered in the

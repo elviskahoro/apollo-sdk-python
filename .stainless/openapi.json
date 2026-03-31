@@ -3,7 +3,7 @@
   "info": {
     "title": "Apollo.io API",
     "version": "1.0.0",
-    "description": "Combined API specification for Apollo.io endpoints.\nAll endpoints are accessible via https://app.apollo.io with `/api/v1` path prefixes.\n\n## Important Notes\n1. Many parameters require prerequisite API calls to resolve their values\n2. Some filters use bootstrapped data loaded during application initialization\n3. All search endpoints support pagination and caching\n4. Most endpoints require authentication via Bearer token\n",
+    "description": "Combined API specification for Apollo.io endpoints.\nAll endpoints are accessible via https://app.apollo.io with `/api/v1` path prefixes.\n\n## Important Notes\n1. Many parameters require prerequisite API calls to resolve their values\n2. Some filters use bootstrapped data loaded during application initialization\n3. All search endpoints support pagination and caching\n4. Most endpoints require authentication via x-api-key header\n",
     "license": {
       "name": "Proprietary",
       "url": "https://www.apollo.io/terms-of-service"
@@ -11,13 +11,13 @@
   },
   "servers": [
     {
-      "url": "https://app.apollo.io",
+      "url": "https://app.apollo.io/api/v1",
       "description": "Apollo.io API server"
     }
   ],
   "security": [
     {
-      "BearerAuth": []
+      "ApiKeyAuth": []
     }
   ],
   "paths": {
@@ -25493,9 +25493,10 @@
       }
     },
     "securitySchemes": {
-      "BearerAuth": {
-        "type": "http",
-        "scheme": "bearer"
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-api-key"
       }
     }
   }
