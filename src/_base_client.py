@@ -653,6 +653,17 @@ class BaseClient(Generic[_HttpxClientT, _DefaultStreamT]):
         cast_to: type[ResponseT],
         response: httpx.Response,
     ) -> ResponseT:
+        # Prism can return example bodies as JSON-encoded strings.
+        # Decode once so model validation sees structured objects.
+        if isinstance(data, str) and cast_to not in (str, int, float, bool):
+            try:
+                decoded = json.loads(data)
+            except json.JSONDecodeError:
+                pass
+            else:
+                if isinstance(decoded, (dict, list)):
+                    data = decoded
+
         if data is None:
             return cast(ResponseT, None)
 

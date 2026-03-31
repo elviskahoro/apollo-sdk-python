@@ -100,9 +100,9 @@ class OrganizationsResource(SyncAPIResource):
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=maybe_transform(
-                    {"domains": domains}, organization_bulk_enrich_params.OrganizationBulkEnrichParams
-                ),
+                query={
+                    "domains%5B%5D": domains[0] if len(domains) == 1 else domains,
+                },
             ),
             cast_to=OrganizationBulkEnrichResponse,
         )
@@ -606,9 +606,9 @@ class AsyncOrganizationsResource(AsyncAPIResource):
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
-                    {"domains": domains}, organization_bulk_enrich_params.OrganizationBulkEnrichParams
-                ),
+                query={
+                    "domains%5B%5D": domains[0] if len(domains) == 1 else domains,
+                },
             ),
             cast_to=OrganizationBulkEnrichResponse,
         )

@@ -1,6 +1,6 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Union
 from datetime import datetime
 
 from .._models import BaseModel
@@ -25,7 +25,7 @@ class Field(BaseModel):
     url, email, phone, currency)
     """
 
-    context: Optional[str] = None
+    context: Optional[Union[str, List[str]]] = None
     """
     High‑level context for the field (contact, account, opportunity, lead,
     custom_object)
@@ -36,7 +36,7 @@ class Field(BaseModel):
     meta: Optional[Dict[str, object]] = None
     """Extended configuration for the field"""
 
-    project_workspace_id: Optional[str] = None
+    project_workspace_id: Optional[Union[str, List[str]]] = None
 
     source: Optional[str] = None
     """Field source (system, custom, crm_synced)"""

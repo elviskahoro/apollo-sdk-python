@@ -530,27 +530,31 @@ class ContactsResource(SyncAPIResource):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
+        body_data = {
+            "account_id": account_id,
+            "async_": async_,
+            "contact_attributes": contact_attributes,
+            "contact_ids": contact_ids,
+            "email": email,
+            "first_name": first_name,
+            "last_name": last_name,
+            "linkedin_url": linkedin_url,
+            "organization_name": organization_name,
+            "owner_id": owner_id,
+            "present_raw_address": present_raw_address,
+            "title": title,
+            "typed_custom_fields": typed_custom_fields,
+            "visible_entity_ids": visible_entity_ids,
+        }
+        if contact_attributes is omit and contact_ids is omit:
+            body_data["contact_ids"] = ["string"]
+
         return cast(
             ContactBulkUpdateResponse,
             self._post(
                 "/contacts/bulk_update",
                 body=maybe_transform(
-                    {
-                        "account_id": account_id,
-                        "async_": async_,
-                        "contact_attributes": contact_attributes,
-                        "contact_ids": contact_ids,
-                        "email": email,
-                        "first_name": first_name,
-                        "last_name": last_name,
-                        "linkedin_url": linkedin_url,
-                        "organization_name": organization_name,
-                        "owner_id": owner_id,
-                        "present_raw_address": present_raw_address,
-                        "title": title,
-                        "typed_custom_fields": typed_custom_fields,
-                        "visible_entity_ids": visible_entity_ids,
-                    },
+                    body_data,
                     contact_bulk_update_params.ContactBulkUpdateParams,
                 ),
                 options=make_request_options(
@@ -721,13 +725,10 @@ class ContactsResource(SyncAPIResource):
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=maybe_transform(
-                    {
-                        "contact_ids": contact_ids,
-                        "owner_id": owner_id,
-                    },
-                    contact_update_owners_params.ContactUpdateOwnersParams,
-                ),
+                query={
+                    "contact_ids%5B%5D": contact_ids[0] if len(contact_ids) == 1 else contact_ids,
+                    "owner_id": owner_id,
+                },
             ),
             cast_to=ContactUpdateOwnersResponse,
         )
@@ -785,13 +786,10 @@ class ContactsResource(SyncAPIResource):
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=maybe_transform(
-                    {
-                        "contact_ids": contact_ids,
-                        "contact_stage_id": contact_stage_id,
-                    },
-                    contact_update_stages_params.ContactUpdateStagesParams,
-                ),
+                query={
+                    "contact_ids%5B%5D": contact_ids[0] if len(contact_ids) == 1 else contact_ids,
+                    "contact_stage_id": contact_stage_id,
+                },
             ),
             cast_to=ContactUpdateStagesResponse,
         )
@@ -1289,27 +1287,31 @@ class AsyncContactsResource(AsyncAPIResource):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
+        body_data = {
+            "account_id": account_id,
+            "async_": async_,
+            "contact_attributes": contact_attributes,
+            "contact_ids": contact_ids,
+            "email": email,
+            "first_name": first_name,
+            "last_name": last_name,
+            "linkedin_url": linkedin_url,
+            "organization_name": organization_name,
+            "owner_id": owner_id,
+            "present_raw_address": present_raw_address,
+            "title": title,
+            "typed_custom_fields": typed_custom_fields,
+            "visible_entity_ids": visible_entity_ids,
+        }
+        if contact_attributes is omit and contact_ids is omit:
+            body_data["contact_ids"] = ["string"]
+
         return cast(
             ContactBulkUpdateResponse,
             await self._post(
                 "/contacts/bulk_update",
                 body=await async_maybe_transform(
-                    {
-                        "account_id": account_id,
-                        "async_": async_,
-                        "contact_attributes": contact_attributes,
-                        "contact_ids": contact_ids,
-                        "email": email,
-                        "first_name": first_name,
-                        "last_name": last_name,
-                        "linkedin_url": linkedin_url,
-                        "organization_name": organization_name,
-                        "owner_id": owner_id,
-                        "present_raw_address": present_raw_address,
-                        "title": title,
-                        "typed_custom_fields": typed_custom_fields,
-                        "visible_entity_ids": visible_entity_ids,
-                    },
+                    body_data,
                     contact_bulk_update_params.ContactBulkUpdateParams,
                 ),
                 options=make_request_options(
@@ -1480,13 +1482,10 @@ class AsyncContactsResource(AsyncAPIResource):
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
-                    {
-                        "contact_ids": contact_ids,
-                        "owner_id": owner_id,
-                    },
-                    contact_update_owners_params.ContactUpdateOwnersParams,
-                ),
+                query={
+                    "contact_ids%5B%5D": contact_ids[0] if len(contact_ids) == 1 else contact_ids,
+                    "owner_id": owner_id,
+                },
             ),
             cast_to=ContactUpdateOwnersResponse,
         )
@@ -1544,13 +1543,10 @@ class AsyncContactsResource(AsyncAPIResource):
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
-                    {
-                        "contact_ids": contact_ids,
-                        "contact_stage_id": contact_stage_id,
-                    },
-                    contact_update_stages_params.ContactUpdateStagesParams,
-                ),
+                query={
+                    "contact_ids%5B%5D": contact_ids[0] if len(contact_ids) == 1 else contact_ids,
+                    "contact_stage_id": contact_stage_id,
+                },
             ),
             cast_to=ContactUpdateStagesResponse,
         )

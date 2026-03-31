@@ -482,14 +482,13 @@ class EmailerCampaignsResource(SyncAPIResource):
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=maybe_transform(
-                    {
-                        "contact_ids": contact_ids,
-                        "emailer_campaign_ids": emailer_campaign_ids,
-                        "mode": mode,
-                    },
-                    emailer_campaign_update_contact_status_params.EmailerCampaignUpdateContactStatusParams,
-                ),
+                query={
+                    "contact_ids%5B%5D": contact_ids[0] if len(contact_ids) == 1 else contact_ids,
+                    "emailer_campaign_ids%5B%5D": emailer_campaign_ids[0]
+                    if len(emailer_campaign_ids) == 1
+                    else emailer_campaign_ids,
+                    "mode": mode,
+                },
             ),
             cast_to=EmailerCampaignUpdateContactStatusResponse,
         )
@@ -943,14 +942,13 @@ class AsyncEmailerCampaignsResource(AsyncAPIResource):
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
-                    {
-                        "contact_ids": contact_ids,
-                        "emailer_campaign_ids": emailer_campaign_ids,
-                        "mode": mode,
-                    },
-                    emailer_campaign_update_contact_status_params.EmailerCampaignUpdateContactStatusParams,
-                ),
+                query={
+                    "contact_ids%5B%5D": contact_ids[0] if len(contact_ids) == 1 else contact_ids,
+                    "emailer_campaign_ids%5B%5D": emailer_campaign_ids[0]
+                    if len(emailer_campaign_ids) == 1
+                    else emailer_campaign_ids,
+                    "mode": mode,
+                },
             ),
             cast_to=EmailerCampaignUpdateContactStatusResponse,
         )

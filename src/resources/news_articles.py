@@ -128,8 +128,10 @@ class NewsArticlesResource(SyncAPIResource):
                 timeout=timeout,
                 query=maybe_transform(
                     {
-                        "organization_ids": organization_ids,
-                        "categories": categories,
+                        "organization_ids%5B%5D": organization_ids[0]
+                        if len(organization_ids) == 1
+                        else organization_ids,
+                        "categories%5B%5D": categories,
                         "page": page,
                         "per_page": per_page,
                         "published_at_max": published_at_max,
@@ -247,8 +249,10 @@ class AsyncNewsArticlesResource(AsyncAPIResource):
                 timeout=timeout,
                 query=await async_maybe_transform(
                     {
-                        "organization_ids": organization_ids,
-                        "categories": categories,
+                        "organization_ids%5B%5D": organization_ids[0]
+                        if len(organization_ids) == 1
+                        else organization_ids,
+                        "categories%5B%5D": categories,
                         "page": page,
                         "per_page": per_page,
                         "published_at_max": published_at_max,

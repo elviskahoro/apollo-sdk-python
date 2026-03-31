@@ -690,13 +690,10 @@ class AccountsResource(SyncAPIResource):
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=maybe_transform(
-                    {
-                        "account_ids": account_ids,
-                        "owner_id": owner_id,
-                    },
-                    account_update_owners_params.AccountUpdateOwnersParams,
-                ),
+                query={
+                    "account_ids%5B%5D": account_ids[0] if len(account_ids) == 1 else account_ids,
+                    "owner_id": owner_id,
+                },
             ),
             cast_to=AccountUpdateOwnersResponse,
         )
@@ -1355,13 +1352,10 @@ class AsyncAccountsResource(AsyncAPIResource):
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
-                    {
-                        "account_ids": account_ids,
-                        "owner_id": owner_id,
-                    },
-                    account_update_owners_params.AccountUpdateOwnersParams,
-                ),
+                query={
+                    "account_ids%5B%5D": account_ids[0] if len(account_ids) == 1 else account_ids,
+                    "owner_id": owner_id,
+                },
             ),
             cast_to=AccountUpdateOwnersResponse,
         )

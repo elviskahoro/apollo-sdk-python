@@ -4,9 +4,7 @@ version = "0.0.1"
 description = "The official Python library for the apollo-sdk API"
 dynamic = ["readme"]
 license = "Apache-2.0"
-authors = [
-{ name = "Apollo SDK", email = "" },
-]
+authors = [{ name = "Apollo SDK", email = "" }]
 
 dependencies = [
   "httpx>=0.23.0, <1",
@@ -33,7 +31,7 @@ classifiers = [
   "Operating System :: POSIX :: Linux",
   "Operating System :: Microsoft :: Windows",
   "Topic :: Software Development :: Libraries :: Python Modules",
-  "License :: OSI Approved :: Apache Software License"
+  "License :: OSI Approved :: Apache Software License",
 ]
 
 [project.urls]
@@ -46,34 +44,27 @@ aiohttp = ["aiohttp", "httpx_aiohttp>=0.1.9"]
 [tool.uv]
 managed = true
 required-version = ">=0.9"
-conflicts = [
-    [
-      { group = "pydantic-v1" },
-      { group = "pydantic-v2" },
-    ],
-]
+conflicts = [[{ group = "pydantic-v1" }, { group = "pydantic-v2" }]]
 
 [dependency-groups]
 # version pins are in uv.lock
 dev = [
-    "pyright==1.1.399",
-    "mypy==1.17",
-    "respx",
-    "pytest",
-    "pytest-asyncio",
-    "ruff",
-    "time-machine",
-    "dirty-equals>=0.6.0",
-    "importlib-metadata>=6.7.0",
-    "rich>=13.7.1",
-    "pytest-xdist>=3.6.1",
+  "pyright==1.1.399",
+  "mypy==1.17",
+  "respx",
+  "pytest",
+  "pytest-asyncio",
+  "ruff",
+  "time-machine",
+  "dirty-equals>=0.6.0",
+  "importlib-metadata>=6.7.0",
+  "rich>=13.7.1",
+  "pytest-xdist>=3.6.1",
 ]
-pydantic-v1 = [
-    "pydantic>=1.9.0,<2",
-]
+pydantic-v1 = ["pydantic>=1.9.0,<2"]
 pydantic-v2 = [
-    "pydantic~=2.0 ; python_full_version < '3.14'",
-    "pydantic~=2.12 ; python_full_version >= '3.14'",
+  "pydantic~=2.0 ; python_full_version < '3.14'",
+  "pydantic~=2.12 ; python_full_version >= '3.14'",
 ]
 
 [build-system]
@@ -81,9 +72,7 @@ requires = ["hatchling==1.26.3", "hatch-fancy-pypi-readme"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build]
-include = [
-  "src/*"
-]
+include = ["src/*"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src"]
@@ -120,9 +109,7 @@ addopts = "--tb=short -n auto"
 xfail_strict = true
 asyncio_mode = "auto"
 asyncio_default_fixture_loop_scope = "session"
-filterwarnings = [
-  "error"
-]
+filterwarnings = ["error"]
 
 [tool.pyright]
 # this enables practically every flag given by pyright.
@@ -131,12 +118,7 @@ filterwarnings = [
 typeCheckingMode = "strict"
 pythonVersion = "3.9"
 
-exclude = [
-    "_dev",
-    ".venv",
-    ".nox",
-    ".git",
-]
+exclude = ["_dev", ".venv", ".nox", ".git"]
 
 reportImplicitOverride = true
 reportOverlappingOverload = false
