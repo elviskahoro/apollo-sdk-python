@@ -19,12 +19,12 @@ import pytest
 from respx import MockRouter
 from pydantic import ValidationError
 
-from apollo_sdk import ApolloSDK, AsyncApolloSDK, APIResponseValidationError
-from apollo_sdk._types import Omit
-from apollo_sdk._utils import asyncify
-from apollo_sdk._models import BaseModel, FinalRequestOptions
-from apollo_sdk._exceptions import APIStatusError, ApolloSDKError, APITimeoutError, APIResponseValidationError
-from apollo_sdk._base_client import (
+from src import ApolloSDK, AsyncApolloSDK, APIResponseValidationError
+from src._types import Omit
+from src._utils import asyncify
+from src._models import BaseModel, FinalRequestOptions
+from src._exceptions import APIStatusError, ApolloSDKError, APITimeoutError, APIResponseValidationError
+from src._base_client import (
     DEFAULT_TIMEOUT,
     HTTPX_DEFAULT_TIMEOUT,
     BaseClient,
@@ -286,10 +286,10 @@ class TestApolloSDK:
                         # to_raw_response_wrapper leaks through the @functools.wraps() decorator.
                         #
                         # removing the decorator fixes the leak for reasons we don't understand.
-                        "apollo_sdk/_legacy_response.py",
-                        "apollo_sdk/_response.py",
+                        "src/_legacy_response.py",
+                        "src/_response.py",
                         # pydantic.BaseModel.model_dump || pydantic.BaseModel.dict leak memory for some reason.
-                        "apollo_sdk/_compat.py",
+                        "src/_compat.py",
                         # Standard library leaks we don't care about.
                         "/logging/__init__.py",
                     ]
@@ -402,7 +402,7 @@ class TestApolloSDK:
     def test_validate_headers(self) -> None:
         client = ApolloSDK(base_url=base_url, api_key=api_key, _strict_response_validation=True)
         request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
-        assert request.headers.get("Authorization") == f"Bearer {api_key}"
+        assert request.headers.get("x-api-key") == api_key
 
         with pytest.raises(ApolloSDKError):
             with update_env(**{"APOLLO_SDK_API_KEY": Omit()}):
@@ -691,6 +691,12 @@ class TestApolloSDK:
             client = ApolloSDK(api_key=api_key, _strict_response_validation=True)
             assert client.base_url == "http://localhost:5000/from/env/"
 
+    def test_base_url_default(self) -> None:
+        with update_env(**{"APOLLO_SDK_BASE_URL": Omit()}):
+            client = ApolloSDK(api_key=api_key, _strict_response_validation=True)
+            assert client.base_url == "https://app.apollo.io/api/v1/"
+            client.close()
+
     @pytest.mark.parametrize(
         "client",
         [
@@ -848,7 +854,7 @@ class TestApolloSDK:
         calculated = client._calculate_retry_timeout(remaining_retries, options, headers)
         assert calculated == pytest.approx(timeout, 0.5 * 0.875)  # pyright: ignore[reportUnknownMemberType]
 
-    @mock.patch("apollo_sdk._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
+    @mock.patch("src._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
     def test_retrying_timeout_errors_doesnt_leak(self, respx_mock: MockRouter, client: ApolloSDK) -> None:
         respx_mock.post("/people/match").mock(side_effect=httpx.TimeoutException("Test timeout error"))
@@ -858,7 +864,7 @@ class TestApolloSDK:
 
         assert _get_open_connections(client) == 0
 
-    @mock.patch("apollo_sdk._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
+    @mock.patch("src._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
     def test_retrying_status_errors_doesnt_leak(self, respx_mock: MockRouter, client: ApolloSDK) -> None:
         respx_mock.post("/people/match").mock(return_value=httpx.Response(500))
@@ -868,7 +874,7 @@ class TestApolloSDK:
         assert _get_open_connections(client) == 0
 
     @pytest.mark.parametrize("failures_before_success", [0, 2, 4])
-    @mock.patch("apollo_sdk._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
+    @mock.patch("src._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
     @pytest.mark.parametrize("failure_mode", ["status", "exception"])
     def test_retries_taken(
@@ -899,7 +905,7 @@ class TestApolloSDK:
         assert int(response.http_request.headers.get("x-stainless-retry-count")) == failures_before_success
 
     @pytest.mark.parametrize("failures_before_success", [0, 2, 4])
-    @mock.patch("apollo_sdk._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
+    @mock.patch("src._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
     def test_omit_retry_count_header(
         self, client: ApolloSDK, failures_before_success: int, respx_mock: MockRouter
@@ -922,7 +928,7 @@ class TestApolloSDK:
         assert len(response.http_request.headers.get_list("x-stainless-retry-count")) == 0
 
     @pytest.mark.parametrize("failures_before_success", [0, 2, 4])
-    @mock.patch("apollo_sdk._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
+    @mock.patch("src._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
     def test_overwrite_retry_count_header(
         self, client: ApolloSDK, failures_before_success: int, respx_mock: MockRouter
@@ -1175,10 +1181,10 @@ class TestAsyncApolloSDK:
                         # to_raw_response_wrapper leaks through the @functools.wraps() decorator.
                         #
                         # removing the decorator fixes the leak for reasons we don't understand.
-                        "apollo_sdk/_legacy_response.py",
-                        "apollo_sdk/_response.py",
+                        "src/_legacy_response.py",
+                        "src/_response.py",
                         # pydantic.BaseModel.model_dump || pydantic.BaseModel.dict leak memory for some reason.
-                        "apollo_sdk/_compat.py",
+                        "src/_compat.py",
                         # Standard library leaks we don't care about.
                         "/logging/__init__.py",
                     ]
@@ -1293,7 +1299,7 @@ class TestAsyncApolloSDK:
     def test_validate_headers(self) -> None:
         client = AsyncApolloSDK(base_url=base_url, api_key=api_key, _strict_response_validation=True)
         request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
-        assert request.headers.get("Authorization") == f"Bearer {api_key}"
+        assert request.headers.get("x-api-key") == api_key
 
         with pytest.raises(ApolloSDKError):
             with update_env(**{"APOLLO_SDK_API_KEY": Omit()}):
@@ -1588,6 +1594,12 @@ class TestAsyncApolloSDK:
             client = AsyncApolloSDK(api_key=api_key, _strict_response_validation=True)
             assert client.base_url == "http://localhost:5000/from/env/"
 
+    async def test_base_url_default(self) -> None:
+        with update_env(**{"APOLLO_SDK_BASE_URL": Omit()}):
+            client = AsyncApolloSDK(api_key=api_key, _strict_response_validation=True)
+            assert client.base_url == "https://app.apollo.io/api/v1/"
+            await client.close()
+
     @pytest.mark.parametrize(
         "client",
         [
@@ -1754,7 +1766,7 @@ class TestAsyncApolloSDK:
         calculated = async_client._calculate_retry_timeout(remaining_retries, options, headers)
         assert calculated == pytest.approx(timeout, 0.5 * 0.875)  # pyright: ignore[reportUnknownMemberType]
 
-    @mock.patch("apollo_sdk._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
+    @mock.patch("src._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
     async def test_retrying_timeout_errors_doesnt_leak(
         self, respx_mock: MockRouter, async_client: AsyncApolloSDK
@@ -1766,7 +1778,7 @@ class TestAsyncApolloSDK:
 
         assert _get_open_connections(async_client) == 0
 
-    @mock.patch("apollo_sdk._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
+    @mock.patch("src._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
     async def test_retrying_status_errors_doesnt_leak(
         self, respx_mock: MockRouter, async_client: AsyncApolloSDK
@@ -1778,7 +1790,7 @@ class TestAsyncApolloSDK:
         assert _get_open_connections(async_client) == 0
 
     @pytest.mark.parametrize("failures_before_success", [0, 2, 4])
-    @mock.patch("apollo_sdk._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
+    @mock.patch("src._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
     @pytest.mark.parametrize("failure_mode", ["status", "exception"])
     async def test_retries_taken(
@@ -1809,7 +1821,7 @@ class TestAsyncApolloSDK:
         assert int(response.http_request.headers.get("x-stainless-retry-count")) == failures_before_success
 
     @pytest.mark.parametrize("failures_before_success", [0, 2, 4])
-    @mock.patch("apollo_sdk._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
+    @mock.patch("src._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
     async def test_omit_retry_count_header(
         self, async_client: AsyncApolloSDK, failures_before_success: int, respx_mock: MockRouter
@@ -1832,7 +1844,7 @@ class TestAsyncApolloSDK:
         assert len(response.http_request.headers.get_list("x-stainless-retry-count")) == 0
 
     @pytest.mark.parametrize("failures_before_success", [0, 2, 4])
-    @mock.patch("apollo_sdk._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
+    @mock.patch("src._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
     async def test_overwrite_retry_count_header(
         self, async_client: AsyncApolloSDK, failures_before_success: int, respx_mock: MockRouter

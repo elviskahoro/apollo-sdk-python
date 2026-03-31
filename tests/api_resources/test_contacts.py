@@ -7,9 +7,8 @@ from typing import Any, cast
 
 import pytest
 
-from apollo_sdk import ApolloSDK, AsyncApolloSDK
-from tests.utils import assert_matches_type
-from apollo_sdk.types import (
+from src import ApolloSDK, AsyncApolloSDK
+from src.types import (
     ContactCreateResponse,
     ContactSearchResponse,
     ContactUpdateResponse,
@@ -19,6 +18,7 @@ from apollo_sdk.types import (
     ContactUpdateOwnersResponse,
     ContactUpdateStagesResponse,
 )
+from tests.utils import assert_matches_type
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 

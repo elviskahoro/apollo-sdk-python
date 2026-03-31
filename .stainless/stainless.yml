@@ -22,7 +22,7 @@ targets:
     #
     # [docs]: https://www.stainless.com/docs/reference/editions
     edition: python.2025-11-20
-    package_name: apollo_sdk
+    package_name: src
     production_repo: null
     publish:
       pypi: false

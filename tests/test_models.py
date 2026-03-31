@@ -7,9 +7,9 @@ import pytest
 import pydantic
 from pydantic import Field
 
-from apollo_sdk._utils import PropertyInfo
-from apollo_sdk._compat import PYDANTIC_V1, parse_obj, model_dump, model_json
-from apollo_sdk._models import DISCRIMINATOR_CACHE, BaseModel, construct_type
+from src._utils import PropertyInfo
+from src._compat import PYDANTIC_V1, parse_obj, model_dump, model_json
+from src._models import DISCRIMINATOR_CACHE, BaseModel, construct_type
 
 
 class BasicModel(BaseModel):

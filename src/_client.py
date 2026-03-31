@@ -129,7 +129,7 @@ class ApolloSDK(SyncAPIClient):
         if base_url is None:
             base_url = os.environ.get("APOLLO_SDK_BASE_URL")
         if base_url is None:
-            base_url = f"https://app.apollo.io"
+            base_url = f"https://app.apollo.io/api/v1"
 
         super().__init__(
             version=__version__,
@@ -278,13 +278,13 @@ class ApolloSDK(SyncAPIClient):
     @override
     def _auth_headers(self, security: SecurityOptions) -> dict[str, str]:
         return {
-            **(self._bearer_auth if security.get("bearer_auth", False) else {}),
+            **(self._api_key_auth if security.get("api_key_auth", False) else {}),
         }
 
     @property
-    def _bearer_auth(self) -> dict[str, str]:
+    def _api_key_auth(self) -> dict[str, str]:
         api_key = self.api_key
-        return {"Authorization": f"Bearer {api_key}"}
+        return {"x-api-key": api_key}
 
     @property
     @override
@@ -422,7 +422,7 @@ class AsyncApolloSDK(AsyncAPIClient):
         if base_url is None:
             base_url = os.environ.get("APOLLO_SDK_BASE_URL")
         if base_url is None:
-            base_url = f"https://app.apollo.io"
+            base_url = f"https://app.apollo.io/api/v1"
 
         super().__init__(
             version=__version__,
@@ -571,13 +571,13 @@ class AsyncApolloSDK(AsyncAPIClient):
     @override
     def _auth_headers(self, security: SecurityOptions) -> dict[str, str]:
         return {
-            **(self._bearer_auth if security.get("bearer_auth", False) else {}),
+            **(self._api_key_auth if security.get("api_key_auth", False) else {}),
         }
 
     @property
-    def _bearer_auth(self) -> dict[str, str]:
+    def _api_key_auth(self) -> dict[str, str]:
         api_key = self.api_key
-        return {"Authorization": f"Bearer {api_key}"}
+        return {"x-api-key": api_key}
 
     @property
     @override

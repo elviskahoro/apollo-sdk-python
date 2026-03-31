@@ -7,8 +7,8 @@ from typing import Any, cast
 
 import pytest
 
-from apollo_sdk import ApolloSDK, AsyncApolloSDK
-from apollo_sdk._utils import parse_date
+from src import ApolloSDK, AsyncApolloSDK
+from src._utils import parse_date
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 

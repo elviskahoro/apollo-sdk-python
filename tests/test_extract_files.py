@@ -4,8 +4,8 @@ from typing import Sequence
 
 import pytest
 
-from apollo_sdk._types import FileTypes
-from apollo_sdk._utils import extract_files
+from src._types import FileTypes
+from src._utils import extract_files
 
 
 def test_removes_files_from_input() -> None:
