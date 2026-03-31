@@ -89,6 +89,14 @@ $ pip install ./path-to-wheel-file.whl
 $ ./scripts/test
 ```
 
+## Running code generation
+
+```sh
+$ ./scripts/codegen
+```
+
+This runs `stl lint` and then `stl preview --base HEAD` against the local `.stainless/workspace.json`.
+
 ## Linting and formatting
 
 This repository uses [ruff](https://github.com/astral-sh/ruff) and

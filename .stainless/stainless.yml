@@ -37,13 +37,18 @@ environments:
 # guide] for more information.
 #
 # [configuration guide]: https://www.stainless.com/docs/guides/configure#resources
+resources:
+  people:
+    methods:
+      enrichment: post /people/match
+
 settings:
   # All generated integration tests that hit the prism mock http server are marked
   # as skipped. Removing this setting or setting it to false enables tests, but
   # doing so may result in test failures due to bugs in the test server.
   #
   # [prism mock http server]: https://stoplight.io/open-source/prism
-  disable_mock_tests: true
+  disable_mock_tests: false
   license: Apache-2.0
 
 query_settings:

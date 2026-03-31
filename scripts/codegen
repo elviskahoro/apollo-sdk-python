@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if ! command -v stl >/dev/null 2>&1; then
+  echo "stl is required. Install with: brew install stainless-api/tap/stl" >&2
+  exit 1
+fi
+
+# Validate config/spec before opening preview mode.
+stl lint
+
+# Runs Stainless local iteration workflow against workspace files.
+# Additional args are passed through (e.g. --watch).
+exec stl preview --base HEAD "$@"
