@@ -32,8 +32,48 @@ from ._base_client import (
 )
 
 if TYPE_CHECKING:
-    from .resources import people
+    from .resources import (
+        notes,
+        tasks,
+        users,
+        fields,
+        labels,
+        people,
+        accounts,
+        contacts,
+        phone_calls,
+        usage_stats,
+        news_articles,
+        opportunities,
+        organizations,
+        account_stages,
+        contact_stages,
+        email_accounts,
+        emailer_messages,
+        emailer_campaigns,
+        opportunity_stages,
+        typed_custom_fields,
+    )
+    from .resources.notes import NotesResource, AsyncNotesResource
+    from .resources.tasks import TasksResource, AsyncTasksResource
+    from .resources.users import UsersResource, AsyncUsersResource
+    from .resources.fields import FieldsResource, AsyncFieldsResource
+    from .resources.labels import LabelsResource, AsyncLabelsResource
     from .resources.people import PeopleResource, AsyncPeopleResource
+    from .resources.accounts import AccountsResource, AsyncAccountsResource
+    from .resources.contacts import ContactsResource, AsyncContactsResource
+    from .resources.phone_calls import PhoneCallsResource, AsyncPhoneCallsResource
+    from .resources.usage_stats import UsageStatsResource, AsyncUsageStatsResource
+    from .resources.news_articles import NewsArticlesResource, AsyncNewsArticlesResource
+    from .resources.opportunities import OpportunitiesResource, AsyncOpportunitiesResource
+    from .resources.organizations import OrganizationsResource, AsyncOrganizationsResource
+    from .resources.account_stages import AccountStagesResource, AsyncAccountStagesResource
+    from .resources.contact_stages import ContactStagesResource, AsyncContactStagesResource
+    from .resources.email_accounts import EmailAccountsResource, AsyncEmailAccountsResource
+    from .resources.emailer_messages import EmailerMessagesResource, AsyncEmailerMessagesResource
+    from .resources.emailer_campaigns import EmailerCampaignsResource, AsyncEmailerCampaignsResource
+    from .resources.opportunity_stages import OpportunityStagesResource, AsyncOpportunityStagesResource
+    from .resources.typed_custom_fields import TypedCustomFieldsResource, AsyncTypedCustomFieldsResource
 
 __all__ = [
     "Timeout",
@@ -103,10 +143,124 @@ class ApolloSDK(SyncAPIClient):
         )
 
     @cached_property
+    def account_stages(self) -> AccountStagesResource:
+        from .resources.account_stages import AccountStagesResource
+
+        return AccountStagesResource(self)
+
+    @cached_property
+    def accounts(self) -> AccountsResource:
+        from .resources.accounts import AccountsResource
+
+        return AccountsResource(self)
+
+    @cached_property
+    def contact_stages(self) -> ContactStagesResource:
+        from .resources.contact_stages import ContactStagesResource
+
+        return ContactStagesResource(self)
+
+    @cached_property
+    def contacts(self) -> ContactsResource:
+        from .resources.contacts import ContactsResource
+
+        return ContactsResource(self)
+
+    @cached_property
+    def email_accounts(self) -> EmailAccountsResource:
+        from .resources.email_accounts import EmailAccountsResource
+
+        return EmailAccountsResource(self)
+
+    @cached_property
+    def emailer_campaigns(self) -> EmailerCampaignsResource:
+        from .resources.emailer_campaigns import EmailerCampaignsResource
+
+        return EmailerCampaignsResource(self)
+
+    @cached_property
+    def emailer_messages(self) -> EmailerMessagesResource:
+        from .resources.emailer_messages import EmailerMessagesResource
+
+        return EmailerMessagesResource(self)
+
+    @cached_property
+    def fields(self) -> FieldsResource:
+        from .resources.fields import FieldsResource
+
+        return FieldsResource(self)
+
+    @cached_property
+    def labels(self) -> LabelsResource:
+        from .resources.labels import LabelsResource
+
+        return LabelsResource(self)
+
+    @cached_property
+    def notes(self) -> NotesResource:
+        from .resources.notes import NotesResource
+
+        return NotesResource(self)
+
+    @cached_property
+    def opportunities(self) -> OpportunitiesResource:
+        from .resources.opportunities import OpportunitiesResource
+
+        return OpportunitiesResource(self)
+
+    @cached_property
+    def opportunity_stages(self) -> OpportunityStagesResource:
+        from .resources.opportunity_stages import OpportunityStagesResource
+
+        return OpportunityStagesResource(self)
+
+    @cached_property
+    def organizations(self) -> OrganizationsResource:
+        from .resources.organizations import OrganizationsResource
+
+        return OrganizationsResource(self)
+
+    @cached_property
     def people(self) -> PeopleResource:
         from .resources.people import PeopleResource
 
         return PeopleResource(self)
+
+    @cached_property
+    def phone_calls(self) -> PhoneCallsResource:
+        from .resources.phone_calls import PhoneCallsResource
+
+        return PhoneCallsResource(self)
+
+    @cached_property
+    def tasks(self) -> TasksResource:
+        from .resources.tasks import TasksResource
+
+        return TasksResource(self)
+
+    @cached_property
+    def typed_custom_fields(self) -> TypedCustomFieldsResource:
+        from .resources.typed_custom_fields import TypedCustomFieldsResource
+
+        return TypedCustomFieldsResource(self)
+
+    @cached_property
+    def usage_stats(self) -> UsageStatsResource:
+        from .resources.usage_stats import UsageStatsResource
+
+        return UsageStatsResource(self)
+
+    @cached_property
+    def users(self) -> UsersResource:
+        from .resources.users import UsersResource
+
+        return UsersResource(self)
+
+    @cached_property
+    def news_articles(self) -> NewsArticlesResource:
+        from .resources.news_articles import NewsArticlesResource
+
+        return NewsArticlesResource(self)
 
     @cached_property
     def with_raw_response(self) -> ApolloSDKWithRawResponse:
@@ -282,10 +436,124 @@ class AsyncApolloSDK(AsyncAPIClient):
         )
 
     @cached_property
+    def account_stages(self) -> AsyncAccountStagesResource:
+        from .resources.account_stages import AsyncAccountStagesResource
+
+        return AsyncAccountStagesResource(self)
+
+    @cached_property
+    def accounts(self) -> AsyncAccountsResource:
+        from .resources.accounts import AsyncAccountsResource
+
+        return AsyncAccountsResource(self)
+
+    @cached_property
+    def contact_stages(self) -> AsyncContactStagesResource:
+        from .resources.contact_stages import AsyncContactStagesResource
+
+        return AsyncContactStagesResource(self)
+
+    @cached_property
+    def contacts(self) -> AsyncContactsResource:
+        from .resources.contacts import AsyncContactsResource
+
+        return AsyncContactsResource(self)
+
+    @cached_property
+    def email_accounts(self) -> AsyncEmailAccountsResource:
+        from .resources.email_accounts import AsyncEmailAccountsResource
+
+        return AsyncEmailAccountsResource(self)
+
+    @cached_property
+    def emailer_campaigns(self) -> AsyncEmailerCampaignsResource:
+        from .resources.emailer_campaigns import AsyncEmailerCampaignsResource
+
+        return AsyncEmailerCampaignsResource(self)
+
+    @cached_property
+    def emailer_messages(self) -> AsyncEmailerMessagesResource:
+        from .resources.emailer_messages import AsyncEmailerMessagesResource
+
+        return AsyncEmailerMessagesResource(self)
+
+    @cached_property
+    def fields(self) -> AsyncFieldsResource:
+        from .resources.fields import AsyncFieldsResource
+
+        return AsyncFieldsResource(self)
+
+    @cached_property
+    def labels(self) -> AsyncLabelsResource:
+        from .resources.labels import AsyncLabelsResource
+
+        return AsyncLabelsResource(self)
+
+    @cached_property
+    def notes(self) -> AsyncNotesResource:
+        from .resources.notes import AsyncNotesResource
+
+        return AsyncNotesResource(self)
+
+    @cached_property
+    def opportunities(self) -> AsyncOpportunitiesResource:
+        from .resources.opportunities import AsyncOpportunitiesResource
+
+        return AsyncOpportunitiesResource(self)
+
+    @cached_property
+    def opportunity_stages(self) -> AsyncOpportunityStagesResource:
+        from .resources.opportunity_stages import AsyncOpportunityStagesResource
+
+        return AsyncOpportunityStagesResource(self)
+
+    @cached_property
+    def organizations(self) -> AsyncOrganizationsResource:
+        from .resources.organizations import AsyncOrganizationsResource
+
+        return AsyncOrganizationsResource(self)
+
+    @cached_property
     def people(self) -> AsyncPeopleResource:
         from .resources.people import AsyncPeopleResource
 
         return AsyncPeopleResource(self)
+
+    @cached_property
+    def phone_calls(self) -> AsyncPhoneCallsResource:
+        from .resources.phone_calls import AsyncPhoneCallsResource
+
+        return AsyncPhoneCallsResource(self)
+
+    @cached_property
+    def tasks(self) -> AsyncTasksResource:
+        from .resources.tasks import AsyncTasksResource
+
+        return AsyncTasksResource(self)
+
+    @cached_property
+    def typed_custom_fields(self) -> AsyncTypedCustomFieldsResource:
+        from .resources.typed_custom_fields import AsyncTypedCustomFieldsResource
+
+        return AsyncTypedCustomFieldsResource(self)
+
+    @cached_property
+    def usage_stats(self) -> AsyncUsageStatsResource:
+        from .resources.usage_stats import AsyncUsageStatsResource
+
+        return AsyncUsageStatsResource(self)
+
+    @cached_property
+    def users(self) -> AsyncUsersResource:
+        from .resources.users import AsyncUsersResource
+
+        return AsyncUsersResource(self)
+
+    @cached_property
+    def news_articles(self) -> AsyncNewsArticlesResource:
+        from .resources.news_articles import AsyncNewsArticlesResource
+
+        return AsyncNewsArticlesResource(self)
 
     @cached_property
     def with_raw_response(self) -> AsyncApolloSDKWithRawResponse:
@@ -412,10 +680,124 @@ class ApolloSDKWithRawResponse:
         self._client = client
 
     @cached_property
+    def account_stages(self) -> account_stages.AccountStagesResourceWithRawResponse:
+        from .resources.account_stages import AccountStagesResourceWithRawResponse
+
+        return AccountStagesResourceWithRawResponse(self._client.account_stages)
+
+    @cached_property
+    def accounts(self) -> accounts.AccountsResourceWithRawResponse:
+        from .resources.accounts import AccountsResourceWithRawResponse
+
+        return AccountsResourceWithRawResponse(self._client.accounts)
+
+    @cached_property
+    def contact_stages(self) -> contact_stages.ContactStagesResourceWithRawResponse:
+        from .resources.contact_stages import ContactStagesResourceWithRawResponse
+
+        return ContactStagesResourceWithRawResponse(self._client.contact_stages)
+
+    @cached_property
+    def contacts(self) -> contacts.ContactsResourceWithRawResponse:
+        from .resources.contacts import ContactsResourceWithRawResponse
+
+        return ContactsResourceWithRawResponse(self._client.contacts)
+
+    @cached_property
+    def email_accounts(self) -> email_accounts.EmailAccountsResourceWithRawResponse:
+        from .resources.email_accounts import EmailAccountsResourceWithRawResponse
+
+        return EmailAccountsResourceWithRawResponse(self._client.email_accounts)
+
+    @cached_property
+    def emailer_campaigns(self) -> emailer_campaigns.EmailerCampaignsResourceWithRawResponse:
+        from .resources.emailer_campaigns import EmailerCampaignsResourceWithRawResponse
+
+        return EmailerCampaignsResourceWithRawResponse(self._client.emailer_campaigns)
+
+    @cached_property
+    def emailer_messages(self) -> emailer_messages.EmailerMessagesResourceWithRawResponse:
+        from .resources.emailer_messages import EmailerMessagesResourceWithRawResponse
+
+        return EmailerMessagesResourceWithRawResponse(self._client.emailer_messages)
+
+    @cached_property
+    def fields(self) -> fields.FieldsResourceWithRawResponse:
+        from .resources.fields import FieldsResourceWithRawResponse
+
+        return FieldsResourceWithRawResponse(self._client.fields)
+
+    @cached_property
+    def labels(self) -> labels.LabelsResourceWithRawResponse:
+        from .resources.labels import LabelsResourceWithRawResponse
+
+        return LabelsResourceWithRawResponse(self._client.labels)
+
+    @cached_property
+    def notes(self) -> notes.NotesResourceWithRawResponse:
+        from .resources.notes import NotesResourceWithRawResponse
+
+        return NotesResourceWithRawResponse(self._client.notes)
+
+    @cached_property
+    def opportunities(self) -> opportunities.OpportunitiesResourceWithRawResponse:
+        from .resources.opportunities import OpportunitiesResourceWithRawResponse
+
+        return OpportunitiesResourceWithRawResponse(self._client.opportunities)
+
+    @cached_property
+    def opportunity_stages(self) -> opportunity_stages.OpportunityStagesResourceWithRawResponse:
+        from .resources.opportunity_stages import OpportunityStagesResourceWithRawResponse
+
+        return OpportunityStagesResourceWithRawResponse(self._client.opportunity_stages)
+
+    @cached_property
+    def organizations(self) -> organizations.OrganizationsResourceWithRawResponse:
+        from .resources.organizations import OrganizationsResourceWithRawResponse
+
+        return OrganizationsResourceWithRawResponse(self._client.organizations)
+
+    @cached_property
     def people(self) -> people.PeopleResourceWithRawResponse:
         from .resources.people import PeopleResourceWithRawResponse
 
         return PeopleResourceWithRawResponse(self._client.people)
+
+    @cached_property
+    def phone_calls(self) -> phone_calls.PhoneCallsResourceWithRawResponse:
+        from .resources.phone_calls import PhoneCallsResourceWithRawResponse
+
+        return PhoneCallsResourceWithRawResponse(self._client.phone_calls)
+
+    @cached_property
+    def tasks(self) -> tasks.TasksResourceWithRawResponse:
+        from .resources.tasks import TasksResourceWithRawResponse
+
+        return TasksResourceWithRawResponse(self._client.tasks)
+
+    @cached_property
+    def typed_custom_fields(self) -> typed_custom_fields.TypedCustomFieldsResourceWithRawResponse:
+        from .resources.typed_custom_fields import TypedCustomFieldsResourceWithRawResponse
+
+        return TypedCustomFieldsResourceWithRawResponse(self._client.typed_custom_fields)
+
+    @cached_property
+    def usage_stats(self) -> usage_stats.UsageStatsResourceWithRawResponse:
+        from .resources.usage_stats import UsageStatsResourceWithRawResponse
+
+        return UsageStatsResourceWithRawResponse(self._client.usage_stats)
+
+    @cached_property
+    def users(self) -> users.UsersResourceWithRawResponse:
+        from .resources.users import UsersResourceWithRawResponse
+
+        return UsersResourceWithRawResponse(self._client.users)
+
+    @cached_property
+    def news_articles(self) -> news_articles.NewsArticlesResourceWithRawResponse:
+        from .resources.news_articles import NewsArticlesResourceWithRawResponse
+
+        return NewsArticlesResourceWithRawResponse(self._client.news_articles)
 
 
 class AsyncApolloSDKWithRawResponse:
@@ -425,10 +807,124 @@ class AsyncApolloSDKWithRawResponse:
         self._client = client
 
     @cached_property
+    def account_stages(self) -> account_stages.AsyncAccountStagesResourceWithRawResponse:
+        from .resources.account_stages import AsyncAccountStagesResourceWithRawResponse
+
+        return AsyncAccountStagesResourceWithRawResponse(self._client.account_stages)
+
+    @cached_property
+    def accounts(self) -> accounts.AsyncAccountsResourceWithRawResponse:
+        from .resources.accounts import AsyncAccountsResourceWithRawResponse
+
+        return AsyncAccountsResourceWithRawResponse(self._client.accounts)
+
+    @cached_property
+    def contact_stages(self) -> contact_stages.AsyncContactStagesResourceWithRawResponse:
+        from .resources.contact_stages import AsyncContactStagesResourceWithRawResponse
+
+        return AsyncContactStagesResourceWithRawResponse(self._client.contact_stages)
+
+    @cached_property
+    def contacts(self) -> contacts.AsyncContactsResourceWithRawResponse:
+        from .resources.contacts import AsyncContactsResourceWithRawResponse
+
+        return AsyncContactsResourceWithRawResponse(self._client.contacts)
+
+    @cached_property
+    def email_accounts(self) -> email_accounts.AsyncEmailAccountsResourceWithRawResponse:
+        from .resources.email_accounts import AsyncEmailAccountsResourceWithRawResponse
+
+        return AsyncEmailAccountsResourceWithRawResponse(self._client.email_accounts)
+
+    @cached_property
+    def emailer_campaigns(self) -> emailer_campaigns.AsyncEmailerCampaignsResourceWithRawResponse:
+        from .resources.emailer_campaigns import AsyncEmailerCampaignsResourceWithRawResponse
+
+        return AsyncEmailerCampaignsResourceWithRawResponse(self._client.emailer_campaigns)
+
+    @cached_property
+    def emailer_messages(self) -> emailer_messages.AsyncEmailerMessagesResourceWithRawResponse:
+        from .resources.emailer_messages import AsyncEmailerMessagesResourceWithRawResponse
+
+        return AsyncEmailerMessagesResourceWithRawResponse(self._client.emailer_messages)
+
+    @cached_property
+    def fields(self) -> fields.AsyncFieldsResourceWithRawResponse:
+        from .resources.fields import AsyncFieldsResourceWithRawResponse
+
+        return AsyncFieldsResourceWithRawResponse(self._client.fields)
+
+    @cached_property
+    def labels(self) -> labels.AsyncLabelsResourceWithRawResponse:
+        from .resources.labels import AsyncLabelsResourceWithRawResponse
+
+        return AsyncLabelsResourceWithRawResponse(self._client.labels)
+
+    @cached_property
+    def notes(self) -> notes.AsyncNotesResourceWithRawResponse:
+        from .resources.notes import AsyncNotesResourceWithRawResponse
+
+        return AsyncNotesResourceWithRawResponse(self._client.notes)
+
+    @cached_property
+    def opportunities(self) -> opportunities.AsyncOpportunitiesResourceWithRawResponse:
+        from .resources.opportunities import AsyncOpportunitiesResourceWithRawResponse
+
+        return AsyncOpportunitiesResourceWithRawResponse(self._client.opportunities)
+
+    @cached_property
+    def opportunity_stages(self) -> opportunity_stages.AsyncOpportunityStagesResourceWithRawResponse:
+        from .resources.opportunity_stages import AsyncOpportunityStagesResourceWithRawResponse
+
+        return AsyncOpportunityStagesResourceWithRawResponse(self._client.opportunity_stages)
+
+    @cached_property
+    def organizations(self) -> organizations.AsyncOrganizationsResourceWithRawResponse:
+        from .resources.organizations import AsyncOrganizationsResourceWithRawResponse
+
+        return AsyncOrganizationsResourceWithRawResponse(self._client.organizations)
+
+    @cached_property
     def people(self) -> people.AsyncPeopleResourceWithRawResponse:
         from .resources.people import AsyncPeopleResourceWithRawResponse
 
         return AsyncPeopleResourceWithRawResponse(self._client.people)
+
+    @cached_property
+    def phone_calls(self) -> phone_calls.AsyncPhoneCallsResourceWithRawResponse:
+        from .resources.phone_calls import AsyncPhoneCallsResourceWithRawResponse
+
+        return AsyncPhoneCallsResourceWithRawResponse(self._client.phone_calls)
+
+    @cached_property
+    def tasks(self) -> tasks.AsyncTasksResourceWithRawResponse:
+        from .resources.tasks import AsyncTasksResourceWithRawResponse
+
+        return AsyncTasksResourceWithRawResponse(self._client.tasks)
+
+    @cached_property
+    def typed_custom_fields(self) -> typed_custom_fields.AsyncTypedCustomFieldsResourceWithRawResponse:
+        from .resources.typed_custom_fields import AsyncTypedCustomFieldsResourceWithRawResponse
+
+        return AsyncTypedCustomFieldsResourceWithRawResponse(self._client.typed_custom_fields)
+
+    @cached_property
+    def usage_stats(self) -> usage_stats.AsyncUsageStatsResourceWithRawResponse:
+        from .resources.usage_stats import AsyncUsageStatsResourceWithRawResponse
+
+        return AsyncUsageStatsResourceWithRawResponse(self._client.usage_stats)
+
+    @cached_property
+    def users(self) -> users.AsyncUsersResourceWithRawResponse:
+        from .resources.users import AsyncUsersResourceWithRawResponse
+
+        return AsyncUsersResourceWithRawResponse(self._client.users)
+
+    @cached_property
+    def news_articles(self) -> news_articles.AsyncNewsArticlesResourceWithRawResponse:
+        from .resources.news_articles import AsyncNewsArticlesResourceWithRawResponse
+
+        return AsyncNewsArticlesResourceWithRawResponse(self._client.news_articles)
 
 
 class ApolloSDKWithStreamedResponse:
@@ -438,10 +934,124 @@ class ApolloSDKWithStreamedResponse:
         self._client = client
 
     @cached_property
+    def account_stages(self) -> account_stages.AccountStagesResourceWithStreamingResponse:
+        from .resources.account_stages import AccountStagesResourceWithStreamingResponse
+
+        return AccountStagesResourceWithStreamingResponse(self._client.account_stages)
+
+    @cached_property
+    def accounts(self) -> accounts.AccountsResourceWithStreamingResponse:
+        from .resources.accounts import AccountsResourceWithStreamingResponse
+
+        return AccountsResourceWithStreamingResponse(self._client.accounts)
+
+    @cached_property
+    def contact_stages(self) -> contact_stages.ContactStagesResourceWithStreamingResponse:
+        from .resources.contact_stages import ContactStagesResourceWithStreamingResponse
+
+        return ContactStagesResourceWithStreamingResponse(self._client.contact_stages)
+
+    @cached_property
+    def contacts(self) -> contacts.ContactsResourceWithStreamingResponse:
+        from .resources.contacts import ContactsResourceWithStreamingResponse
+
+        return ContactsResourceWithStreamingResponse(self._client.contacts)
+
+    @cached_property
+    def email_accounts(self) -> email_accounts.EmailAccountsResourceWithStreamingResponse:
+        from .resources.email_accounts import EmailAccountsResourceWithStreamingResponse
+
+        return EmailAccountsResourceWithStreamingResponse(self._client.email_accounts)
+
+    @cached_property
+    def emailer_campaigns(self) -> emailer_campaigns.EmailerCampaignsResourceWithStreamingResponse:
+        from .resources.emailer_campaigns import EmailerCampaignsResourceWithStreamingResponse
+
+        return EmailerCampaignsResourceWithStreamingResponse(self._client.emailer_campaigns)
+
+    @cached_property
+    def emailer_messages(self) -> emailer_messages.EmailerMessagesResourceWithStreamingResponse:
+        from .resources.emailer_messages import EmailerMessagesResourceWithStreamingResponse
+
+        return EmailerMessagesResourceWithStreamingResponse(self._client.emailer_messages)
+
+    @cached_property
+    def fields(self) -> fields.FieldsResourceWithStreamingResponse:
+        from .resources.fields import FieldsResourceWithStreamingResponse
+
+        return FieldsResourceWithStreamingResponse(self._client.fields)
+
+    @cached_property
+    def labels(self) -> labels.LabelsResourceWithStreamingResponse:
+        from .resources.labels import LabelsResourceWithStreamingResponse
+
+        return LabelsResourceWithStreamingResponse(self._client.labels)
+
+    @cached_property
+    def notes(self) -> notes.NotesResourceWithStreamingResponse:
+        from .resources.notes import NotesResourceWithStreamingResponse
+
+        return NotesResourceWithStreamingResponse(self._client.notes)
+
+    @cached_property
+    def opportunities(self) -> opportunities.OpportunitiesResourceWithStreamingResponse:
+        from .resources.opportunities import OpportunitiesResourceWithStreamingResponse
+
+        return OpportunitiesResourceWithStreamingResponse(self._client.opportunities)
+
+    @cached_property
+    def opportunity_stages(self) -> opportunity_stages.OpportunityStagesResourceWithStreamingResponse:
+        from .resources.opportunity_stages import OpportunityStagesResourceWithStreamingResponse
+
+        return OpportunityStagesResourceWithStreamingResponse(self._client.opportunity_stages)
+
+    @cached_property
+    def organizations(self) -> organizations.OrganizationsResourceWithStreamingResponse:
+        from .resources.organizations import OrganizationsResourceWithStreamingResponse
+
+        return OrganizationsResourceWithStreamingResponse(self._client.organizations)
+
+    @cached_property
     def people(self) -> people.PeopleResourceWithStreamingResponse:
         from .resources.people import PeopleResourceWithStreamingResponse
 
         return PeopleResourceWithStreamingResponse(self._client.people)
+
+    @cached_property
+    def phone_calls(self) -> phone_calls.PhoneCallsResourceWithStreamingResponse:
+        from .resources.phone_calls import PhoneCallsResourceWithStreamingResponse
+
+        return PhoneCallsResourceWithStreamingResponse(self._client.phone_calls)
+
+    @cached_property
+    def tasks(self) -> tasks.TasksResourceWithStreamingResponse:
+        from .resources.tasks import TasksResourceWithStreamingResponse
+
+        return TasksResourceWithStreamingResponse(self._client.tasks)
+
+    @cached_property
+    def typed_custom_fields(self) -> typed_custom_fields.TypedCustomFieldsResourceWithStreamingResponse:
+        from .resources.typed_custom_fields import TypedCustomFieldsResourceWithStreamingResponse
+
+        return TypedCustomFieldsResourceWithStreamingResponse(self._client.typed_custom_fields)
+
+    @cached_property
+    def usage_stats(self) -> usage_stats.UsageStatsResourceWithStreamingResponse:
+        from .resources.usage_stats import UsageStatsResourceWithStreamingResponse
+
+        return UsageStatsResourceWithStreamingResponse(self._client.usage_stats)
+
+    @cached_property
+    def users(self) -> users.UsersResourceWithStreamingResponse:
+        from .resources.users import UsersResourceWithStreamingResponse
+
+        return UsersResourceWithStreamingResponse(self._client.users)
+
+    @cached_property
+    def news_articles(self) -> news_articles.NewsArticlesResourceWithStreamingResponse:
+        from .resources.news_articles import NewsArticlesResourceWithStreamingResponse
+
+        return NewsArticlesResourceWithStreamingResponse(self._client.news_articles)
 
 
 class AsyncApolloSDKWithStreamedResponse:
@@ -451,10 +1061,124 @@ class AsyncApolloSDKWithStreamedResponse:
         self._client = client
 
     @cached_property
+    def account_stages(self) -> account_stages.AsyncAccountStagesResourceWithStreamingResponse:
+        from .resources.account_stages import AsyncAccountStagesResourceWithStreamingResponse
+
+        return AsyncAccountStagesResourceWithStreamingResponse(self._client.account_stages)
+
+    @cached_property
+    def accounts(self) -> accounts.AsyncAccountsResourceWithStreamingResponse:
+        from .resources.accounts import AsyncAccountsResourceWithStreamingResponse
+
+        return AsyncAccountsResourceWithStreamingResponse(self._client.accounts)
+
+    @cached_property
+    def contact_stages(self) -> contact_stages.AsyncContactStagesResourceWithStreamingResponse:
+        from .resources.contact_stages import AsyncContactStagesResourceWithStreamingResponse
+
+        return AsyncContactStagesResourceWithStreamingResponse(self._client.contact_stages)
+
+    @cached_property
+    def contacts(self) -> contacts.AsyncContactsResourceWithStreamingResponse:
+        from .resources.contacts import AsyncContactsResourceWithStreamingResponse
+
+        return AsyncContactsResourceWithStreamingResponse(self._client.contacts)
+
+    @cached_property
+    def email_accounts(self) -> email_accounts.AsyncEmailAccountsResourceWithStreamingResponse:
+        from .resources.email_accounts import AsyncEmailAccountsResourceWithStreamingResponse
+
+        return AsyncEmailAccountsResourceWithStreamingResponse(self._client.email_accounts)
+
+    @cached_property
+    def emailer_campaigns(self) -> emailer_campaigns.AsyncEmailerCampaignsResourceWithStreamingResponse:
+        from .resources.emailer_campaigns import AsyncEmailerCampaignsResourceWithStreamingResponse
+
+        return AsyncEmailerCampaignsResourceWithStreamingResponse(self._client.emailer_campaigns)
+
+    @cached_property
+    def emailer_messages(self) -> emailer_messages.AsyncEmailerMessagesResourceWithStreamingResponse:
+        from .resources.emailer_messages import AsyncEmailerMessagesResourceWithStreamingResponse
+
+        return AsyncEmailerMessagesResourceWithStreamingResponse(self._client.emailer_messages)
+
+    @cached_property
+    def fields(self) -> fields.AsyncFieldsResourceWithStreamingResponse:
+        from .resources.fields import AsyncFieldsResourceWithStreamingResponse
+
+        return AsyncFieldsResourceWithStreamingResponse(self._client.fields)
+
+    @cached_property
+    def labels(self) -> labels.AsyncLabelsResourceWithStreamingResponse:
+        from .resources.labels import AsyncLabelsResourceWithStreamingResponse
+
+        return AsyncLabelsResourceWithStreamingResponse(self._client.labels)
+
+    @cached_property
+    def notes(self) -> notes.AsyncNotesResourceWithStreamingResponse:
+        from .resources.notes import AsyncNotesResourceWithStreamingResponse
+
+        return AsyncNotesResourceWithStreamingResponse(self._client.notes)
+
+    @cached_property
+    def opportunities(self) -> opportunities.AsyncOpportunitiesResourceWithStreamingResponse:
+        from .resources.opportunities import AsyncOpportunitiesResourceWithStreamingResponse
+
+        return AsyncOpportunitiesResourceWithStreamingResponse(self._client.opportunities)
+
+    @cached_property
+    def opportunity_stages(self) -> opportunity_stages.AsyncOpportunityStagesResourceWithStreamingResponse:
+        from .resources.opportunity_stages import AsyncOpportunityStagesResourceWithStreamingResponse
+
+        return AsyncOpportunityStagesResourceWithStreamingResponse(self._client.opportunity_stages)
+
+    @cached_property
+    def organizations(self) -> organizations.AsyncOrganizationsResourceWithStreamingResponse:
+        from .resources.organizations import AsyncOrganizationsResourceWithStreamingResponse
+
+        return AsyncOrganizationsResourceWithStreamingResponse(self._client.organizations)
+
+    @cached_property
     def people(self) -> people.AsyncPeopleResourceWithStreamingResponse:
         from .resources.people import AsyncPeopleResourceWithStreamingResponse
 
         return AsyncPeopleResourceWithStreamingResponse(self._client.people)
+
+    @cached_property
+    def phone_calls(self) -> phone_calls.AsyncPhoneCallsResourceWithStreamingResponse:
+        from .resources.phone_calls import AsyncPhoneCallsResourceWithStreamingResponse
+
+        return AsyncPhoneCallsResourceWithStreamingResponse(self._client.phone_calls)
+
+    @cached_property
+    def tasks(self) -> tasks.AsyncTasksResourceWithStreamingResponse:
+        from .resources.tasks import AsyncTasksResourceWithStreamingResponse
+
+        return AsyncTasksResourceWithStreamingResponse(self._client.tasks)
+
+    @cached_property
+    def typed_custom_fields(self) -> typed_custom_fields.AsyncTypedCustomFieldsResourceWithStreamingResponse:
+        from .resources.typed_custom_fields import AsyncTypedCustomFieldsResourceWithStreamingResponse
+
+        return AsyncTypedCustomFieldsResourceWithStreamingResponse(self._client.typed_custom_fields)
+
+    @cached_property
+    def usage_stats(self) -> usage_stats.AsyncUsageStatsResourceWithStreamingResponse:
+        from .resources.usage_stats import AsyncUsageStatsResourceWithStreamingResponse
+
+        return AsyncUsageStatsResourceWithStreamingResponse(self._client.usage_stats)
+
+    @cached_property
+    def users(self) -> users.AsyncUsersResourceWithStreamingResponse:
+        from .resources.users import AsyncUsersResourceWithStreamingResponse
+
+        return AsyncUsersResourceWithStreamingResponse(self._client.users)
+
+    @cached_property
+    def news_articles(self) -> news_articles.AsyncNewsArticlesResourceWithStreamingResponse:
+        from .resources.news_articles import AsyncNewsArticlesResourceWithStreamingResponse
+
+        return AsyncNewsArticlesResourceWithStreamingResponse(self._client.news_articles)
 
 
 Client = ApolloSDK
