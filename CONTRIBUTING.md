@@ -126,6 +126,12 @@ To lint:
 $ ./scripts/lint
 ```
 
+Use the deterministic validation sequence after runtime or lint changes:
+
+```sh
+$ ./scripts/validate-sdk
+```
+
 To format and fix all ruff issues automatically:
 
 ```sh

@@ -135,6 +135,7 @@ lint:
     - vale
     - yapf
   ignore:
+    # Generated or external surfaces: keep broad ignores to avoid non-deterministic churn.
     - linters: [ALL]
       paths:
         - alembic/**
@@ -149,6 +150,7 @@ lint:
         - README.md
         - SECURITY.md
         - tests/**
+    # Codegen-heavy tests: allow project ruff config to own test style.
     - linters: [ruff]
       paths:
         - .agents/skills/**
@@ -156,27 +158,33 @@ lint:
         - integration/benchmarks/**
         - "*.ipynb"
         - tests/**
+    # Local skill shell scripts are not part of this SDK runtime.
     - linters: [shellcheck]
       paths:
         - .agents/skills/**
+    # Markdown sources are generated/upstream; keep CLI markdown rules focused.
     - linters: [markdownlint-cli2]
       paths:
         - .agents/skills/**
         - design/**
         - projects/**
         - "*.md"
+    # Workflow security checks are intentionally scoped out for this generated SDK repo.
     - linters: [checkov, yamllint, trivy]
       paths:
         - .github/workflows/**
+    # Generated design artifacts and tests are excluded from strict static analysis.
     - linters: [pyright, ruff, semgrep]
       paths:
         - design/done-*.md
         - design/done-*.py
         - tests/**
+    # Generated SDK resources/types currently conflict with strict secure-style rule sets.
     - linters: [bandit, pyright, ruff, semgrep, ty]
       paths:
         - src/**
         - scripts/utils/ruffen-docs.py
+    # Shell wrappers are generated/templated and intentionally out-of-scope for shell style gates.
     - linters: [shellcheck, shfmt]
       paths:
         - scripts/bootstrap
