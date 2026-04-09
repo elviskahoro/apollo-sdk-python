@@ -18,7 +18,7 @@ if TYPE_CHECKING:
 
 pytest.register_assert_rewrite("tests.utils")
 
-logging.getLogger("src").setLevel(logging.DEBUG)
+logging.getLogger("apollo").setLevel(logging.DEBUG)
 
 
 # automatically add `pytest.mark.asyncio()` to all of our async tests
@@ -29,10 +29,18 @@ def pytest_collection_modifyitems(items: list[pytest.Function]) -> None:
     for async_test in pytest_asyncio_tests:
         async_test.add_marker(session_scope_marker, append=False)
 
-    # We skip tests that use both the aiohttp client and respx_mock as respx_mock
-    # doesn't support custom transports.
+    # Mock-server integration tests are opt-in because CI does not boot Prism
+    # by default. Use RUN_MOCK_TESTS=1 (set by scripts/test-mock) to enable.
+    run_mock_tests = os.environ.get("RUN_MOCK_TESTS", "").lower() in {"1", "true", "yes"}
+    if not run_mock_tests:
+        for item in items:
+            if "/api_resources/" in item.nodeid:
+                item.add_marker(pytest.mark.skip(reason="mock tests require RUN_MOCK_TESTS=1"))
+
+    # We skip aiohttp client tests as aiohttp bypasses httpx's transport
+    # layer (and thus respx mocking) — they only work against a real server.
     for item in items:
-        if "async_client" not in item.fixturenames or "respx_mock" not in item.fixturenames:
+        if "async_client" not in item.fixturenames:
             continue
 
         if not hasattr(item, "callspec"):
