@@ -1,5 +1,5 @@
 [project]
-name = "apollo_sdk"
+name = "gtme-apollo"
 version = "0.0.1"
 description = "The official Python library for the apollo-sdk API"
 dynamic = ["readme"]
@@ -72,10 +72,10 @@ requires = ["hatchling==1.26.3", "hatch-fancy-pypi-readme"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build]
-include = ["src/*"]
+include = ["src/apollo/*"]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src"]
+packages = ["src/apollo"]
 
 [tool.hatch.build.targets.sdist]
 # Basically everything except hidden files/directories (such as .github, .devcontainers, .python-version, etc)

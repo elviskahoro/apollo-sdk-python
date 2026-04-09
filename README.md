@@ -29,7 +29,7 @@ The full API of this library can be found in [api.md](api.md).
 
 ```python
 import os
-from src import ApolloSDK
+from apollo import ApolloSDK
 
 client = ApolloSDK(
     api_key=os.environ.get("APOLLO_API_KEY"),  # This is the default and can be omitted
@@ -51,7 +51,7 @@ Simply import `AsyncApolloSDK` instead of `ApolloSDK` and use `await` with each 
 ```python
 import os
 import asyncio
-from src import AsyncApolloSDK
+from apollo import AsyncApolloSDK
 
 client = AsyncApolloSDK(
     api_key=os.environ.get("APOLLO_API_KEY"),  # This is the default and can be omitted
@@ -84,8 +84,8 @@ Then you can enable it by instantiating the client with `http_client=DefaultAioH
 ```python
 import os
 import asyncio
-from src import DefaultAioHttpClient
-from src import AsyncApolloSDK
+from apollo import DefaultAioHttpClient
+from apollo import AsyncApolloSDK
 
 
 async def main() -> None:
@@ -114,7 +114,7 @@ Typed requests and responses provide autocomplete and documentation within your 
 Nested parameters are dictionaries, typed using `TypedDict`, for example:
 
 ```python
-from src import ApolloSDK
+from apollo import ApolloSDK
 
 client = ApolloSDK()
 
@@ -134,8 +134,8 @@ response), a subclass of `src.APIStatusError` is raised, containing `status_code
 All errors inherit from `src.APIError`.
 
 ```python
-import src
-from src import ApolloSDK
+import apollo
+from apollo import ApolloSDK
 
 client = ApolloSDK()
 
@@ -174,7 +174,7 @@ Connection errors (for example, due to a network connectivity problem), 408 Requ
 You can use the `max_retries` option to configure or disable retry settings:
 
 ```python
-from src import ApolloSDK
+from apollo import ApolloSDK
 
 # Configure the default for all requests:
 client = ApolloSDK(
@@ -192,7 +192,7 @@ By default requests time out after 1 minute. You can configure this with a `time
 which accepts a float or an [`httpx.Timeout`](https://www.python-httpx.org/advanced/timeouts/#fine-tuning-the-configuration) object:
 
 ```python
-from src import ApolloSDK
+from apollo import ApolloSDK
 
 # Configure the default for all requests:
 client = ApolloSDK(
@@ -244,7 +244,7 @@ if response.my_field is None:
 The "raw" Response object can be accessed by prefixing `.with_raw_response.` to any HTTP method call, e.g.,
 
 ```py
-from src import ApolloSDK
+from apollo import ApolloSDK
 
 client = ApolloSDK()
 response = client.people.with_raw_response.enrichment()
@@ -318,7 +318,7 @@ You can directly override the [httpx client](https://www.python-httpx.org/api/#c
 
 ```python
 import httpx
-from src import ApolloSDK, DefaultHttpxClient
+from apollo import ApolloSDK, DefaultHttpxClient
 
 client = ApolloSDK(
     # Or use the `APOLLO_SDK_BASE_URL` env var
@@ -341,7 +341,7 @@ client.with_options(http_client=DefaultHttpxClient(...))
 By default the library closes underlying HTTP connections whenever the client is [garbage collected](https://docs.python.org/3/reference/datamodel.html#object.__del__). You can manually close the client using the `.close()` method if desired, or with a context manager that closes when exiting.
 
 ```py
-from src import ApolloSDK
+from apollo import ApolloSDK
 
 with ApolloSDK() as client:
   # make requests here
@@ -369,7 +369,7 @@ If you've upgraded to the latest version but aren't seeing any new features you 
 You can determine the version that is being used at runtime with:
 
 ```py
-import src
+import apollo
 print(src.__version__)
 ```
 

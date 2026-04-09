@@ -10,8 +10,8 @@ import httpx
 import pytest
 from pytest_asyncio import is_async_test
 
-from src import ApolloSDK, AsyncApolloSDK, DefaultAioHttpClient
-from src._utils import is_dict
+from apollo import ApolloSDK, AsyncApolloSDK, DefaultAioHttpClient
+from apollo._utils import is_dict
 
 if TYPE_CHECKING:
     from _pytest.fixtures import FixtureRequest  # pyright: ignore[reportPrivateImportUsage]

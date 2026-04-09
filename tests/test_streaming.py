@@ -5,8 +5,8 @@ from typing import Iterator, AsyncIterator
 import httpx
 import pytest
 
-from src import ApolloSDK, AsyncApolloSDK
-from src._streaming import Stream, AsyncStream, ServerSentEvent
+from apollo import ApolloSDK, AsyncApolloSDK
+from apollo._streaming import Stream, AsyncStream, ServerSentEvent
 
 
 @pytest.mark.asyncio

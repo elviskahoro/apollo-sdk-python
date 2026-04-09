@@ -4,7 +4,7 @@ from urllib.parse import unquote
 
 import pytest
 
-from src._qs import Querystring, stringify
+from apollo._qs import Querystring, stringify
 
 
 def test_empty() -> None:

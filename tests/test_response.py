@@ -6,8 +6,8 @@ import httpx
 import pytest
 import pydantic
 
-from src import ApolloSDK, BaseModel, AsyncApolloSDK
-from src._response import (
+from apollo import ApolloSDK, BaseModel, AsyncApolloSDK
+from apollo._response import (
     APIResponse,
     BaseAPIResponse,
     AsyncAPIResponse,
@@ -15,8 +15,8 @@ from src._response import (
     AsyncBinaryAPIResponse,
     extract_response_type,
 )
-from src._streaming import Stream
-from src._base_client import FinalRequestOptions
+from apollo._streaming import Stream
+from apollo._base_client import FinalRequestOptions
 
 
 class ConcreteBaseAPIResponse(APIResponse[bytes]): ...
@@ -68,7 +68,7 @@ def test_response_parse_mismatched_basemodel(client: ApolloSDK) -> None:
 
     with pytest.raises(
         TypeError,
-        match="Pydantic models must subclass our base model type, e.g. `from src import BaseModel`",
+        match="Pydantic models must subclass our base model type, e.g. `from apollo import BaseModel`",
     ):
         response.parse(to=PydanticModel)
 
@@ -86,7 +86,7 @@ async def test_async_response_parse_mismatched_basemodel(async_client: AsyncApol
 
     with pytest.raises(
         TypeError,
-        match="Pydantic models must subclass our base model type, e.g. `from src import BaseModel`",
+        match="Pydantic models must subclass our base model type, e.g. `from apollo import BaseModel`",
     ):
         await response.parse(to=PydanticModel)
 

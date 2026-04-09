@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pytest
 
-from src._utils import required_args
+from apollo._utils import required_args
 
 
 def test_too_many_positional_params() -> None:

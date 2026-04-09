@@ -19,12 +19,12 @@ import pytest
 from respx import MockRouter
 from pydantic import ValidationError
 
-from src import ApolloSDK, AsyncApolloSDK, APIResponseValidationError
-from src._types import Omit
-from src._utils import asyncify
-from src._models import BaseModel, FinalRequestOptions
-from src._exceptions import APIStatusError, ApolloSDKError, APITimeoutError, APIResponseValidationError
-from src._base_client import (
+from apollo import ApolloSDK, AsyncApolloSDK, APIResponseValidationError
+from apollo._types import Omit
+from apollo._utils import asyncify
+from apollo._models import BaseModel, FinalRequestOptions
+from apollo._exceptions import APIStatusError, ApolloSDKError, APITimeoutError, APIResponseValidationError
+from apollo._base_client import (
     DEFAULT_TIMEOUT,
     HTTPX_DEFAULT_TIMEOUT,
     BaseClient,

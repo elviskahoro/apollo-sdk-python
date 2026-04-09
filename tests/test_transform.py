@@ -8,15 +8,15 @@ from typing_extensions import Required, Annotated, TypedDict
 
 import pytest
 
-from src._types import Base64FileInput, omit, not_given
-from src._utils import (
+from apollo._types import Base64FileInput, omit, not_given
+from apollo._utils import (
     PropertyInfo,
     transform as _transform,
     parse_datetime,
     async_transform as _async_transform,
 )
-from src._compat import PYDANTIC_V1
-from src._models import BaseModel
+from apollo._compat import PYDANTIC_V1
+from apollo._models import BaseModel
 
 _T = TypeVar("_T")
 

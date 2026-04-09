@@ -7,8 +7,8 @@ from typing import Any, cast
 
 import pytest
 
-from src import ApolloSDK, AsyncApolloSDK
-from src.types import (
+from apollo import ApolloSDK, AsyncApolloSDK
+from apollo.types import (
     AccountCreateResponse,
     AccountSearchResponse,
     AccountUpdateResponse,

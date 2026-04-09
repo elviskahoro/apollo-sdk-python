@@ -3,7 +3,7 @@
 Types:
 
 ```python
-from src.types import AccountStageListResponse
+from apollo.types import AccountStageListResponse
 ```
 
 Methods:
@@ -15,7 +15,7 @@ Methods:
 Types:
 
 ```python
-from src.types import (
+from apollo.types import (
     AccountCreateResponse,
     AccountUpdateResponse,
     AccountBulkCreateResponse,
@@ -45,7 +45,7 @@ Methods:
 Types:
 
 ```python
-from src.types import (
+from apollo.types import (
     ContactCreateResponse,
     ContactRetrieveResponse,
     ContactUpdateResponse,
@@ -73,7 +73,7 @@ Methods:
 Types:
 
 ```python
-from src.types import EmailAccountListResponse
+from apollo.types import EmailAccountListResponse
 ```
 
 Methods:
@@ -85,7 +85,7 @@ Methods:
 Types:
 
 ```python
-from src.types import (
+from apollo.types import (
     EmailerCampaignActivateResponse,
     EmailerCampaignAddContactsResponse,
     EmailerCampaignArchiveResponse,
@@ -116,7 +116,7 @@ Methods:
 Types:
 
 ```python
-from src.types import FieldCreateResponse, FieldListResponse
+from apollo.types import FieldCreateResponse, FieldListResponse
 ```
 
 Methods:
@@ -129,7 +129,7 @@ Methods:
 Types:
 
 ```python
-from src.types import LabelListResponse
+from apollo.types import LabelListResponse
 ```
 
 Methods:
@@ -141,7 +141,7 @@ Methods:
 Types:
 
 ```python
-from src.types import NoteListResponse
+from apollo.types import NoteListResponse
 ```
 
 Methods:
@@ -153,7 +153,7 @@ Methods:
 Types:
 
 ```python
-from src.types import (
+from apollo.types import (
     OpportunityCreateResponse,
     OpportunityRetrieveResponse,
     OpportunityUpdateResponse,
@@ -173,7 +173,7 @@ Methods:
 Types:
 
 ```python
-from src.types import OpportunityStageListResponse
+from apollo.types import OpportunityStageListResponse
 ```
 
 Methods:
@@ -185,7 +185,7 @@ Methods:
 Types:
 
 ```python
-from src.types import (
+from apollo.types import (
     OrganizationBulkEnrichResponse,
     OrganizationEnrichResponse,
     OrganizationJobPostingsResponse,
@@ -205,7 +205,7 @@ Methods:
 Types:
 
 ```python
-from src.types import PersonBulkEnrichmentResponse, PersonEnrichmentResponse, PersonSearchResponse
+from apollo.types import PersonBulkEnrichmentResponse, PersonEnrichmentResponse, PersonSearchResponse
 ```
 
 Methods:
@@ -227,7 +227,7 @@ Methods:
 Types:
 
 ```python
-from src.types import TaskCreateResponse, TaskBulkCreateResponse, TaskSearchResponse
+from apollo.types import TaskCreateResponse, TaskBulkCreateResponse, TaskSearchResponse
 ```
 
 Methods:
@@ -241,7 +241,7 @@ Methods:
 Types:
 
 ```python
-from src.types import TypedCustomFieldListResponse
+from apollo.types import TypedCustomFieldListResponse
 ```
 
 Methods:
@@ -259,7 +259,7 @@ Methods:
 Types:
 
 ```python
-from src.types import UserSearchResponse
+from apollo.types import UserSearchResponse
 ```
 
 Methods:
