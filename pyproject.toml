@@ -1,10 +1,10 @@
 [project]
 name = "gtm-apollo"
-version = "0.0.1"
-description = "The official Python library for the apollo-sdk API"
+version = "0.0.2"
+description = "A Python library for the Apollo API"
 dynamic = ["readme"]
 license = "Apache-2.0"
-authors = [{ name = "Apollo SDK", email = "" }]
+authors = [{ name = "Apollo SDK", email = "github@elvis.ai" }]
 
 dependencies = [
   "httpx>=0.23.0, <1",
