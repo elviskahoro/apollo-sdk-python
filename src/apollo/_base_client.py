@@ -62,7 +62,7 @@ from ._types import (
     not_given,
 )
 from ._utils import is_dict, is_list, asyncify, is_given, lru_cache, is_mapping
-from ._compat import PYDANTIC_V1, model_copy, model_dump
+from ._compat import model_copy, model_dump
 from ._models import GenericModel, SecurityOptions, FinalRequestOptions, validate_type, construct_type
 from ._response import (
     APIResponse,
@@ -236,7 +236,7 @@ class BaseSyncPage(BasePage[_T], Generic[_T]):
         model: Type[_T],
         options: FinalRequestOptions,
     ) -> None:
-        if (not PYDANTIC_V1) and getattr(self, "__pydantic_private__", None) is None:
+        if getattr(self, "__pydantic_private__", None) is None:
             self.__pydantic_private__ = {}
 
         self._model = model
@@ -324,7 +324,7 @@ class BaseAsyncPage(BasePage[_T], Generic[_T]):
         client: AsyncAPIClient,
         options: FinalRequestOptions,
     ) -> None:
-        if (not PYDANTIC_V1) and getattr(self, "__pydantic_private__", None) is None:
+        if getattr(self, "__pydantic_private__", None) is None:
             self.__pydantic_private__ = {}
 
         self._model = model
@@ -504,12 +504,7 @@ class BaseClient(Generic[_HttpxClientT, _DefaultStreamT]):
                 model_dump(
                     options,
                     exclude_unset=True,
-                    # Pydantic v1 can't dump every type we support in content, so we exclude it for now.
-                    exclude={
-                        "content",
-                    }
-                    if PYDANTIC_V1
-                    else {},
+                    exclude={},
                 ),
             )
         kwargs: dict[str, Any] = {}

@@ -5,7 +5,6 @@ from typing import Union
 
 import pydantic
 
-from apollo import _compat
 from apollo._utils._json import openapi_dumps
 
 
@@ -90,10 +89,6 @@ class TestOpenapiDumps:
             name: str
             address: Address
             verified: bool = False
-
-        if _compat.PYDANTIC_V1:
-            # to handle forward references in Pydantic v1
-            User.update_forward_refs(**locals())  # type: ignore[reportDeprecated]
 
         address = Address(street="123 Main St")
         user = User(name="Diana", address=address)
