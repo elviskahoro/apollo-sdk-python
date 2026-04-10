@@ -23,6 +23,13 @@ pytest.register_assert_rewrite("tests.utils")
 
 logging.getLogger("apollo").setLevel(logging.DEBUG)
 
+try:
+    import httpx_aiohttp  # noqa: F401
+
+    HAS_HTTPX_AIOHTTP = True
+except ImportError:
+    HAS_HTTPX_AIOHTTP = False
+
 
 # automatically add `pytest.mark.asyncio()` to all of our async tests
 # so we don't have to add that boilerplate everywhere
@@ -35,6 +42,13 @@ def pytest_collection_modifyitems(items: list[pytest.Function]) -> None:
     # API resource tests and aiohttp variants run by default.
     # If no mock/live server is available, `_ensure_mock_server()` below will
     # attempt to start Prism automatically.
+    if not HAS_HTTPX_AIOHTTP:
+        for item in items:
+            if "async_client" not in item.fixturenames or not hasattr(item, "callspec"):
+                continue
+            async_client_param = item.callspec.params.get("async_client")
+            if is_dict(async_client_param) and async_client_param.get("http_client") == "aiohttp":
+                item.add_marker(pytest.mark.skip(reason="aiohttp transport adapter is not installed"))
 
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
@@ -70,8 +84,6 @@ def _ensure_mock_server() -> None:
     while time.time() < deadline:
         if _is_server_reachable(base_url):
             break
-        # In xdist, another worker may have won the race to bind the port.
-        # If our local process exits but the server is now reachable, continue.
         if _MOCK_PROCESS.poll() is not None and not _is_server_reachable(base_url):
             time.sleep(0.2)
             continue
@@ -93,9 +105,12 @@ def _ensure_mock_server() -> None:
 
 
 @pytest.fixture(scope="session", autouse=True)
-def _start_mock_server_for_api_resource_tests() -> Iterator[None]:
-    _ensure_mock_server()
+def _start_mock_server_for_api_resource_tests(request: FixtureRequest) -> Iterator[None]:
+    selected = request.config.option.keyword or ""
+    if "api_resources" in selected or selected == "":
+        _ensure_mock_server()
     yield
+
 
 
 @pytest.fixture(scope="session")
