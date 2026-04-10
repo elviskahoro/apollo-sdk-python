@@ -12,8 +12,6 @@ from ..types import (
     contact_update_params,
     contact_bulk_create_params,
     contact_bulk_update_params,
-    contact_update_owners_params,
-    contact_update_stages_params,
 )
 from .._types import Body, Omit, Query, Headers, NotGiven, SequenceNotStr, omit, not_given
 from .._utils import path_template, maybe_transform, async_maybe_transform, bracket_array_query_param

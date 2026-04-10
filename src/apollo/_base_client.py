@@ -657,7 +657,7 @@ class BaseClient(Generic[_HttpxClientT, _DefaultStreamT]):
                 pass
             else:
                 if isinstance(decoded, (dict, list)):
-                    data = decoded
+                    data = cast(object, decoded)
 
         if data is None:
             return cast(ResponseT, None)

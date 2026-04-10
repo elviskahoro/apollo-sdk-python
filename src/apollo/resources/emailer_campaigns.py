@@ -11,7 +11,6 @@ import httpx
 from ..types import (
     emailer_campaign_search_params,
     emailer_campaign_add_contacts_params,
-    emailer_campaign_update_contact_status_params,
 )
 from .._types import Body, Omit, Query, Headers, NotGiven, SequenceNotStr, omit, not_given
 from .._utils import path_template, maybe_transform, async_maybe_transform, bracket_array_query_param

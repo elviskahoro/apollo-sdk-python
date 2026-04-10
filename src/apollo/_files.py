@@ -3,7 +3,8 @@ from __future__ import annotations
 import io
 import os
 import pathlib
-from typing import overload
+from typing import cast, overload
+from collections.abc import Mapping
 from typing_extensions import TypeGuard
 
 import anyio
@@ -17,7 +18,6 @@ from ._types import (
     HttpxFileContent,
     HttpxRequestFiles,
 )
-from ._utils import is_tuple_t, is_mapping_t, is_sequence_t
 
 
 def is_base64_file_input(obj: object) -> TypeGuard[Base64FileInput]:
@@ -50,14 +50,10 @@ def to_httpx_files(files: RequestFiles | None) -> HttpxRequestFiles | None:
     if files is None:
         return None
 
-    if is_mapping_t(files):
-        files = {key: _transform_file(file) for key, file in files.items()}
-    elif is_sequence_t(files):
-        files = [(key, _transform_file(file)) for key, file in files]
-    else:
-        raise TypeError(f"Unexpected file type input {type(files)}, expected mapping or sequence")
+    if isinstance(files, Mapping):
+        return {key: _transform_file(file) for key, file in files.items()}
 
-    return files
+    return [(key, _transform_file(file)) for key, file in files]
 
 
 def _transform_file(file: FileTypes) -> HttpxFileTypes:
@@ -68,8 +64,8 @@ def _transform_file(file: FileTypes) -> HttpxFileTypes:
 
         return file
 
-    if is_tuple_t(file):
-        return (file[0], read_file_content(file[1]), *file[2:])
+    if isinstance(file, tuple):
+        return cast(HttpxFileTypes, (file[0], read_file_content(file[1]), *file[2:]))
 
     raise TypeError(f"Expected file types input to be a FileContent type or to be a tuple")
 
@@ -92,14 +88,10 @@ async def async_to_httpx_files(files: RequestFiles | None) -> HttpxRequestFiles 
     if files is None:
         return None
 
-    if is_mapping_t(files):
-        files = {key: await _async_transform_file(file) for key, file in files.items()}
-    elif is_sequence_t(files):
-        files = [(key, await _async_transform_file(file)) for key, file in files]
-    else:
-        raise TypeError("Unexpected file type input {type(files)}, expected mapping or sequence")
+    if isinstance(files, Mapping):
+        return {key: await _async_transform_file(file) for key, file in files.items()}
 
-    return files
+    return [(key, await _async_transform_file(file)) for key, file in files]
 
 
 async def _async_transform_file(file: FileTypes) -> HttpxFileTypes:
@@ -110,8 +102,8 @@ async def _async_transform_file(file: FileTypes) -> HttpxFileTypes:
 
         return file
 
-    if is_tuple_t(file):
-        return (file[0], await async_read_file_content(file[1]), *file[2:])
+    if isinstance(file, tuple):
+        return cast(HttpxFileTypes, (file[0], await async_read_file_content(file[1]), *file[2:]))
 
     raise TypeError(f"Expected file types input to be a FileContent type or to be a tuple")
 

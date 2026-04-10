@@ -8,8 +8,8 @@ from typing import Any, cast
 import pytest
 
 from apollo import ApolloSDK, AsyncApolloSDK
-from apollo.types import TypedCustomFieldListResponse
 from tests.utils import assert_matches_type
+from apollo.types import TypedCustomFieldListResponse
 
 # pyright: reportDeprecated=false
 
