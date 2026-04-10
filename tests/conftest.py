@@ -24,11 +24,11 @@ pytest.register_assert_rewrite("tests.utils")
 logging.getLogger("apollo").setLevel(logging.DEBUG)
 
 try:
-    import httpx_aiohttp  # noqa: F401
+    import httpx_aiohttp  # noqa: F401  # pyright: ignore[reportUnusedImport]
 
     HAS_HTTPX_AIOHTTP = True
 except ImportError:
-    HAS_HTTPX_AIOHTTP = False
+    HAS_HTTPX_AIOHTTP = False  # pyright: ignore[reportConstantRedefinition]
 
 
 # automatically add `pytest.mark.asyncio()` to all of our async tests
@@ -65,7 +65,7 @@ def _is_server_reachable(url: str) -> bool:
         return False
 
 
-_MOCK_PROCESS: subprocess.Popen[str] | None = None
+_MOCK_PROCESS: subprocess.Popen[bytes] | None = None
 
 
 def _ensure_mock_server() -> None:
@@ -78,13 +78,14 @@ def _ensure_mock_server() -> None:
     script_path = os.path.join(repo_root, "scripts", "mock")
     env = os.environ.copy()
     env.setdefault("TEST_API_BASE_URL", base_url)
-    _MOCK_PROCESS = subprocess.Popen([script_path], cwd=repo_root, env=env)  # noqa: S603
+    _MOCK_PROCESS = subprocess.Popen([script_path], cwd=repo_root, env=env)  # noqa: S603  # pyright: ignore[reportConstantRedefinition]
 
     deadline = time.time() + 20
+    proc = _MOCK_PROCESS
     while time.time() < deadline:
         if _is_server_reachable(base_url):
             break
-        if _MOCK_PROCESS.poll() is not None and not _is_server_reachable(base_url):
+        if proc.poll() is not None and not _is_server_reachable(base_url):
             time.sleep(0.2)
             continue
         time.sleep(0.2)
@@ -99,13 +100,13 @@ def _ensure_mock_server() -> None:
                 _MOCK_PROCESS.wait(timeout=5)
             except subprocess.TimeoutExpired:
                 _MOCK_PROCESS.kill()
-        _MOCK_PROCESS = None
+        _MOCK_PROCESS = None  # pyright: ignore[reportConstantRedefinition]
 
     atexit.register(_cleanup)
 
 
 @pytest.fixture(scope="session", autouse=True)
-def _start_mock_server_for_api_resource_tests(request: FixtureRequest) -> Iterator[None]:
+def _start_mock_server_for_api_resource_tests(request: FixtureRequest) -> Iterator[None]:  # pyright: ignore[reportUnusedFunction]
     selected = request.config.option.keyword or ""
     if "api_resources" in selected or selected == "":
         _ensure_mock_server()
