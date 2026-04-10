@@ -4,7 +4,7 @@ version = "0.0.2"
 description = "A Python library for the Apollo API"
 dynamic = ["readme"]
 license = "Apache-2.0"
-authors = [{ name = "Apollo SDK", email = "github@elvis.ai" }]
+authors = [{ name = "Elvis Kahoro", email = "github@elvis.ai" }]
 
 dependencies = [
   "httpx>=0.23.0, <1",
