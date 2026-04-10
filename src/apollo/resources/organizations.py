@@ -10,7 +10,6 @@ import httpx
 from ..types import (
     organization_enrich_params,
     organization_search_params,
-    organization_bulk_enrich_params,
     organization_job_postings_params,
 )
 from .._types import Body, Omit, Query, Headers, NotGiven, SequenceNotStr, omit, not_given

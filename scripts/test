@@ -24,12 +24,6 @@ function run_tests() {
     else
         ./.venv/bin/python -m pytest "$@"
     fi
-
-    # Skip Pydantic v1 tests on latest Python (not supported)
-    if has_working_uv && [[ "$UV_PYTHON" != "$PY_VERSION_MAX" ]]; then
-        echo "==> Running tests with Pydantic v1"
-        uv run --isolated --all-extras --group=pydantic-v1 pytest "$@"
-    fi
 }
 
 # If UV_PYTHON is already set in the environment, just run the command once

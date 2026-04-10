@@ -44,6 +44,7 @@ aiohttp = ["aiohttp", "httpx_aiohttp>=0.1.9"]
 [tool.uv]
 managed = true
 required-version = ">=0.9"
+default-groups = ["dev"]
 
 [dependency-groups]
 # version pins are in uv.lock

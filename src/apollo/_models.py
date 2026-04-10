@@ -9,7 +9,6 @@ from typing import (
     Any,
     Type,
     Union,
-    Generic,
     TypeVar,
     Callable,
     Iterable,
@@ -38,7 +37,6 @@ from pydantic.fields import FieldInfo
 
 from ._types import (
     Body,
-    IncEx,
     Query,
     ModelT,
     Headers,
@@ -51,7 +49,6 @@ from ._utils import (
     PropertyInfo,
     is_list,
     is_given,
-    json_safe,
     lru_cache,
     is_mapping,
     parse_date,

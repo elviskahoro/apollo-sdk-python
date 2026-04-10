@@ -1,6 +1,6 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from typing import Dict, List, Optional, Union
+from typing import Dict, List, Union, Optional
 from datetime import datetime
 
 from .._models import BaseModel

@@ -21,7 +21,7 @@ from typing_extensions import TypeGuard
 
 import sniffio
 
-from .._types import Omit, NotGiven, FileTypes, HeadersLike
+from .._types import Omit, NotGiven, FileTypes, HeadersLike, SequenceNotStr
 
 _T = TypeVar("_T")
 _TupleT = TypeVar("_TupleT", bound=Tuple[object, ...])
@@ -34,7 +34,7 @@ def flatten(t: Iterable[Iterable[_T]]) -> list[_T]:
     return [item for sublist in t for item in sublist]
 
 
-def bracket_array_query_param(name: str, values: Sequence[str]) -> dict[str, str | Sequence[str]]:
+def bracket_array_query_param(name: str, values: SequenceNotStr[str]) -> dict[str, str | SequenceNotStr[str]]:
     """Serialize array query params that require bracket-encoded key names.
 
     Prism mocks for some Apollo endpoints expect keys like `foo_ids%5B%5D`.

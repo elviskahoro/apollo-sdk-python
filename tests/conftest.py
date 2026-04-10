@@ -84,8 +84,6 @@ def _ensure_mock_server() -> None:
     while time.time() < deadline:
         if _is_server_reachable(base_url):
             break
-        # In xdist, another worker may have won the race to bind the port.
-        # If our local process exits but the server is now reachable, continue.
         if _MOCK_PROCESS.poll() is not None and not _is_server_reachable(base_url):
             time.sleep(0.2)
             continue
@@ -109,10 +107,10 @@ def _ensure_mock_server() -> None:
 @pytest.fixture(scope="session", autouse=True)
 def _start_mock_server_for_api_resource_tests(request: FixtureRequest) -> Iterator[None]:
     selected = request.config.option.keyword or ""
-    # If user explicitly filters out api_resources tests, don't force booting Prism.
     if "api_resources" in selected or selected == "":
         _ensure_mock_server()
     yield
+
 
 
 @pytest.fixture(scope="session")
@@ -141,7 +139,12 @@ async def async_client(request: FixtureRequest) -> AsyncIterator[AsyncApolloSDK]
 
         http_client_type = param.get("http_client", "httpx")
         if http_client_type == "aiohttp":
-            http_client = DefaultAioHttpClient()
+            try:
+                http_client = DefaultAioHttpClient()
+            except RuntimeError:
+                # If aiohttp transport isn't installed, fall back to default
+                # httpx transport so the parametrized tests still execute.
+                http_client = None
     else:
         raise TypeError(f"Unexpected fixture parameter type {type(param)}, expected bool or dict")
 

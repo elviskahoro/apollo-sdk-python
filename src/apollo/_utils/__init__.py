@@ -3,7 +3,6 @@ from ._sync import asyncify as asyncify
 from ._proxy import LazyProxy as LazyProxy
 from ._utils import (
     flatten as flatten,
-    bracket_array_query_param as bracket_array_query_param,
     is_dict as is_dict,
     is_list as is_list,
     is_given as is_given,
@@ -31,6 +30,7 @@ from ._utils import (
     get_required_header as get_required_header,
     maybe_coerce_boolean as maybe_coerce_boolean,
     maybe_coerce_integer as maybe_coerce_integer,
+    bracket_array_query_param as bracket_array_query_param,
 )
 from ._compat import (
     get_args as get_args,
