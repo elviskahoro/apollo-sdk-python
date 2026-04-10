@@ -3,10 +3,10 @@
 from __future__ import annotations
 
 import os
-import logging
-import atexit
-import subprocess
 import time
+import atexit
+import logging
+import subprocess
 from typing import TYPE_CHECKING, Iterator, AsyncIterator
 
 import httpx
