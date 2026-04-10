@@ -1,0 +1,54 @@
+name: Generate SDK
+permissions:
+  checks: write
+  contents: write
+  pull-requests: write
+  statuses: write
+  id-token: write
+
+on:
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Force regeneration of SDK
+        type: boolean
+        default: false
+  schedule:
+    - cron: "0 0 * * *"
+  push:
+    branches: [main]
+    paths:
+      - ".stainless/**"
+
+jobs:
+  generate:
+    name: Generate SDK
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dagger/dagger-for-github@8.0.0
+        id: dagger-setup
+
+      - run: pip install dagger-io
+
+      - name: Generate SDK via Dagger
+        run: >
+          dagger run python ci/pipeline.py generate
+          --force=${{ github.event.inputs.force || 'false' }}
+        env:
+          STAINLESS_API_KEY: ${{ secrets.STAINLESS_API_KEY }}
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ github.token }}
+          commit-message: "feat(sdk): regenerate apollo SDK"
+          branch: gha/apollo-sdk-generation
+          base: main
+          title: "Apollo SDK — Regenerated"
+          body: "Automated SDK regeneration via Dagger pipeline"
+          delete-branch: true
+          labels: |
+            automated
+            sdk
