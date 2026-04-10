@@ -35,8 +35,8 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/stainless-sdks/apollo-sdk-python"
-Repository = "https://github.com/stainless-sdks/apollo-sdk-python"
+Homepage = "https://github.com/elviskahoro/apollo-sdk-python"
+Repository = "https://github.com/elviskahoro/apollo-sdk-python"
 
 [project.optional-dependencies]
 aiohttp = ["aiohttp", "httpx_aiohttp>=0.1.9"]
