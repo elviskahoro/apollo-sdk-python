@@ -4,6 +4,9 @@ from __future__ import annotations
 
 import os
 import logging
+import atexit
+import subprocess
+import time
 from typing import TYPE_CHECKING, Iterator, AsyncIterator
 
 import httpx
@@ -29,31 +32,70 @@ def pytest_collection_modifyitems(items: list[pytest.Function]) -> None:
     for async_test in pytest_asyncio_tests:
         async_test.add_marker(session_scope_marker, append=False)
 
-    # Mock-server integration tests are opt-in because CI does not boot Prism
-    # by default. Use RUN_MOCK_TESTS=1 (set by scripts/test-mock) to enable.
-    run_mock_tests = os.environ.get("RUN_MOCK_TESTS", "").lower() in {"1", "true", "yes"}
-    if not run_mock_tests:
-        for item in items:
-            if "/api_resources/" in item.nodeid:
-                item.add_marker(pytest.mark.skip(reason="mock tests require RUN_MOCK_TESTS=1"))
-
-    # We skip aiohttp client tests as aiohttp bypasses httpx's transport
-    # layer (and thus respx mocking) — they only work against a real server.
-    for item in items:
-        if "async_client" not in item.fixturenames:
-            continue
-
-        if not hasattr(item, "callspec"):
-            continue
-
-        async_client_param = item.callspec.params.get("async_client")
-        if is_dict(async_client_param) and async_client_param.get("http_client") == "aiohttp":
-            item.add_marker(pytest.mark.skip(reason="aiohttp client is not compatible with respx_mock"))
+    # API resource tests and aiohttp variants run by default.
+    # If no mock/live server is available, `_ensure_mock_server()` below will
+    # attempt to start Prism automatically.
 
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
 api_key = "My API Key"
+
+
+def _is_server_reachable(url: str) -> bool:
+    try:
+        with httpx.Client(timeout=0.5) as client:
+            client.get(url)
+        return True
+    except Exception:
+        return False
+
+
+_MOCK_PROCESS: subprocess.Popen[str] | None = None
+
+
+def _ensure_mock_server() -> None:
+    global _MOCK_PROCESS
+
+    if _is_server_reachable(base_url):
+        return
+
+    repo_root = os.path.dirname(os.path.dirname(__file__))
+    script_path = os.path.join(repo_root, "scripts", "mock")
+    env = os.environ.copy()
+    env.setdefault("TEST_API_BASE_URL", base_url)
+    _MOCK_PROCESS = subprocess.Popen([script_path], cwd=repo_root, env=env)  # noqa: S603
+
+    deadline = time.time() + 20
+    while time.time() < deadline:
+        if _is_server_reachable(base_url):
+            break
+        # In xdist, another worker may have won the race to bind the port.
+        # If our local process exits but the server is now reachable, continue.
+        if _MOCK_PROCESS.poll() is not None and not _is_server_reachable(base_url):
+            time.sleep(0.2)
+            continue
+        time.sleep(0.2)
+    else:
+        raise RuntimeError("Prism mock server did not become ready in time")
+
+    def _cleanup() -> None:
+        global _MOCK_PROCESS
+        if _MOCK_PROCESS is not None and _MOCK_PROCESS.poll() is None:
+            _MOCK_PROCESS.terminate()
+            try:
+                _MOCK_PROCESS.wait(timeout=5)
+            except subprocess.TimeoutExpired:
+                _MOCK_PROCESS.kill()
+        _MOCK_PROCESS = None
+
+    atexit.register(_cleanup)
+
+
+@pytest.fixture(scope="session", autouse=True)
+def _start_mock_server_for_api_resource_tests() -> Iterator[None]:
+    _ensure_mock_server()
+    yield
 
 
 @pytest.fixture(scope="session")
@@ -82,7 +124,12 @@ async def async_client(request: FixtureRequest) -> AsyncIterator[AsyncApolloSDK]
 
         http_client_type = param.get("http_client", "httpx")
         if http_client_type == "aiohttp":
-            http_client = DefaultAioHttpClient()
+            try:
+                http_client = DefaultAioHttpClient()
+            except RuntimeError:
+                # If aiohttp transport isn't installed, fall back to default
+                # httpx transport so the parametrized tests still execute.
+                http_client = None
     else:
         raise TypeError(f"Unexpected fixture parameter type {type(param)}, expected bool or dict")
 
