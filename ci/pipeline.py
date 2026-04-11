@@ -1,9 +1,10 @@
 """Dagger pipeline for Apollo SDK generation via Stainless."""
+from __future__ import annotations
 
-import argparse
-import asyncio
 import os
 import sys
+import asyncio
+import argparse
 
 import dagger
 
@@ -67,7 +68,7 @@ async def generate(force: bool) -> None:
         )
 
         output = await ctr.stdout()
-        print(output)
+        sys.stdout.write(output)
 
         # Export the generated SDK files back to the host working directory.
         # --pull writes into src/ relative to /repo; mirror that back.
