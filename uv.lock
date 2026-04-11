@@ -410,8 +410,8 @@ wheels = [
 ]
 
 [[package]]
-name = "gtme-apollo"
-version = "0.0.1"
+name = "gtm-apollo"
+version = "0.0.2"
 source = { editable = "." }
 dependencies = [
     { name = "anyio" },
