@@ -24,6 +24,13 @@ STL_INSTALL_CMDS: list[list[str]] = [
 
 async def generate(force: bool) -> None:
     """Trigger a Stainless cloud build and pull the generated SDK files."""
+    # Validate that the API key is set before proceeding
+    if "STAINLESS_API_KEY" not in os.environ:
+        raise ValueError(
+            "STAINLESS_API_KEY environment variable is not set. "
+            "Please set this variable with your Stainless API credentials."
+        )
+
     async with dagger.Connection(
         dagger.Config(log_output=sys.stderr),
     ) as client:
@@ -40,6 +47,9 @@ async def generate(force: bool) -> None:
 
         for cmd in STL_INSTALL_CMDS:
             ctr = ctr.with_exec(cmd)
+
+        # Verify stl was installed correctly
+        ctr = ctr.with_exec(["stl", "--version"])
 
         # Build the stl invocation.  --pull writes generated files back into
         # the repo directory relative to the working directory.
@@ -67,8 +77,24 @@ async def generate(force: bool) -> None:
             .with_exec(args)
         )
 
-        output = await ctr.stdout()
-        sys.stdout.write(output)
+        # Capture both stdout and stderr to aid debugging
+        try:
+            output = await ctr.stdout()
+            print(output)
+        except dagger.ExecError as e:
+            # If the command failed, also print stderr for debugging
+            stderr = await ctr.stderr()
+            print(f"Stainless CLI error (exit code {e.exit_code}):", file=sys.stderr)
+            print(f"STDERR: {stderr}", file=sys.stderr)
+            print(
+                "\nCommon causes:",
+                "- Invalid or expired STAINLESS_API_KEY",
+                "- Project 'apollo-sdk' not found or not accessible",
+                "- Network or API server issues",
+                sep="\n  ",
+                file=sys.stderr,
+            )
+            raise
 
         # Export the generated SDK files back to the host working directory.
         # --pull writes into src/ relative to /repo; mirror that back.
