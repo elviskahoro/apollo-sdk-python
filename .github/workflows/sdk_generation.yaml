@@ -32,12 +32,41 @@ jobs:
 
       - run: pip install dagger-io
 
-      - name: Generate SDK via Dagger
-        run: >
-          dagger run python ci/pipeline.py generate
-          --force=${{ github.event.inputs.force || 'false' }}
+      - name: Validate secrets
+        run: |
+          if [ -z "$STAINLESS_API_KEY" ]; then
+            echo "ERROR: STAINLESS_API_KEY secret is not set"
+            echo "Please add STAINLESS_API_KEY to repository secrets"
+            exit 1
+          fi
+          echo "✓ STAINLESS_API_KEY is set"
         env:
           STAINLESS_API_KEY: ${{ secrets.STAINLESS_API_KEY }}
+
+      - name: Generate SDK via Dagger
+        id: generate
+        continue-on-error: true
+        run: >
+          dagger run python ci/pipeline.py generate
+          --force=${{ github.event.inputs.force || 'false' }} 2>&1 | tee sdk-generation.log
+        env:
+          STAINLESS_API_KEY: ${{ secrets.STAINLESS_API_KEY }}
+
+      - name: Display generation errors
+        if: steps.generate.outcome == 'failure'
+        run: |
+          echo "=== SDK Generation Failed ==="
+          echo "Full output from pipeline:"
+          cat sdk-generation.log
+          exit 1
+
+      - name: Upload SDK generation logs on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sdk-generation-logs
+          path: sdk-generation.log
+          retention-days: 30
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
