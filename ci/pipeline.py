@@ -7,14 +7,17 @@ output and exit code separately so the pipeline succeeds when the commit
 target completed, regardless of upstream test status.
 """
 
-import argparse
-import asyncio
-import json
 import os
 import sys
+import json
+import asyncio
+import logging
+import argparse
 
 import dagger
 from dagger import dag
+
+logger = logging.getLogger(__name__)
 
 STL_VERSION = "0.1.0-alpha.88"
 STL_URL = (
@@ -49,13 +52,13 @@ def check_build_result(raw_output: str) -> None:
             pos = idx + 1
 
     if build is None:
-        print(raw_output)
+        logger.error(raw_output)
         raise SystemExit("stl produced no parseable build output")
-    print(json.dumps(build, indent=2))
+    logger.info(json.dumps(build, indent=2))
 
     # "No changes to commit" — stl returns an error object, not a build object
     if build.get("error") == "bad request" and "no changes" in build.get("message", "").lower():
-        print("No changes to commit — nothing to generate")
+        logger.info("No changes to commit — nothing to generate")
         return
 
     python_target = build.get("targets", {}).get("python", {})
@@ -82,7 +85,7 @@ def check_build_result(raw_output: str) -> None:
             f"Upstream tests concluded with '{test_conclusion}'"
         )
 
-    print(f"Build completed (commit: {commit_conclusion}, tests: {test_conclusion})")
+    logger.info("Build completed (commit: %s, tests: %s)", commit_conclusion, test_conclusion)
 
 
 async def generate(force: bool) -> None:
@@ -129,7 +132,7 @@ async def generate(force: bool) -> None:
         output = (await ctr.file("/tmp/stl-output.txt").contents()).strip()
 
         if exit_code == "0":
-            print(output)
+            logger.info(output)
         else:
             check_build_result(output)
 
@@ -137,6 +140,7 @@ async def generate(force: bool) -> None:
 
 
 if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO, format="%(message)s")
     parser = argparse.ArgumentParser(description="Apollo SDK generation pipeline")
     parser.add_argument("command", choices=["generate"])
     parser.add_argument("--force", default="false")
