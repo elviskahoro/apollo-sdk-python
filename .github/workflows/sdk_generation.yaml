@@ -27,18 +27,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Fetch secrets from Doppler
+        uses: dopplerhq/secrets-fetch-action@v1.3.0
+        id: doppler
+        with:
+          doppler-token: ${{ secrets.DOPPLER_SDK_GENERATION_TOKEN }}
+          doppler-project: apollo
+          doppler-config: staging
+
       - uses: dagger/dagger-for-github@8.0.0
         id: dagger-setup
 
       - run: pip install dagger-io
-
-      - name: Validate secrets
-        run: |
-          if [ -z "${{ secrets.STAINLESS_API_KEY }}" ]; then
-            echo "::error::STAINLESS_API_KEY secret is not set"
-            exit 1
-          fi
-          echo "Secrets validated"
 
       - name: Generate SDK via Dagger
         id: generate
@@ -46,7 +46,7 @@ jobs:
           dagger run python ci/pipeline.py generate
           --force=${{ github.event.inputs.force || 'false' }}
         env:
-          STAINLESS_API_KEY: ${{ secrets.STAINLESS_API_KEY }}
+          STAINLESS_API_KEY: ${{ steps.doppler.outputs.STAINLESS_API_KEY }}
 
       - name: Display generation errors
         if: failure()
