@@ -65,6 +65,8 @@ async def generate(force: bool) -> None:
             "apollo-sdk",
             "--target",
             "python",
+            "--branch",
+            "main",
             "--wait",
             "all",
             "--pull",
