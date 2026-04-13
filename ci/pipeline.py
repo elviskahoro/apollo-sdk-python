@@ -4,9 +4,12 @@ from __future__ import annotations
 import os
 import sys
 import asyncio
+import logging
 import argparse
 
 import dagger
+
+logger = logging.getLogger(__name__)
 
 # Install the stl CLI inside the build container.
 #
@@ -80,19 +83,17 @@ async def generate(force: bool) -> None:
         # Capture both stdout and stderr to aid debugging
         try:
             output = await ctr.stdout()
-            print(output)
+            logger.info(output)
         except dagger.ExecError as e:
-            # If the command failed, also print stderr for debugging
+            # If the command failed, also log stderr for debugging
             stderr = await ctr.stderr()
-            print(f"Stainless CLI error (exit code {e.exit_code}):", file=sys.stderr)
-            print(f"STDERR: {stderr}", file=sys.stderr)
-            print(
-                "\nCommon causes:",
-                "- Invalid or expired STAINLESS_API_KEY",
-                "- Project 'apollo-sdk' not found or not accessible",
-                "- Network or API server issues",
-                sep="\n  ",
-                file=sys.stderr,
+            logger.error(f"Stainless CLI error (exit code {e.exit_code}):")
+            logger.error(f"STDERR: {stderr}")
+            logger.error(
+                "\nCommon causes:\n"
+                "  - Invalid or expired STAINLESS_API_KEY\n"
+                "  - Project 'apollo-sdk' not found or not accessible\n"
+                "  - Network or API server issues"
             )
             raise
 
