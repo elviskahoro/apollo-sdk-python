@@ -88,7 +88,7 @@ jobs:
           echo "**Run:** ${{ github.run_id }}" >> sdk-summary.md
           echo "" >> sdk-summary.md
           echo "## Changed Files" >> sdk-summary.md
-          git status --short >> sdk-summary.md || echo "No changes detected" >> sdk-summary.md
+          git status --short | grep -v 'sdk-summary.md' >> sdk-summary.md || echo "No changes detected" >> sdk-summary.md
           echo "" >> sdk-summary.md
           echo "## Next Steps" >> sdk-summary.md
           echo "PR creation is skipped for manual triggers due to GITHUB_TOKEN permissions." >> sdk-summary.md
