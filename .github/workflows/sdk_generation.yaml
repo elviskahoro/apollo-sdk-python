@@ -1,0 +1,103 @@
+name: Generate SDK
+permissions:
+  checks: write
+  contents: write
+  pull-requests: write
+  statuses: write
+  id-token: write
+
+on:
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Force regeneration of SDK
+        type: boolean
+        default: false
+  schedule:
+    - cron: "0 0 * * *"
+  push:
+    branches: [main]
+    paths:
+      - ".stainless/**"
+
+jobs:
+  generate:
+    name: Generate SDK
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dagger/dagger-for-github@8.0.0
+        id: dagger-setup
+
+      - run: pip install dagger-io
+
+      - name: Validate secrets
+        run: |
+          if [ -z "${{ secrets.STAINLESS_API_KEY }}" ]; then
+            echo "::error::STAINLESS_API_KEY secret is not set"
+            exit 1
+          fi
+          echo "Secrets validated"
+
+      - name: Generate SDK via Dagger
+        id: generate
+        run: >
+          dagger run python ci/pipeline.py generate
+          --force=${{ github.event.inputs.force || 'false' }}
+        env:
+          STAINLESS_API_KEY: ${{ secrets.STAINLESS_API_KEY }}
+
+      - name: Display generation errors
+        if: failure()
+        run: |
+          echo "::error::SDK generation failed. Check the Dagger logs above for details."
+          echo "Common causes: missing STAINLESS_API_KEY, network issues, or invalid spec."
+
+      - name: Upload SDK generation logs on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sdk-generation-logs
+          path: /tmp/dagger-logs/
+          retention-days: 7
+          if-no-files-found: ignore
+
+      - name: Create Pull Request
+        if: github.event_name == 'push' || github.event_name == 'schedule'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ github.token }}
+          commit-message: "feat(sdk): regenerate apollo SDK"
+          branch: gha/apollo-sdk-generation
+          base: main
+          title: "Apollo SDK — Regenerated"
+          body: "Automated SDK regeneration via Dagger pipeline"
+          delete-branch: true
+          labels: |
+            automated
+            sdk
+
+      - name: Generate SDK summary (manual trigger)
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          echo "# Apollo SDK Generation Summary" > sdk-summary.md
+          echo "" >> sdk-summary.md
+          echo "**Trigger:** Manual workflow_dispatch" >> sdk-summary.md
+          echo "**Force:** ${{ github.event.inputs.force || 'false' }}" >> sdk-summary.md
+          echo "**Run:** ${{ github.run_id }}" >> sdk-summary.md
+          echo "" >> sdk-summary.md
+          echo "## Changed Files" >> sdk-summary.md
+          git status --short >> sdk-summary.md || echo "No changes detected" >> sdk-summary.md
+          echo "" >> sdk-summary.md
+          echo "## Next Steps" >> sdk-summary.md
+          echo "PR creation is skipped for manual triggers due to GITHUB_TOKEN permissions." >> sdk-summary.md
+          echo "Review the changes above and create a PR manually if needed." >> sdk-summary.md
+
+      - name: Upload SDK summary artifact
+        if: github.event_name == 'workflow_dispatch'
+        uses: actions/upload-artifact@v4
+        with:
+          name: sdk-generation-summary
+          path: sdk-summary.md
+          retention-days: 30
