@@ -13,15 +13,16 @@ logger = logging.getLogger(__name__)
 
 # Install the stl CLI inside the build container.
 #
-# Spike findings (Task 1) should confirm the working install sequence on
-# python:3.13-slim before this pipeline runs in CI.  The commands below
-# follow the documented install path; update if the spike reveals a
-# different binary location or install mechanism (e.g. direct GitHub
-# release download).
+# Download the latest pre-built binary from GitHub releases rather than using
+# the install script which may not work in all environments.
 STL_INSTALL_CMDS: list[list[str]] = [
     ["apt-get", "update", "-qq"],
     ["apt-get", "install", "-y", "--no-install-recommends", "curl", "ca-certificates"],
-    ["sh", "-c", "curl -fsSL https://stainless.com/install.sh | sh"],
+    [
+        "sh",
+        "-c",
+        "curl -fsSL https://github.com/stainless-api/stainless-api-cli/releases/download/v0.1.0-alpha.79/stl_0.1.0-alpha.79_linux_amd64.tar.gz | tar -xz -C /usr/local/bin",
+    ],
 ]
 
 
