@@ -8,11 +8,17 @@ import sys
 import dagger
 from dagger import dag
 
-# Stainless CLI install — curl install script handles Linux binary placement.
+STL_VERSION = "0.1.0-alpha.88"
+STL_URL = (
+    f"https://github.com/stainless-api/stainless-api-cli/releases/download/"
+    f"v{STL_VERSION}/stl_{STL_VERSION}_linux_amd64.tar.gz"
+)
+
+# Install stl CLI from GitHub releases — the old install script URL 404s.
 STL_INSTALL_CMDS = [
     ["apt-get", "update"],
     ["apt-get", "install", "-y", "curl"],
-    ["sh", "-c", "curl -fsSL https://stainless.com/install.sh | sh"],
+    ["sh", "-c", f"curl -fsSL {STL_URL} | tar xz -C /usr/local/bin stl"],
 ]
 
 
@@ -39,6 +45,7 @@ async def generate(force: bool) -> None:
             "stl", "builds", "create",
             "--project", "apollo",
             "--target", "python",
+            "--branch", "main",
             "--wait", "all",
             "--pull",
         ]
