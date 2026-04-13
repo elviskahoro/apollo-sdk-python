@@ -33,7 +33,7 @@ jobs:
         with:
           doppler-token: ${{ secrets.DOPPLER_SDK_GENERATION_TOKEN }}
           doppler-project: apollo
-          doppler-config: staging
+          doppler-config: stg
 
       - uses: dagger/dagger-for-github@8.0.0
         id: dagger-setup
