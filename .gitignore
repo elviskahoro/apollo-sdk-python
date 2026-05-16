@@ -11,6 +11,7 @@ dist
 .idea
 
 .env
+.env.*
 .envrc
 codegen.log
 Brewfile.lock.json
